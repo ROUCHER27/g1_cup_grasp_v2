@@ -1,0 +1,6 @@
+{
+  "fixture": "tests/fixtures/controller_avoidance_snapshot_20261014.json",
+  "source": "outputs/avoidance_design_20261014/controller_snapshot_current.json",
+  "sha256": "7ec393271cafb61f7afef0cde41c27b5f4c0f5951d0cbaf0b227c022cbf7cd3b",
+  "purpose": "Offline regression fixture, frozen during Git initialization; not a current controller state or approved avoidance manifest."
+}

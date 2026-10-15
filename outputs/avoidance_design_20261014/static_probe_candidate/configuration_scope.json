@@ -1,0 +1,42 @@
+{
+  "read_only": true,
+  "robot_commands_sent": false,
+  "received_at_utc": "2026-10-14T15:37:37.995384+00:00",
+  "agv": [
+    {
+      "id": 424,
+      "name": "AMR-424",
+      "agvTypeId": 1,
+      "agvTemplateId": 18,
+      "mapId": 7
+    }
+  ],
+  "agvType": [
+    {
+      "id": 1,
+      "name": "test",
+      "agvTemplateId": 18
+    }
+  ],
+  "available_config_groups": [
+    "Agv",
+    "AgvTemplate",
+    "AgvType",
+    "Alarm",
+    "Analysis",
+    "Area",
+    "Connection",
+    "Craft",
+    "Device",
+    "Map",
+    "MaterialType",
+    "Plugin",
+    "PluginTemplate",
+    "PreTask",
+    "Sql",
+    "Station",
+    "StationInteraction",
+    "StationType",
+    "System"
+  ]
+}

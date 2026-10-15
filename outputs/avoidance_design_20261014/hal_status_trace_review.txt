@@ -1,0 +1,46 @@
+Offline static review of the local HAL binary
+Captured 2026-10-14; no device interface was called and the binary was not executed.
+
+Binary: outputs/navigation_contract/robot_probe/hal_static/hal.aarch64
+SHA-256: 1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309
+
+Observed route and field flow
+
+1. `nm -S -C` identifies `genie::devices::linkhouWrapper::OnMessage(...)` at
+   VA 0x15a2f0 and `linkhouWrapper::GetPosition(Position&, unsigned long&)` at
+   VA 0x15bfa0. Static string xrefs place `/api/AMR/State` in OnMessage at
+   0x15a2f0 / Init at 0x1462b4. OnMessage also contains the JSON keys
+   `isAvoid`, `avoidSensorList`, and `protoStatus`.
+
+2. OnMessage checks the JSON key `protoStatus` at 0x15aae4. The present-key
+   branch reaches 0x15b4d0, converts the value to an integer, and stores that
+   integer to the state object at `[x19,#840]` (0x15b4f8:
+   `str w2, [x19, #840]`). The preceding key test is independent of the
+   `isAvoid` test at 0x15a790.
+
+3. The `isAvoid` value is parsed on a separate branch (0x15b520-0x15b550) and
+   stored as a byte at `[x19,#650]` (0x15b550: `strb w2, [x19, #650]`).
+
+4. GetPosition loads the state integer `[x21,#840]` (0x15c030:
+   `ldr w1, [x21, #840]`) and stores it into the output Position object at
+   `[x19,#108]` (0x15c048: `str w1, [x19, #108]`). The local message schema
+   names the first status field `int32 agv_status` and defines value 5 as
+   Avoid: `outputs/navigation_contract/robot_probe/protos/agv/Position.msg:1-3`.
+   This establishes the static data path from REST `protoStatus` to the
+   Position status slot; `isAvoid` is a distinct field and is not the source
+   read by GetPosition for that slot.
+
+5. The fresh, incrementing GDK subscriber capture independently reports five
+   successive `agv_status=5` samples at zero linear/angular speed and
+   confidence 88: `soft_auto_gdk_20261014_153314.json:7-87`. The simultaneous
+   HMI capture reports `protoStatus=5`, `isAvoid=true`, and `avoidStatus=1`.
+   Together these support the observed equality of `protoStatus` and
+   `agv_status` during this event.
+
+`avoidStatus` remains undecoded. The local HAL binary's relevant strings
+include `isAvoid`, `avoidSensorList`, and `protoStatus`, but not `avoidStatus`;
+no HAL code path or enum was found for that HMI field. This negative string
+search does not prove the wider controller has no such definition. Do not
+interpret `avoidStatus=1` as a level or a bit based on this evidence.
+
+Supporting disassembly excerpt: `hal_getposition_trace.txt:38-44`.

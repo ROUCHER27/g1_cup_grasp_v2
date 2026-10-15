@@ -28,7 +28,7 @@ class TransportTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.grasp=app.load_config(ROOT/"config/grasp_v2.yaml")
-        cls.config=yaml.safe_load((ROOT/"config/transport.yaml").read_text())
+        cls.config=yaml.safe_load((ROOT/"tests/fixtures/transport_config_test.yaml").read_text())
         cls.config.pop("place",None)
         cls.place=json.loads((ROOT/"tests/fixtures/place_teach_20261013.json").read_text())["place_config_candidate"]
         cls.config["carry"]={"lift_height_m":.58,"side_y_m":-.35,"position_m":[.4,-.35,.7],
@@ -227,6 +227,7 @@ class TransportTests(unittest.TestCase):
                     at_b[0]=True
                     return SimpleNamespace(error_code=0)
                 slam=Mock();slam.navigate_to_pose.side_effect=move
+                slam.set_agv_col_level.return_value=SimpleNamespace(error_code=0);slam.set_agv_col_ctrl.return_value=SimpleNamespace(success=True)
                 module=ModuleType("a2d_sdk.robot");module.Slam=Mock(return_value=slam)
                 with patch.object(app,"ROOT",root):
                     receipt["context"]=app.context_digest(self.grasp,config)
@@ -244,13 +245,57 @@ class TransportTests(unittest.TestCase):
                 self.assertEqual(report["status"],"ARRIVED_B_CUP_RELEASED" if with_place else "ARRIVED_B_HOLDING_CUP")
                 self.assertEqual(report["gripper_release_requested"],with_place)
                 self.assertEqual(report["arm_and_gripper_remain_in_hold"],not with_place)
-                slam.navigate_to_pose.assert_called_once_with(646,1098,180)
+                expected=app.navigation_request(config["stations"]["B"])
+                slam.navigate_to_pose.assert_called_once_with(expected["x_mm"],expected["y_mm"],expected["yaw_deg"])
+                slam.set_agv_col_ctrl.assert_called_once_with(True)
+                self.assertTrue(report["chassis_collision_avoidance"]["enabled"])
+                self.assertEqual(report["avoidance"]["episode_count"],0)
+                slam.set_chassis_info.assert_not_called()
                 if with_place:
                     arm.move_gripper.assert_called_once_with(self.grasp["robot"]["gripper_open"])
                     arm.move_to_pose.assert_called_once()
                 else:
                     arm.move_gripper.assert_not_called();arm.move_to_pose.assert_not_called()
                 native.close.assert_called_once()
+
+    def test_map_mismatch_message_names_configured_map(self):
+        config=copy.deepcopy(self.config)
+        config["map_id"]=7
+        with TemporaryDirectory() as directory, patch.object(app,"ROOT",Path(directory)), \
+             patch.object(app,"load_config",return_value=self.grasp), \
+             patch.object(app,"context_digest",return_value="context"), \
+             patch.object(app,"UrdfRightArm",return_value=Mock()), \
+             patch.object(app,"NativeChassisFeedback") as native, \
+             patch.object(app,"collect_samples",return_value=[
+                 {"map_id":6,"timestamp_ns":i+1,"agv_pos_x":1.542,"agv_pos_y":1.344,
+                  "agv_angle":0.0,"position_conf":99.0,"linear_speed":0.0,"angular_speed":0.0}
+                 for i in range(5)]), \
+             patch("builtins.print"):
+            (Path(directory)/"config").mkdir()
+            (Path(directory)/"config/transport.yaml").write_text(yaml.safe_dump(config))
+            code=app.main([])
+            report_path=next((Path(directory)/"outputs/transport").glob("20*.json"))
+            report=json.loads(report_path.read_text())
+        self.assertEqual(code,1)
+        self.assertIn("map 7",report["error"])
+        native.assert_called_once()
+
+    def test_place_map_mismatch_rejected_before_robot_init(self):
+        config=copy.deepcopy(self.config)
+        config["place"]=copy.deepcopy(self.place)
+        config["place"]["base_pose"]["map_id"]=5
+        with TemporaryDirectory() as directory, patch.object(app,"ROOT",Path(directory)), \
+             patch.object(app,"load_config",return_value=self.grasp), \
+             patch.object(app,"context_digest",return_value="context"), \
+             patch.object(app,"UrdfRightArm") as model, \
+             patch.object(app,"NativeChassisFeedback") as native, \
+             patch("builtins.print"):
+            (Path(directory)/"config").mkdir()
+            (Path(directory)/"config/transport.yaml").write_text(yaml.safe_dump(config))
+            code=app.main([])
+        self.assertEqual(code,1)
+        native.assert_not_called()
+        model.assert_not_called()
 
 if __name__=="__main__":
     unittest.main()

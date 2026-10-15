@@ -1,0 +1,3751 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSAL_NOT_APPLIED",
+  "proposal_only": true,
+  "read_only": true,
+  "controller_contacted": false,
+  "controller_configuration_changed": false,
+  "robot_commands_sent": false,
+  "approved_manifest_created": false,
+  "api_requests_made": false,
+  "live_comparison": false,
+  "measurements_verified": false,
+  "sensor_coverage_verified": false,
+  "physical_3d_collision_verified": false,
+  "route_clearance_verified": false,
+  "native_runtime_map_verified": false,
+  "source_snapshot": {
+    "serial_number": "424",
+    "software_version": "7.2.0.23",
+    "firmware_version": "2.0.0.7",
+    "map_id": 7,
+    "created_at_utc": "2026-10-14T13:46:15.670925+00:00",
+    "was_live_capture": true,
+    "current_freshness_verified": false,
+    "read_only_capture": true,
+    "robot_commands_sent": false,
+    "path": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/controller_snapshot_current.json"
+  },
+  "units": {
+    "controller_xy": "mm",
+    "controller_theta": "degrees",
+    "profile_geometry": "m converted to mm for comparison",
+    "z_range": "controller-native raw values; reference/units unverified"
+  },
+  "body_frame": "chassis/body-centered XY; +x forward, +y left; no world/map coordinates",
+  "sensor_transform": "body_xy_mm = sensor_origin_body_xy_mm + R(theta_deg) * sensor_local_xy_mm",
+  "sensor_pose_calibration": "controller x/y/theta interpreted in chassis/body frame; physical mounting calibration is not independently verified",
+  "candidate_tier_mapping_assumption": {
+    "stop": 1,
+    "warn2": 2,
+    "warn1": 3,
+    "note": "Comparison proposal only; this tier correspondence is not a controller approval."
+  },
+  "profile_geometry": {
+    "geometry_frame": "body_centered_xy_m; +x forward, +y left, yaw counterclockwise",
+    "body_frame_envelope_mm": {
+      "x_min": -300.0,
+      "x_max": 800.0,
+      "y_min": -525.0,
+      "y_max": 525.0
+    },
+    "full_body_envelope_polygon_mm": [
+      [
+        -300.0,
+        -525.0
+      ],
+      [
+        800.0,
+        -525.0
+      ],
+      [
+        800.0,
+        525.0
+      ],
+      [
+        -300.0,
+        525.0
+      ]
+    ],
+    "travel_zones": [
+      {
+        "level": 1,
+        "name": "一级停车",
+        "polygon_body_frame_mm": [
+          [
+            -300.0,
+            -725.0
+          ],
+          [
+            1000.0,
+            -725.0
+          ],
+          [
+            1000.0,
+            725.0
+          ],
+          [
+            -300.0,
+            725.0
+          ]
+        ],
+        "bounds_mm": {
+          "x_min": -300.0,
+          "x_max": 1000.0,
+          "y_min": -725.0,
+          "y_max": 725.0
+        }
+      },
+      {
+        "level": 2,
+        "name": "二级减速",
+        "polygon_body_frame_mm": [
+          [
+            -300.0,
+            -825.0
+          ],
+          [
+            1200.0,
+            -825.0
+          ],
+          [
+            1200.0,
+            825.0
+          ],
+          [
+            -300.0,
+            825.0
+          ]
+        ],
+        "bounds_mm": {
+          "x_min": -300.0,
+          "x_max": 1200.0,
+          "y_min": -825.0,
+          "y_max": 825.0
+        }
+      },
+      {
+        "level": 3,
+        "name": "三级提前减速",
+        "polygon_body_frame_mm": [
+          [
+            -300.0,
+            -925.0
+          ],
+          [
+            1500.0,
+            -925.0
+          ],
+          [
+            1500.0,
+            925.0
+          ],
+          [
+            -300.0,
+            925.0
+          ]
+        ],
+        "bounds_mm": {
+          "x_min": -300.0,
+          "x_max": 1500.0,
+          "y_min": -925.0,
+          "y_max": 925.0
+        }
+      }
+    ]
+  },
+  "sensors": [
+    {
+      "id": 6,
+      "name": "前激光",
+      "group": "laserList",
+      "pose_controller_raw": {
+        "x_mm": 223.0,
+        "y_mm": 0.0,
+        "z_raw": 0.0,
+        "theta_deg": 0.0
+      },
+      "pose_normalized": {
+        "x_mm": 223.0,
+        "y_mm": 0.0,
+        "yaw_deg": 0.0
+      },
+      "pose_reference": "sensor origin expressed in chassis/body frame; x/y mm, theta degrees"
+    },
+    {
+      "id": 12,
+      "name": "前视觉避障相机",
+      "group": "cameraList",
+      "pose_controller_raw": {
+        "x_mm": 300.0,
+        "y_mm": 0.0,
+        "z_raw": 272.0,
+        "theta_deg": 0.0
+      },
+      "pose_normalized": {
+        "x_mm": 300.0,
+        "y_mm": 0.0,
+        "yaw_deg": 0.0
+      },
+      "pose_reference": "sensor origin expressed in chassis/body frame; x/y mm, theta degrees"
+    },
+    {
+      "id": 13,
+      "name": "后视觉避障相机",
+      "group": "cameraList",
+      "pose_controller_raw": {
+        "x_mm": -300.0,
+        "y_mm": 0.0,
+        "z_raw": 62.0,
+        "theta_deg": 180.0
+      },
+      "pose_normalized": {
+        "x_mm": -300.0,
+        "y_mm": 0.0,
+        "yaw_deg": -180.0
+      },
+      "pose_reference": "sensor origin expressed in chassis/body frame; x/y mm, theta degrees"
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "name": "前激光避障",
+      "sensor_id": 6,
+      "sensor_name": "前激光",
+      "sensor_group": "laserList",
+      "sensor_pose_controller_raw": {
+        "x_mm": 223.0,
+        "y_mm": 0.0,
+        "z_raw": 0.0,
+        "theta_deg": 0.0
+      },
+      "shape": 0,
+      "design_applicability": "FORWARD_PROFILE_COMPARISON",
+      "candidate_generation": "FORWARD_PROFILE_CANDIDATES_BLOCKED",
+      "strategy_usage": [
+        {
+          "group": "globalStrategy",
+          "strategy_id": 1,
+          "strategy_name": "前进"
+        },
+        {
+          "group": "globalStrategy",
+          "strategy_id": 7,
+          "strategy_name": "前停车"
+        }
+      ],
+      "blocker_codes": [
+        "profile_candidate_crosses_sensor_local_rear",
+        "zrange_height_coverage_unverified"
+      ],
+      "tiers": {
+        "stop": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -272.0
+            ],
+            [
+              50.0,
+              260.0
+            ],
+            [
+              221.0,
+              260.0
+            ],
+            [
+              221.0,
+              -272.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -272.0
+            ],
+            [
+              273.0,
+              260.0
+            ],
+            [
+              444.0,
+              260.0
+            ],
+            [
+              444.0,
+              -272.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 444.0,
+            "y_min": -272.0,
+            "y_max": 260.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 444.0,
+                "y_min": -272.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 444.0,
+                "y_min": -272.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 444.0,
+                "y_min": -272.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 444.0,
+                "y_min": -272.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 1,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -725.0
+              ],
+              [
+                1000.0,
+                -725.0
+              ],
+              [
+                1000.0,
+                725.0
+              ],
+              [
+                -300.0,
+                725.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1000.0,
+              "y_min": -725.0,
+              "y_max": 725.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -523.0,
+                -725.0
+              ],
+              [
+                777.0,
+                -725.0
+              ],
+              [
+                777.0,
+                725.0
+              ],
+              [
+                -523.0,
+                725.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -523.0,
+              "x_max": 777.0,
+              "y_min": -725.0,
+              "y_max": 725.0
+            },
+            "z_range_preserved_from_current": {
+              "min": 0,
+              "max": 0
+            },
+            "candidate_contains_current_polygon": true,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -573.0,
+              "x_max": 556.0,
+              "y_min": -453.0,
+              "y_max": 465.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        },
+        "warn2": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -340.0
+            ],
+            [
+              50.0,
+              340.0
+            ],
+            [
+              840.0,
+              340.0
+            ],
+            [
+              840.0,
+              -340.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -340.0
+            ],
+            [
+              273.0,
+              340.0
+            ],
+            [
+              1063.0,
+              340.0
+            ],
+            [
+              1063.0,
+              -340.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 1063.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1063.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1063.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1063.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1063.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 2,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -825.0
+              ],
+              [
+                1200.0,
+                -825.0
+              ],
+              [
+                1200.0,
+                825.0
+              ],
+              [
+                -300.0,
+                825.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1200.0,
+              "y_min": -825.0,
+              "y_max": 825.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -523.0,
+                -825.0
+              ],
+              [
+                977.0,
+                -825.0
+              ],
+              [
+                977.0,
+                825.0
+              ],
+              [
+                -523.0,
+                825.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -523.0,
+              "x_max": 977.0,
+              "y_min": -825.0,
+              "y_max": 825.0
+            },
+            "z_range_preserved_from_current": {
+              "min": 0,
+              "max": 0
+            },
+            "candidate_contains_current_polygon": true,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -573.0,
+              "x_max": 137.0,
+              "y_min": -485.0,
+              "y_max": 485.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        },
+        "warn1": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -420.0
+            ],
+            [
+              50.0,
+              420.0
+            ],
+            [
+              1240.0,
+              420.0
+            ],
+            [
+              1240.0,
+              -420.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -420.0
+            ],
+            [
+              273.0,
+              420.0
+            ],
+            [
+              1463.0,
+              420.0
+            ],
+            [
+              1463.0,
+              -420.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 1463.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1463.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1463.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1463.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 1463.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 3,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -925.0
+              ],
+              [
+                1500.0,
+                -925.0
+              ],
+              [
+                1500.0,
+                925.0
+              ],
+              [
+                -300.0,
+                925.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1500.0,
+              "y_min": -925.0,
+              "y_max": 925.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -523.0,
+                -925.0
+              ],
+              [
+                1277.0,
+                -925.0
+              ],
+              [
+                1277.0,
+                925.0
+              ],
+              [
+                -523.0,
+                925.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -523.0,
+              "x_max": 1277.0,
+              "y_min": -925.0,
+              "y_max": 925.0
+            },
+            "z_range_preserved_from_current": {
+              "min": 0,
+              "max": 0
+            },
+            "candidate_contains_current_polygon": true,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -573.0,
+              "x_max": 37.0,
+              "y_min": -505.0,
+              "y_max": 505.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "旋转前激光避障",
+      "sensor_id": 6,
+      "sensor_name": "前激光",
+      "sensor_group": "laserList",
+      "sensor_pose_controller_raw": {
+        "x_mm": 223.0,
+        "y_mm": 0.0,
+        "z_raw": 0.0,
+        "theta_deg": 0.0
+      },
+      "shape": 0,
+      "design_applicability": "UNSUPPORTED_ROTATION_SWEEP",
+      "candidate_generation": "PRESERVE_CURRENT_UNSUPPORTED",
+      "strategy_usage": [
+        {
+          "group": "globalStrategy",
+          "strategy_id": 3,
+          "strategy_name": "左旋"
+        },
+        {
+          "group": "globalStrategy",
+          "strategy_id": 4,
+          "strategy_name": "右旋"
+        }
+      ],
+      "blocker_codes": [
+        "rotation_requires_swept_circle",
+        "zrange_height_coverage_unverified"
+      ],
+      "tiers": {
+        "stop": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -260.0
+            ],
+            [
+              50.0,
+              260.0
+            ],
+            [
+              248.0,
+              260.0
+            ],
+            [
+              248.0,
+              -260.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -260.0
+            ],
+            [
+              273.0,
+              260.0
+            ],
+            [
+              471.0,
+              260.0
+            ],
+            [
+              471.0,
+              -260.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn2": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -340.0
+            ],
+            [
+              50.0,
+              340.0
+            ],
+            [
+              248.0,
+              340.0
+            ],
+            [
+              248.0,
+              -340.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -340.0
+            ],
+            [
+              273.0,
+              340.0
+            ],
+            [
+              471.0,
+              340.0
+            ],
+            [
+              471.0,
+              -340.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn1": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -420.0
+            ],
+            [
+              50.0,
+              420.0
+            ],
+            [
+              248.0,
+              420.0
+            ],
+            [
+              248.0,
+              -420.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -420.0
+            ],
+            [
+              273.0,
+              420.0
+            ],
+            [
+              471.0,
+              420.0
+            ],
+            [
+              471.0,
+              -420.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "旋转侧前激光避障",
+      "sensor_id": 6,
+      "sensor_name": "前激光",
+      "sensor_group": "laserList",
+      "sensor_pose_controller_raw": {
+        "x_mm": 223.0,
+        "y_mm": 0.0,
+        "z_raw": 0.0,
+        "theta_deg": 0.0
+      },
+      "shape": 0,
+      "design_applicability": "UNSUPPORTED_ROTATION_SWEEP",
+      "candidate_generation": "PRESERVE_CURRENT_UNSUPPORTED",
+      "strategy_usage": [
+        {
+          "group": "globalStrategy",
+          "strategy_id": 3,
+          "strategy_name": "左旋"
+        },
+        {
+          "group": "globalStrategy",
+          "strategy_id": 4,
+          "strategy_name": "右旋"
+        }
+      ],
+      "blocker_codes": [
+        "rotation_requires_swept_circle",
+        "zrange_height_coverage_unverified"
+      ],
+      "tiers": {
+        "stop": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -260.0
+            ],
+            [
+              50.0,
+              260.0
+            ],
+            [
+              248.0,
+              260.0
+            ],
+            [
+              248.0,
+              -260.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -260.0
+            ],
+            [
+              273.0,
+              260.0
+            ],
+            [
+              471.0,
+              260.0
+            ],
+            [
+              471.0,
+              -260.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn2": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -340.0
+            ],
+            [
+              50.0,
+              340.0
+            ],
+            [
+              248.0,
+              340.0
+            ],
+            [
+              248.0,
+              -340.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -340.0
+            ],
+            [
+              273.0,
+              340.0
+            ],
+            [
+              471.0,
+              340.0
+            ],
+            [
+              471.0,
+              -340.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn1": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -420.0
+            ],
+            [
+              50.0,
+              420.0
+            ],
+            [
+              248.0,
+              420.0
+            ],
+            [
+              248.0,
+              -420.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              273.0,
+              -420.0
+            ],
+            [
+              273.0,
+              420.0
+            ],
+            [
+              471.0,
+              420.0
+            ],
+            [
+              471.0,
+              -420.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": 0,
+            "max": 0
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 273.0,
+                "x_max": 471.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "前视觉避障",
+      "sensor_id": 12,
+      "sensor_name": "前视觉避障相机",
+      "sensor_group": "cameraList",
+      "sensor_pose_controller_raw": {
+        "x_mm": 300.0,
+        "y_mm": 0.0,
+        "z_raw": 272.0,
+        "theta_deg": 0.0
+      },
+      "shape": 2,
+      "design_applicability": "FORWARD_PROFILE_COMPARISON",
+      "candidate_generation": "FORWARD_PROFILE_CANDIDATES_BLOCKED",
+      "strategy_usage": [
+        {
+          "group": "globalStrategy",
+          "strategy_id": 1,
+          "strategy_name": "前进"
+        }
+      ],
+      "blocker_codes": [
+        "profile_candidate_crosses_sensor_local_rear",
+        "zrange_height_coverage_unverified"
+      ],
+      "tiers": {
+        "stop": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -260.0
+            ],
+            [
+              50.0,
+              260.0
+            ],
+            [
+              440.0,
+              260.0
+            ],
+            [
+              440.0,
+              -260.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              350.0,
+              -260.0
+            ],
+            [
+              350.0,
+              260.0
+            ],
+            [
+              740.0,
+              260.0
+            ],
+            [
+              740.0,
+              -260.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 740.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 740.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 740.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 740.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 740.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 1,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -725.0
+              ],
+              [
+                1000.0,
+                -725.0
+              ],
+              [
+                1000.0,
+                725.0
+              ],
+              [
+                -300.0,
+                725.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1000.0,
+              "y_min": -725.0,
+              "y_max": 725.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -600.0,
+                -725.0
+              ],
+              [
+                700.0,
+                -725.0
+              ],
+              [
+                700.0,
+                725.0
+              ],
+              [
+                -600.0,
+                725.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -600.0,
+              "x_max": 700.0,
+              "y_min": -725.0,
+              "y_max": 725.0
+            },
+            "z_range_preserved_from_current": {
+              "min": -180,
+              "max": 180
+            },
+            "candidate_contains_current_polygon": true,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -650.0,
+              "x_max": 260.0,
+              "y_min": -465.0,
+              "y_max": 465.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        },
+        "warn2": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -340.0
+            ],
+            [
+              50.0,
+              340.0
+            ],
+            [
+              840.0,
+              340.0
+            ],
+            [
+              840.0,
+              -340.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              350.0,
+              -340.0
+            ],
+            [
+              350.0,
+              340.0
+            ],
+            [
+              1140.0,
+              340.0
+            ],
+            [
+              1140.0,
+              -340.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 1140.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1140.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1140.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1140.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1140.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 2,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -825.0
+              ],
+              [
+                1200.0,
+                -825.0
+              ],
+              [
+                1200.0,
+                825.0
+              ],
+              [
+                -300.0,
+                825.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1200.0,
+              "y_min": -825.0,
+              "y_max": 825.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -600.0,
+                -825.0
+              ],
+              [
+                900.0,
+                -825.0
+              ],
+              [
+                900.0,
+                825.0
+              ],
+              [
+                -600.0,
+                825.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -600.0,
+              "x_max": 900.0,
+              "y_min": -825.0,
+              "y_max": 825.0
+            },
+            "z_range_preserved_from_current": {
+              "min": -180,
+              "max": 180
+            },
+            "candidate_contains_current_polygon": true,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -650.0,
+              "x_max": 60.0,
+              "y_min": -485.0,
+              "y_max": 485.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        },
+        "warn1": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -420.0
+            ],
+            [
+              50.0,
+              420.0
+            ],
+            [
+              1240.0,
+              420.0
+            ],
+            [
+              1240.0,
+              -420.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              350.0,
+              -420.0
+            ],
+            [
+              350.0,
+              420.0
+            ],
+            [
+              1540.0,
+              420.0
+            ],
+            [
+              1540.0,
+              -420.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 1540.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1540.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1540.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1540.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": 350.0,
+                "x_max": 1540.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "CHECKED_CONVEX_POLYGON_CONTAINMENT",
+              "contained": false,
+              "method": "all target polygon vertices checked against actual convex polygon edges; no bbox containment"
+            }
+          },
+          "suggested_candidate": {
+            "status": "BLOCKED_NOT_FOR_APPLICATION",
+            "target_profile_level": 3,
+            "body_frame_polygon_mm": [
+              [
+                -300.0,
+                -925.0
+              ],
+              [
+                1500.0,
+                -925.0
+              ],
+              [
+                1500.0,
+                925.0
+              ],
+              [
+                -300.0,
+                925.0
+              ]
+            ],
+            "body_frame_bounds_mm": {
+              "x_min": -300.0,
+              "x_max": 1500.0,
+              "y_min": -925.0,
+              "y_max": 925.0
+            },
+            "sensor_local_polygon_mm": [
+              [
+                -600.0,
+                -925.0
+              ],
+              [
+                1200.0,
+                -925.0
+              ],
+              [
+                1200.0,
+                925.0
+              ],
+              [
+                -600.0,
+                925.0
+              ]
+            ],
+            "sensor_local_bounds_mm": {
+              "x_min": -600.0,
+              "x_max": 1200.0,
+              "y_min": -925.0,
+              "y_max": 925.0
+            },
+            "z_range_preserved_from_current": {
+              "min": -180,
+              "max": 180
+            },
+            "candidate_contains_current_polygon": false,
+            "current_contains_candidate_polygon": false,
+            "axis_aligned_bounds_delta_mm_descriptive_only": {
+              "x_min": -650.0,
+              "x_max": -40.0,
+              "y_min": -505.0,
+              "y_max": 505.0
+            },
+            "containment_method": "convex polygon edge test; bounds are descriptive only",
+            "blocker_codes": [
+              "sensor_coverage_unverified",
+              "height_zrange_unverified",
+              "crosses_sensor_local_rear"
+            ],
+            "applied": false
+          }
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "后视觉避障",
+      "sensor_id": 13,
+      "sensor_name": "后视觉避障相机",
+      "sensor_group": "cameraList",
+      "sensor_pose_controller_raw": {
+        "x_mm": -300.0,
+        "y_mm": 0.0,
+        "z_raw": 62.0,
+        "theta_deg": 180.0
+      },
+      "shape": 2,
+      "design_applicability": "NOT_DESIGNED_FOR_REAR_SENSOR",
+      "candidate_generation": "PRESERVE_CURRENT_UNSUPPORTED",
+      "strategy_usage": [
+        {
+          "group": "globalStrategy",
+          "strategy_id": 2,
+          "strategy_name": "后退"
+        },
+        {
+          "group": "globalStrategy",
+          "strategy_id": 8,
+          "strategy_name": "后停车"
+        }
+      ],
+      "blocker_codes": [
+        "forward_profile_not_applicable_to_rear_sensor",
+        "zrange_height_coverage_unverified"
+      ],
+      "tiers": {
+        "stop": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -260.0
+            ],
+            [
+              50.0,
+              260.0
+            ],
+            [
+              440.0,
+              260.0
+            ],
+            [
+              440.0,
+              -260.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              -350.0,
+              260.0
+            ],
+            [
+              -350.0,
+              -260.0
+            ],
+            [
+              -740.0,
+              -260.0
+            ],
+            [
+              -740.0,
+              260.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": -740.0,
+            "x_max": -350.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -740.0,
+                "x_max": -350.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -740.0,
+                "x_max": -350.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -740.0,
+                "x_max": -350.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -740.0,
+                "x_max": -350.0,
+                "y_min": -260.0,
+                "y_max": 260.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn2": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -340.0
+            ],
+            [
+              50.0,
+              340.0
+            ],
+            [
+              840.0,
+              340.0
+            ],
+            [
+              840.0,
+              -340.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              -350.0,
+              340.0
+            ],
+            [
+              -350.0,
+              -340.0
+            ],
+            [
+              -1140.0,
+              -340.0
+            ],
+            [
+              -1140.0,
+              340.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": -1140.0,
+            "x_max": -350.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1140.0,
+                "x_max": -350.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1140.0,
+                "x_max": -350.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1140.0,
+                "x_max": -350.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1140.0,
+                "x_max": -350.0,
+                "y_min": -340.0,
+                "y_max": 340.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        },
+        "warn1": {
+          "sensor_local_polygon_mm": [
+            [
+              50.0,
+              -420.0
+            ],
+            [
+              50.0,
+              420.0
+            ],
+            [
+              1240.0,
+              420.0
+            ],
+            [
+              1240.0,
+              -420.0
+            ]
+          ],
+          "body_frame_polygon_mm": [
+            [
+              -350.0,
+              420.0
+            ],
+            [
+              -350.0,
+              -420.0
+            ],
+            [
+              -1540.0,
+              -420.0
+            ],
+            [
+              -1540.0,
+              420.0
+            ]
+          ],
+          "body_frame_bounds_mm": {
+            "x_min": -1540.0,
+            "x_max": -350.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "actual_polygon_supported_for_containment": true,
+          "z_range_raw": {
+            "min": -180,
+            "max": 180
+          },
+          "height_coverage_verified": false,
+          "containment_checks": {
+            "full_body_envelope": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1540.0,
+                "x_max": -350.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 800.0,
+                "y_min": -525.0,
+                "y_max": 525.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  -525.0
+                ],
+                [
+                  800.0,
+                  525.0
+                ],
+                [
+                  -300.0,
+                  525.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_1": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1540.0,
+                "x_max": -350.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1000.0,
+                "y_min": -725.0,
+                "y_max": 725.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  -725.0
+                ],
+                [
+                  1000.0,
+                  725.0
+                ],
+                [
+                  -300.0,
+                  725.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_2": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1540.0,
+                "x_max": -350.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1200.0,
+                "y_min": -825.0,
+                "y_max": 825.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  -825.0
+                ],
+                [
+                  1200.0,
+                  825.0
+                ],
+                [
+                  -300.0,
+                  825.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            },
+            "travel_level_3": {
+              "actual_polygon_supported": true,
+              "actual_polygon_bounds_mm": {
+                "x_min": -1540.0,
+                "x_max": -350.0,
+                "y_min": -420.0,
+                "y_max": 420.0
+              },
+              "target_polygon_bounds_mm": {
+                "x_min": -300.0,
+                "x_max": 1500.0,
+                "y_min": -925.0,
+                "y_max": 925.0
+              },
+              "target_polygon_body_frame_mm": [
+                [
+                  -300.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  -925.0
+                ],
+                [
+                  1500.0,
+                  925.0
+                ],
+                [
+                  -300.0,
+                  925.0
+                ]
+              ],
+              "status": "NOT_DESIGNED_FOR_THIS_REGION",
+              "contained": null
+            }
+          },
+          "suggested_candidate": null
+        }
+      }
+    }
+  ],
+  "global_blockers": [
+    {
+      "code": "saved_snapshot_not_currently_reverified",
+      "message": "This is an offline comparison of a saved capture; no current controller read or freshness check is performed."
+    },
+    {
+      "code": "sensor_field_of_view_unverified",
+      "message": "Polygon coordinates do not prove sensor field of view, range, occlusion, or coverage at arm/table heights."
+    },
+    {
+      "code": "zrange_height_semantics_unverified",
+      "message": "Controller zRange values are retained verbatim; their reference and physical height coverage are unverified."
+    },
+    {
+      "code": "rearward_protection_not_designed",
+      "message": "The supplied profile defines forward travel zones only; no rearward margin profile was provided."
+    },
+    {
+      "code": "rotation_swept_circle_not_modeled",
+      "message": "The profile's conservative circular turn requirement cannot be represented by a straight rectangular region comparison."
+    },
+    {
+      "code": "runtime_strategy_selection_not_verified",
+      "message": "Snapshot strategy references are shown for context; runtime strategy selection and activation are not verified."
+    }
+  ],
+  "limitations": [
+    "The current region polygons are copied from a saved snapshot and are not re-read from the controller.",
+    "Containment is checked on complete convex polygons, not bounding boxes.",
+    "Non-convex or unsupported controller shapes are marked unsupported rather than approximated by a rectangle.",
+    "A forward profile is not assigned to the rear-facing sensor, and rotation zones are not substituted with straight rectangles.",
+    "Negative sensor-local x candidates are reported as blocked; they do not imply the sensor can see behind itself.",
+    "No proposal is approved or applied and no controller write API is called."
+  ],
+  "profile_path": "/home/yirong/g1_cup_grasp_v2/config/avoidance_profile.example.yaml"
+}

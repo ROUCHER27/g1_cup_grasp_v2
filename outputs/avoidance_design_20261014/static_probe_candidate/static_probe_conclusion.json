@@ -1,0 +1,112 @@
+{
+  "status": "STATIC_PROBE_COMPLETE_ORIGINAL_PARAMETERS_RESTORED",
+  "user_authorization": "执行静态对照，结束恢复原值",
+  "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/static_probe_candidate/run_20261014_155222_198445/report.json",
+  "robot_motion_commands_sent": false,
+  "temporary_change": {
+    "group": 1,
+    "group_name": "test",
+    "region": 1,
+    "sensor": 6,
+    "tier": "warn1 / 三级减速",
+    "far_x_sensor_mm": [
+      1240,
+      1100
+    ]
+  },
+  "configuration_apply_acknowledged": true,
+  "configuration_readback_matched": true,
+  "restoration": {
+    "all_operational_group_and_robot_parameters_match_original": true,
+    "far_x_sensor_mm": 1240,
+    "only_unrestored_metadata": "server-generated top-level UUID; not a geometry/strategy/speed change",
+    "stop_warn2_and_other_parameters_unchanged": true
+  },
+  "observations": {
+    "baseline_protoStatus": [
+      5,
+      5,
+      5
+    ],
+    "temporary_map_sync_workStatus12_samples": 2,
+    "settled_temporary_samples": 6,
+    "settled_temporary_protoStatus": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "reported_laser_points_during_settled_probe": [
+      {
+        "x": 1076,
+        "y": -37,
+        "z": 0
+      },
+      {
+        "x": 1093,
+        "y": -38,
+        "z": 0
+      },
+      {
+        "x": 1084,
+        "y": -37,
+        "z": 0
+      },
+      {
+        "x": 1088,
+        "y": -38,
+        "z": 0
+      },
+      {
+        "x": 1088,
+        "y": -38,
+        "z": 0
+      }
+    ],
+    "approx_point_forward_gap_from_chassis_front_m_range": [
+      0.999,
+      1.016
+    ],
+    "point_y_m_range": [
+      -0.038,
+      -0.037
+    ],
+    "restored_protoStatus": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "all_reported_xy_mm": [
+      [
+        -53,
+        90
+      ]
+    ],
+    "max_abs_linear_speed_mm_s": 0
+  },
+  "interpretation": "The approved 14 cm outer-warning reduction took effect but did not clear Avoid. After synchronization, sensor 6 reported other points inside the smaller warn1 region and outside warn2/stop. The earlier single displayed point was not exhaustive obstacle evidence.",
+  "not_proven": [
+    "Full avoidStatus enum or priority semantics",
+    "Absence of unreported closer obstacles",
+    "That further shrinking is safe or sufficient",
+    "Navigation readiness or safe arm swept clearance"
+  ],
+  "attempt_history": [
+    {
+      "report": "run_20261014_154710_060752/report.json",
+      "result": "Strict equality rejected server-generated root UUID; all operational parameters were restored and independently verified in recovery_verification.json."
+    },
+    {
+      "report": "run_20261014_154935_924084/report.json",
+      "result": "Aborted on workStatus12; restoration verified. Local HMI later established 12 means map synchronization."
+    },
+    {
+      "report": "run_20261014_155222_198445/report.json",
+      "result": "Completed bounded observation after synchronization; original operational parameters restored."
+    }
+  ],
+  "next_focus": "Inspect stationary/near-table strategy and controller warning-versus-stop semantics while preserving motion protections; no further shrink or navigation authorized by this experiment."
+}

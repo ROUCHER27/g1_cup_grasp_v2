@@ -27,7 +27,9 @@ from g1_cup_grasp.io.shutdown import exit_without_sdk_thread_wait
 from g1_cup_grasp.kinematics import UrdfRightArm
 from grasp_v2 import capture_stable_target, validate_robot_model, execute_plan, target_to_dict
 from check_navigation import collect_samples, read_hmi, read_controller, runtime_map_check, summarize
-from navigate_station import HAL_SHA256, navigation_request, validate_preflight, execute_navigation, pause_and_confirm
+from navigate_station import (HAL_SHA256, navigation_request, validate_preflight,
+                              validate_transport_config, load_avoidance_manifest,
+                              execute_navigation, pause_and_confirm)
 
 
 def context_digest(grasp, transport):
@@ -109,6 +111,8 @@ def main(argv=None):
             raise RuntimeError("--resume-navigation and --stop-after cannot be combined")
         grasp=load_config(ROOT/"config/grasp_v2.yaml")
         config=yaml.safe_load((ROOT/"config/transport.yaml").read_text(encoding="utf-8-sig"))
+        validate_transport_config(config)
+        load_avoidance_manifest(config)
         context=context_digest(grasp,config)
         robot=grasp["robot"]
         model=UrdfRightArm(ROOT/robot["urdf_path"],robot["urdf_base_link"],robot["urdf_tip_link"],grasp["ik"])
@@ -132,7 +136,7 @@ def main(argv=None):
             report.update(initial_samples=samples,runtime_map=runtime_map_check(samples,config["map_id"]),
                           initial_summary_vs_A=summarize(samples,config["stations"]["A"]))
             if not report["runtime_map"]["verified"]:
-                raise RuntimeError("updating original position feedback does not confirm map 6")
+                raise RuntimeError(f"updating original position feedback does not confirm map {config['map_id']}")
             if any(s["hal_sha256"]!=HAL_SHA256 for s in samples):
                 raise RuntimeError("robot HAL version changed; request units require revalidation")
             hmi,controller=read_hmi(config),read_controller(config)

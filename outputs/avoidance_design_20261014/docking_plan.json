@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_PLAN_NOT_EXECUTABLE",
+  "execution": {
+    "mode": "read_only",
+    "proposal_only": true,
+    "executable": false
+  },
+  "map": {
+    "id": 7,
+    "name": "cup_new",
+    "matches_transport_config": true
+  },
+  "arm_intent": {
+    "left_arm": "fixed_during_transport",
+    "right_arm": "pick_at_A_and_place_at_B"
+  },
+  "clearance": {
+    "minimum_straight_corridor_width_m": 1.45,
+    "derived_minimum_corridor_width_m": 1.45,
+    "straight_side_margin_each_m": 0.2,
+    "conservative_rotation_clear_diameter_m": 2.313765920900464,
+    "measured_corridor_width_m": null,
+    "measured_rotation_clear_diameter_m": null,
+    "measured_minimum_thresholds_met": null,
+    "site_clearance_verified": false
+  },
+  "geometry_estimate": {
+    "chassis_length_m": 0.6,
+    "chassis_width_m": 0.45,
+    "arm_side_extension_each_m": 0.3,
+    "arm_front_extension_m": 0.5,
+    "rotation_margin_m": 0.2,
+    "combined_envelope_front_m": 0.8,
+    "combined_envelope_rear_m": 0.3,
+    "combined_envelope_half_width_m": 0.525,
+    "combined_envelope_width_m": 1.05,
+    "straight_side_margin_each_m": 0.2,
+    "source_status": "approximate_proposal_input_not_measured"
+  },
+  "station_geometry": {
+    "a_to_b_distance_m": 1.6511018037384448,
+    "candidate_a_departure_to_b_approach_distance_m": 0.1537834535466269,
+    "a_departure_progress_along_a_to_b_m": 0.8999299620180117,
+    "b_approach_progress_along_a_to_b_m": 0.751578322218756,
+    "candidate_points_projected_ordered": false
+  },
+  "phases": [
+    {
+      "phase": "A_STATIONARY_PICK",
+      "pose": {
+        "x_m": 0.04899999871850014,
+        "y_m": 0.07199999690055847,
+        "yaw_rad": -0.1850386778461329
+      },
+      "motion_requirement": "stationary_chassis_and_verified_right_arm_pick"
+    },
+    {
+      "phase": "A_STRAIGHT_DEPARTURE_CANDIDATE",
+      "candidate_pose": {
+        "x_m": -0.8356362229968595,
+        "y_m": 0.23758609302331052,
+        "yaw_rad": -0.1850386778461329
+      },
+      "motion_requirement": "verified_low_speed_reverse_along_A_heading",
+      "distance_m": 0.9,
+      "distance_basis": "assumption_only_not_measured"
+    },
+    {
+      "phase": "ROTATE_AND_TRANSPORT_CANDIDATE",
+      "from_pose": {
+        "x_m": -0.8356362229968595,
+        "y_m": 0.23758609302331052,
+        "yaw_rad": -0.1850386778461329
+      },
+      "to_pose": {
+        "x_m": -0.6822193485065905,
+        "y_m": 0.24819802999846313,
+        "yaw_rad": 2.976620960236659
+      },
+      "candidate_distance_m": 0.1537834535466269,
+      "heading_change_deg": -178.8502464809967,
+      "required_rotation_clear_diameter_m": 2.313765920900464,
+      "motion_requirement": "collision_checked_turn_and_transport_path"
+    },
+    {
+      "phase": "B_STRAIGHT_APPROACH_CANDIDATE",
+      "candidate_pose": {
+        "x_m": -0.6822193485065905,
+        "y_m": 0.24819802999846313,
+        "yaw_rad": 2.976620960236659
+      },
+      "motion_requirement": "verified_low_speed_forward_along_B_heading",
+      "distance_m": 0.9,
+      "distance_basis": "assumption_only_not_measured"
+    },
+    {
+      "phase": "B_STATIONARY_PLACE",
+      "pose": {
+        "x_m": -1.5700000524520874,
+        "y_m": 0.3959999978542328,
+        "yaw_rad": 2.976620960236659
+      },
+      "motion_requirement": "stationary_chassis_and_verified_right_arm_place"
+    }
+  ],
+  "blockers": [
+    {
+      "code": "arm_and_cup_swept_envelope_unverified",
+      "message": "The fixed left arm and right arm/cup swept envelope has not been measured through departure, travel, turn, approach, and manipulation."
+    },
+    {
+      "code": "constrained_straight_motion_unavailable",
+      "message": "The current navigate_to_pose(x_mm, y_mm, yaw_deg) interface only specifies an endpoint; it does not guarantee straight reverse/forward motion or a verified stop."
+    },
+    {
+      "code": "stationary_motion_inhibition_unverified",
+      "message": "A verified chassis lock during the A pick and B placement has not been established."
+    },
+    {
+      "code": "three_dimensional_collision_scene_missing",
+      "message": "No complete 3-D collision model or measured table-leg, wall, frame, cable, sensor-height, and stopping-distance evidence is supplied."
+    },
+    {
+      "code": "route_not_collision_checked",
+      "message": "These candidate poses do not include a collision-checked route between A and B."
+    },
+    {
+      "code": "site_corridor_unmeasured",
+      "message": "A/B route corridor width has not been measured, so the required straight-path clearance cannot be checked."
+    },
+    {
+      "code": "site_rotation_clearance_unmeasured",
+      "message": "The available turning clearance has not been measured; the estimated 2-D rotation requirement is not a site check."
+    },
+    {
+      "code": "candidate_points_projected_order_inverted",
+      "message": "Along the A-to-B station axis, the A departure candidate has passed the B approach candidate (progress 0.900 m vs 0.752 m; point separation 0.154 m). These assumed offsets leave no ordered transit segment to verify."
+    }
+  ]
+}

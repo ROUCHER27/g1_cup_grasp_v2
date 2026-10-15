@@ -1,0 +1,16 @@
+{
+  "changed_file": "/home/yirong/g1_cup_grasp_v2/scripts/env_laptop.sh",
+  "backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/env_locator_fix_20261014_175744/env_laptop_before.sh",
+  "old_locator_ip": "10.42.0.10",
+  "new_locator_ip": "10.42.0.102",
+  "before_check": "socket.bind(10.42.0.10) failed with OSError 99 Cannot assign requested address",
+  "after_checks": {
+    "bash_syntax": "PASS",
+    "local_udp_bind": "PASS",
+    "discovery_tcp_10.42.0.101_2379": "PASS"
+  },
+  "live_place_capture_verified": true,
+  "next_action": "Environment correction verified by successful user-run map 7 place capture.",
+  "created_at": "2026-10-14T17:58:40.336375+08:00",
+  "verified_place_report": "/home/yirong/g1_cup_grasp_v2/outputs/place_teach/place_teach_20261014_180011_909900.json"
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSAL_NOT_APPLIED",
+  "proposal_only": true,
+  "read_only": true,
+  "measurements_verified": false,
+  "sensor_coverage_verified": false,
+  "geometry_frame": "body_centered_xy_m; +x forward, +y left, yaw counterclockwise",
+  "units": {
+    "position": "m",
+    "angle": "rad"
+  },
+  "sensor_pose_reference": "x_m/y_m in body frame; yaw_rad counterclockwise from body +x",
+  "body_frame_envelope_m": {
+    "x_min": -0.3,
+    "x_max": 0.8,
+    "y_min": -0.525,
+    "y_max": 0.525
+  },
+  "body_envelope_polygon_body_frame_m": [
+    [
+      -0.3,
+      -0.525
+    ],
+    [
+      0.8,
+      -0.525
+    ],
+    [
+      0.8,
+      0.525
+    ],
+    [
+      -0.3,
+      0.525
+    ]
+  ],
+  "rotation": {
+    "envelope_radius_m": 0.95688296,
+    "extra_margin_m": 0.2,
+    "conservative_radius_m": 1.15688296,
+    "clear_diameter_m": 2.313765921,
+    "reference": "maximum body-centered corner distance plus configured rotation extra margin"
+  },
+  "travel_zones": [
+    {
+      "level": 1,
+      "name": "一级停车",
+      "coordinates_frame": "body_frame_xy",
+      "forward_margin_m": 0.2,
+      "side_margin_m": 0.2,
+      "rear_boundary_m": -0.3,
+      "rear_clearance_assumed_m": 0.0,
+      "front_boundary_m": 1.0,
+      "half_width_m": 0.725,
+      "reference": "full_robot_envelope",
+      "polygon_body_frame_m": [
+        [
+          -0.3,
+          -0.725
+        ],
+        [
+          1.0,
+          -0.725
+        ],
+        [
+          1.0,
+          0.725
+        ],
+        [
+          -0.3,
+          0.725
+        ]
+      ],
+      "sensor_polygons": []
+    },
+    {
+      "level": 2,
+      "name": "二级减速",
+      "coordinates_frame": "body_frame_xy",
+      "forward_margin_m": 0.4,
+      "side_margin_m": 0.3,
+      "rear_boundary_m": -0.3,
+      "rear_clearance_assumed_m": 0.0,
+      "front_boundary_m": 1.2,
+      "half_width_m": 0.825,
+      "reference": "full_robot_envelope",
+      "polygon_body_frame_m": [
+        [
+          -0.3,
+          -0.825
+        ],
+        [
+          1.2,
+          -0.825
+        ],
+        [
+          1.2,
+          0.825
+        ],
+        [
+          -0.3,
+          0.825
+        ]
+      ],
+      "sensor_polygons": []
+    },
+    {
+      "level": 3,
+      "name": "三级提前减速",
+      "coordinates_frame": "body_frame_xy",
+      "forward_margin_m": 0.7,
+      "side_margin_m": 0.4,
+      "rear_boundary_m": -0.3,
+      "rear_clearance_assumed_m": 0.0,
+      "front_boundary_m": 1.5,
+      "half_width_m": 0.925,
+      "reference": "full_robot_envelope",
+      "polygon_body_frame_m": [
+        [
+          -0.3,
+          -0.925
+        ],
+        [
+          1.5,
+          -0.925
+        ],
+        [
+          1.5,
+          0.925
+        ],
+        [
+          -0.3,
+          0.925
+        ]
+      ],
+      "sensor_polygons": []
+    }
+  ],
+  "sensors": [],
+  "limitations": [
+    "Dimensions and proposed clearances are unverified estimates.",
+    "The rear clearance was not specified; zones extend rearward only to the full robot envelope.",
+    "Sensor-frame polygons are coordinate transforms, not claims of actual sensor coverage.",
+    "Sensor field of view, range, occlusion, and height coverage are unverified.",
+    "This proposal is not applied to a controller and emits no control request."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "changed_at": "2026-10-14T18:57:49.987142+08:00",
+  "enable_real_navigation": true,
+  "backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/enable_empty_baseline_20261014_185749/transport_before.yaml",
+  "preview_report": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_105750_217922_B_navigation_baseline_enabled.json",
+  "planned_request": {
+    "x_mm": -1570,
+    "y_mm": 396,
+    "yaw_deg": 171,
+    "frame": "active_map",
+    "endpoint": "/hal/nav/navigate_to_pose",
+    "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+  },
+  "robot_motion_commands_sent": false,
+  "scope": "User-operated empty-load baseline. Other preflight requirements remain enforced. Disable standalone dispatch again when testing is complete."
+}

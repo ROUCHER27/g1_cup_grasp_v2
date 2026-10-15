@@ -49,7 +49,8 @@ class NavigationCheckTests(unittest.TestCase):
             root = Path(directory)
             (root / "config").mkdir()
             (root / "config" / "transport.yaml").write_text(
-                (ROOT / "config" / "transport.yaml").read_text(encoding="utf-8"), encoding="utf-8"
+                (ROOT / "tests" / "fixtures" / "transport_config_test.yaml").read_text(encoding="utf-8"),
+                encoding="utf-8"
             )
             with patch.object(nav, "PROJECT_ROOT", root), patch.object(nav.time, "sleep"), patch.dict(
                 "sys.modules", {"a2d_sdk.robot": fake_module}

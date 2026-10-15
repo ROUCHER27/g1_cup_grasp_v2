@@ -1,0 +1,145 @@
+{
+  "status": "CONFIG_ACTIVATED_OFFLINE_CHECKS_PASSED",
+  "created_at": "2026-10-14T17:33:53.513180+08:00",
+  "active_config_modified": true,
+  "backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/map7_cup_new_pending_place_20261014_173353/transport_before.yaml",
+  "station_reports": {
+    "A": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_103008_033002_A.json",
+    "B": "/home/yirong/g1_cup_grasp_v2/outputs/station_teach/station_teach_20261014_100550_490773_B.json"
+  },
+  "map_id": 7,
+  "map_name": "cup_new",
+  "stations": {
+    "A": {
+      "x_m": 0.04899999871850014,
+      "y_m": 0.07199999690055847,
+      "yaw_rad": -0.1850386778461329
+    },
+    "B": {
+      "x_m": -1.5700000524520874,
+      "y_m": 0.3959999978542328,
+      "yaw_rad": 2.976620960236659
+    }
+  },
+  "distance_AB_m": 1.6511018037384448,
+  "old_place": {
+    "position_m": [
+      0.5866973846125499,
+      -0.19499298447975624,
+      0.5307687236285537
+    ],
+    "rpy_rad": [
+      -1.6848358239163232,
+      0.07160623453537052,
+      -0.3114240956125436
+    ],
+    "base_pose": {
+      "map_id": 6,
+      "agv_pos_x": 0.6520000100135803,
+      "agv_pos_y": 1.1039999723434448,
+      "agv_angle": 3.2479686737060547
+    }
+  },
+  "user_confirmed": "User corrected A/B labels and confirmed the robot is currently at physical A. No verified correspondence between the new physical B dock and the old arm-placement teaching dock is available.",
+  "pending_action": "Identify the trigger for chassis Avoid at A via the HMI avoidance sensor ID/coordinates and scene inspection. Start preflight must return Idle; do not bypass the guard or clear avoidance regions blindly. No navigation was dispatched and the robot is not paused.",
+  "label_correction": {
+    "corrected_at": "2026-10-14T17:41:49.693039+08:00",
+    "source": "User explicitly corrected physical A/B assignment. The report labelled B is actual A; the report labelled A is actual B.",
+    "report_label_by_physical_station": {
+      "A": "B",
+      "B": "A"
+    },
+    "current_physical_station_per_user": "A"
+  },
+  "place_report": "/home/yirong/g1_cup_grasp_v2/outputs/place_teach/place_teach_20261014_180011_909900.json",
+  "offline_place_validation": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/map7_cup_new_pending_place_20261014_173353/offline_place_validation_final.json",
+  "candidate_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/map7_cup_new_pending_place_20261014_173353/transport_map7_candidate.yaml",
+  "expected_B": {
+    "x_m": -1.5700000524520874,
+    "y_m": 0.3959999978542328,
+    "yaw_rad": 2.976620960236659
+  },
+  "previous_B_station": {
+    "x_m": -1.5750000476837158,
+    "y_m": 0.23399999737739563,
+    "yaw_rad": 2.7944429397583
+  },
+  "activated_at": "2026-10-14T18:07:56.704894+08:00",
+  "active_config_path": "/home/yirong/g1_cup_grasp_v2/config/transport.yaml",
+  "activation_backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/map7_cup_new_pending_place_20261014_173353/transport_before_activation_180756.yaml",
+  "place_base_pose": {
+    "map_id": 7,
+    "agv_pos_x": -1.5700000524520874,
+    "agv_pos_y": 0.3959999978542328,
+    "agv_angle": 2.979761838912964
+  },
+  "validated_at": "2026-10-14T18:11:44.668059+08:00",
+  "validation": {
+    "config_structure": "PASS",
+    "offline_navigation_previews": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/A_redefine_20261014_183321/offline_navigation_previews.json",
+    "offline_place_path": "PASS",
+    "pytest": {
+      "passed": 123,
+      "subtests_passed": 30,
+      "duration_s": 14.89
+    },
+    "robot_motion_commands_sent": false,
+    "live_new_map_transport_verified": false,
+    "A_update_saved_report_preflight": "PASS"
+  },
+  "post_switch_B_check": {
+    "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_101313_834638_B.json",
+    "status": "INSPECTION_RECORDED",
+    "checked_at_utc": "2026-10-14T10:13:13.834638+00:00",
+    "map_verified": true,
+    "confidence_range": [
+      82.0,
+      82.0
+    ],
+    "position_error_m": 0.0,
+    "yaw_error_deg": 0.020009722131540106
+  },
+  "post_switch_A_check": {
+    "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_103008_033002_A.json",
+    "status": "INSPECTION_RECORDED",
+    "ready_for_navigation": true,
+    "checked_at_utc": "2026-10-14T10:30:08.033002+00:00",
+    "map_verified": true,
+    "confidence_range": [
+      99.0,
+      99.0
+    ],
+    "position_error_m": 0.0,
+    "yaw_error_deg": 0.005999638169357655,
+    "blocking_conditions": [],
+    "evaluation": "Saved samples re-evaluated after user-authorized A redefinition; not a new live check."
+  },
+  "proposed_A_from_latest_check": {
+    "candidate": {
+      "x_m": 0.04899999871850014,
+      "y_m": 0.07199999690055847,
+      "yaw_rad": -0.1850386778461329,
+      "map_id": 7
+    },
+    "source_report": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_103008_033002_A.json",
+    "saved_report_preflight_if_A_redefined": "PASS",
+    "requires_user_choice_of_physical_grasp_station": false,
+    "active_config_modified": true,
+    "accepted_at": "2026-10-14T18:33:21.721247+08:00"
+  },
+  "A_redefinition_record": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/A_redefine_20261014_183321/update_record.json",
+  "latest_baseline_attempt": {
+    "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_105856_283122_B_navigation_baseline.json",
+    "status": "ERROR",
+    "error": "RuntimeError: chassis is not Idle",
+    "request_attempted": false,
+    "chassis_state": "Avoid",
+    "position_error_m": 0.0,
+    "confidence_range": [
+      99.0,
+      99.0
+    ],
+    "pause": false,
+    "battery_energy": 17
+  }
+}

@@ -1,0 +1,27 @@
+G1 / AMR-424 controller diagnostic questions (evidence packet; not sent externally)
+
+Controller software 7.2.0.23, firmware 2.0.0.7, map 7 / cup_new.
+The robot remains stationary, automatic, no task, confidence 88.
+GetState reports workStatus=1, taskState=1, protoStatus=5, isAvoid=true,
+avoidStatus=1. Sensor 6 reports points in region1 warn1, outside its warn2/stop.
+HAL forwards protoStatus as Position.agv_status.
+
+Completed reversible no-motion experiments:
+1. Region1 warn1 far X 1240->1100 mm: effective readback confirmed.
+   Reported point changed to x1076..1093,y=-37..-38, but Avoid remained.
+2. Added region8 with all tiers identical to region1 stop, and bound only
+   globalStrategy id7 前停车 to [8]. Forward strategy remained [1,6].
+   Readback confirmed; synchronization settled; six samples remained Avoid.
+   Sensor6 still reported x1219..1232,y=-419..-414, outside region8.
+Both experiments restored all original operational parameters; region8 deleted.
+
+Please clarify for this controller/firmware:
+- When exactly is 前停车 selected, and is it active at a stationary untasked pose?
+- Can the last forward strategy remain selected while speed is zero?
+- What are the enum/bit definitions of avoidStatus, especially value 1?
+- Does protoStatus=5 cover warning/deceleration as well as protective stop?
+- Which read-only endpoint/log exposes active strategy, active region and tier?
+- Does avoidSensorList aggregate all region hits or only currently active ones?
+- If all three tiers share a nonempty boundary, which action has priority?
+
+Do not use these observations to bypass Idle or disable protection.

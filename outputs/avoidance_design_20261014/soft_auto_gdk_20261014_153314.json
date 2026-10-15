@@ -1,0 +1,90 @@
+{
+  "read_only": true,
+  "robot_commands_sent": false,
+  "runtime_map_id_verified": false,
+  "source": "GDK Slam position subscriber",
+  "captured_at_utc": "2026-10-14T15:33:14.663655+00:00",
+  "samples": [
+    {
+      "agv_status": 5,
+      "position_conf": 88.0,
+      "agv_pos_x": -0.05299999937415123,
+      "agv_pos_y": 0.09000000357627869,
+      "agv_angle": 6.068760871887207,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": {
+        "task_uuid": 0,
+        "task_reqid": "",
+        "curr_station_idx": 0,
+        "finish_state": 0
+      },
+      "timestamp_ns": 1791991991640084480
+    },
+    {
+      "agv_status": 5,
+      "position_conf": 88.0,
+      "agv_pos_x": -0.05299999937415123,
+      "agv_pos_y": 0.09000000357627869,
+      "agv_angle": 6.068935871124268,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": {
+        "task_uuid": 0,
+        "task_reqid": "",
+        "curr_station_idx": 0,
+        "finish_state": 0
+      },
+      "timestamp_ns": 1791991992241437184
+    },
+    {
+      "agv_status": 5,
+      "position_conf": 88.0,
+      "agv_pos_x": -0.05299999937415123,
+      "agv_pos_y": 0.09000000357627869,
+      "agv_angle": 6.068760871887207,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": {
+        "task_uuid": 0,
+        "task_reqid": "",
+        "curr_station_idx": 0,
+        "finish_state": 0
+      },
+      "timestamp_ns": 1791991992798369792
+    },
+    {
+      "agv_status": 5,
+      "position_conf": 88.0,
+      "agv_pos_x": -0.05299999937415123,
+      "agv_pos_y": 0.09000000357627869,
+      "agv_angle": 6.068586349487305,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": {
+        "task_uuid": 0,
+        "task_reqid": "",
+        "curr_station_idx": 0,
+        "finish_state": 0
+      },
+      "timestamp_ns": 1791991993401189120
+    },
+    {
+      "agv_status": 5,
+      "position_conf": 88.0,
+      "agv_pos_x": -0.05299999937415123,
+      "agv_pos_y": 0.09000000357627869,
+      "agv_angle": 6.0684123039245605,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": {
+        "task_uuid": 0,
+        "task_reqid": "",
+        "curr_station_idx": 0,
+        "finish_state": 0
+      },
+      "timestamp_ns": 1791991994002545152
+    }
+  ],
+  "status": "FEEDBACK_CAPTURED"
+}

@@ -1,0 +1,108 @@
+{
+  "motion": {
+    "A_heading_deg": 349.3980647127357,
+    "B_heading_deg": 170.547818231739,
+    "A_to_B_bearing_deg": 168.6832623093454,
+    "shortest_heading_change_deg": -178.8502464809967,
+    "heading_change_to_travel_forward_deg": 179.2851975966097
+  },
+  "right_tip_carry_to_place_delta_m": [
+    -0.046325990900485725,
+    0.1005660982237328,
+    -0.1528217205272343
+  ],
+  "right_tip_orientation_change_deg": 11.729873977850552,
+  "assumed_body_half_width_m": 0.225,
+  "assumed_body_front_m": 0.3,
+  "assumed_body_rear_m": 0.3,
+  "user_assumption_arm_side_extension_from_body_m": 0.3,
+  "user_assumption_front_extension_from_body_m": 0.5,
+  "combined_envelope": {
+    "front_m": 0.8,
+    "rear_m": 0.3,
+    "half_width_m": 0.525
+  },
+  "travel_regions": [
+    {
+      "name": "一级停车",
+      "forward_margin_m": 0.2,
+      "side_margin_m": 0.2,
+      "front_boundary_from_center_m": 1.0,
+      "half_width_from_center_m": 0.725
+    },
+    {
+      "name": "二级减速",
+      "forward_margin_m": 0.4,
+      "side_margin_m": 0.3,
+      "front_boundary_from_center_m": 1.2,
+      "half_width_from_center_m": 0.825
+    },
+    {
+      "name": "三级提前减速",
+      "forward_margin_m": 0.7,
+      "side_margin_m": 0.4,
+      "front_boundary_from_center_m": 1.5,
+      "half_width_from_center_m": 0.925
+    }
+  ],
+  "conservative_rotation_radius_including_20cm_margin_m": 1.156882960450232,
+  "proposal_only": true,
+  "hardware_parameters_changed": false,
+  "diagram_path": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/avoidance_envelope_proposal.png",
+  "assumptions_and_limits": [
+    "User dimensions interpreted as outward extensions beyond body edges, not existing safety buffers.",
+    "Body dimensions and sensor offsets are from a historical controller snapshot, not current live readback.",
+    "Travel-zone values are proposed targets for validation, not approved HMI input polygons.",
+    "Initial controlled test speed should be at most 0.1 m/s; measured stopping/reaction distance must fit the innermost margin.",
+    "Sensor coverage at arm and tabletop heights is unverified.",
+    "Stationary arm interaction requires a separately verified docking/manipulation mode; a fixed 2-D rectangle cannot both exclude tables and allow a gripper over the target tabletop.",
+    "Current navigation entry reapplies HAL level 2 from baseline geometry, so HMI-only changes may be overwritten."
+  ],
+  "video_source": "/home/yirong/下载/275587329.mp4",
+  "video_duration_s": 18.082,
+  "visual_observations": [
+    "Wooden cup table with wheeled feet projecting beneath the tabletop.",
+    "Glass partitions and aluminium frame members near the workspace.",
+    "Robot shown with an extended arm near the white table; video does not show the complete pick/place trajectory or a calibrated plan view.",
+    "A cable trails from the robot area across the floor; floor clearance must account for it."
+  ],
+  "docking_design": {
+    "status": "REQUIRES_VERIFIED_SEPARATE_MODE_OR_HEIGHT_AWARE_PLANNING",
+    "transport_mode": "Protect the complete fixed-arm and cup swept envelope, including turns.",
+    "stationary_manipulation_mode": "Chassis motion inhibited while the right arm interacts with the verified target table. Preserve physical emergency/bumper functions and protect table legs, walls and other obstacles; do not globally clear front avoidance.",
+    "unsupported_in_current_workflow": "No verified automatic docking/manipulation avoidance-zone switching and no complete 3D arm-scene collision model have been established.",
+    "measurement_required_before_controller_write": [
+      "Maximum left/right/front/rear sweep of both arms and gripper/cup throughout the recorded trajectory",
+      "Nearest table legs/feet and side obstacles at A/B",
+      "Sensor coverage and zRange reference at arm/table heights",
+      "Actual stopping distance at the intended test speed",
+      "Active controller polygons after the SDK reapplies level 2"
+    ]
+  },
+  "clearance_requirements": {
+    "minimum_straight_corridor_width_at_stop_boundary_m": 1.45,
+    "rotation_clear_diameter_conservative_m": 2.313765920900464,
+    "note": "Derived bounds from user-supplied approximate geometry; practical path must have additional allowance for localization and tracking error."
+  },
+  "side_view_reference": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/side_view_reference.jpg",
+  "side_view_observations": [
+    "Both forearms/grippers project over the tabletop while the chassis remains outside the table.",
+    "A 2-D projection overlap with the target tabletop is intentional during stationary manipulation; tabletop height, legs and edge clearance remain collision constraints.",
+    "This side view cannot establish the full left/right envelope or calibrated distances."
+  ],
+  "phase_requirements": [
+    {
+      "phase": "stationary manipulation at A/B",
+      "requirement": "Verified chassis stop and motion inhibition, right-arm trajectory checked against target table geometry; retain side/rear/fixed obstacle protection."
+    },
+    {
+      "phase": "straight departure/approach",
+      "requirement": "A separately verified low-speed, constrained approach/departure path to clear the tabletop before yaw rotation; not provided by the current simple A-to-B entry."
+    },
+    {
+      "phase": "travel and yaw rotation",
+      "requirement": "Use complete arm/cup sweep for path clearance; sensor height coverage and fixed walls/frames must be included."
+    }
+  ],
+  "travel_regions_reference": "All distances measured outward from the full robot/arms/cup bounding envelope, not from the bare chassis and not directly from a sensor origin."
+}

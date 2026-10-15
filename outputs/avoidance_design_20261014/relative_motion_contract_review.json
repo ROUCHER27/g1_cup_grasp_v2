@@ -1,0 +1,172 @@
+{
+  "review": "G1 相对位移接口与近桌直线倒退能力：本地只读取证",
+  "scope": {
+    "read_only": true,
+    "sdk_initialized": false,
+    "network_used": false,
+    "robot_commands_sent": false,
+    "source_files_modified": false,
+    "note": "仅检查当前虚拟环境 SDK 源码、已采集 proto/HMI 文件、HAL 二进制静态副本及现有配置快照。"
+  },
+  "current_snapshot": {
+    "source": "outputs/avoidance_design_20261014/controller_snapshot_current.json",
+    "status": "MANIFEST_REVIEW_REQUIRED",
+    "read_only": true,
+    "robot_commands_sent": false,
+    "controller_id": 424,
+    "map_id": 7,
+    "map_name": "cup_new",
+    "controller_software": "7.2.0.23",
+    "controller_firmware": "2.0.0.7",
+    "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+    "native_runtime_map_verified": false,
+    "meaning": "本快照是新鲜控制器配置读回；它没有证明原生定位正在 map 7，也没有证明相对位移路径、侧向/后向保护或实物空间安全。"
+  },
+  "conclusion": {
+    "relative_motion_interface_exists": true,
+    "unit_and_frame_contract_verified": false,
+    "straight_line_motion_guaranteed": false,
+    "straight_backward_motion_guaranteed": false,
+    "per_request_speed_limit_available": false,
+    "relative_motion_mode_acceptance_verified": false,
+    "move_relative_uses_current_avoidance_strategy_verified": false,
+    "arrival_or_completion_reported_by_request_response": false,
+    "can_execute_now": false,
+    "summary": "SDK 确实提供 move_to_relative(x,y,theta)，HAL 也有独立 HandleMoveRelative 与 MoveRelative REST 路径。因此“没有相对运动接口”不准确。现有证据只够构造字段级候选请求；单位、参考坐标系、路径形状、速度、当前模式接受条件、区域避障是否作用于此路径及停车语义都未核实，不能据此发出靠桌或倒车命令。"
+  },
+  "sdk_contract": {
+    "installed_file": "/home/yirong/g1_cup_grasp_v2/.venv/lib/python3.10/site-packages/a2d_sdk/core/slam/slam_core.py",
+    "installed_file_sha256": "fb1c10c63089b135c4cb9e7f8b3a61ca197c5092f077b58a027e141885d339d6",
+    "archived_copy_sha256_matches": true,
+    "archived_copy": "outputs/navigation_contract/robot_probe/docs/slam_core.py",
+    "client": {
+      "topic": "/hal/nav/move_relative",
+      "request_type": "genie_msgs.srv.pb.NavigatePose_Request",
+      "response_type": "genie_msgs.srv.pb.NavigatePose_Response",
+      "shares_request_type_with_global_navigate_to_pose": true
+    },
+    "method": "move_to_relative(x, y, theta) creates the shared request, assigns only request.x/y/theta, calls send_request, and returns the raw response. It performs no unit conversion, mode selection, speed limiting, timeout, path-mode selection, or arrival wait. The request header is left at the generated default.",
+    "sdk_wrapper": "a2d_sdk.robot.Slam.move_to_relative simply forwards x/y/theta to SlamCore; it adds no checks."
+  },
+  "request_schema": {
+    "installed_sdk_call": "Slam.move_to_relative(x, y, theta)",
+    "hal_service": "/hal/nav/move_relative",
+    "request": {
+      "header": "std_msgs/Header; SDK method leaves it unset/default",
+      "x": "float32",
+      "y": "float32",
+      "theta": "float32"
+    },
+    "response": {
+      "error_code": "int32 / protobuf sfixed32; the .srv does not define a numeric enum"
+    },
+    "explicitly_absent": [
+      "coordinate frame selector",
+      "linear or angular velocity",
+      "acceleration/deceleration",
+      "straight-line or reverse-motion mode",
+      "timeout or cancel/request ID",
+      "arrival pose or completion state"
+    ]
+  },
+  "hal_and_controller_contract": {
+    "server_handler": {
+      "symbol": "genie::node::GenieWrapper::HandleMoveRelative(NavigatePose_Request, NavigatePose_Response)",
+      "binary": "outputs/navigation_contract/robot_probe/hal_static/hal.aarch64",
+      "va": "0x55174",
+      "size_bytes": 612,
+      "static_observations": [
+        "This is a distinct handler from HandleNavigatePose (VA 0x54f10).",
+        "The handler invokes a separate wrapper vtable slot for MoveRelative.",
+        "It loads the request float fields and supplies a constant 1.0 in the third floating-point argument; it does not visibly inspect header.frame_id or set a motion mode.",
+        "The response error_code is initialized to zero. A failed low-level boolean result enters nonzero error branches (values 1/2 appear on separate failure paths). The .srv contains no enum explaining these codes."
+      ],
+      "assembly_excerpt": [
+        "0x551a4: str wzr, [response, #24] (initial error_code=0)",
+        "0x551b8: fmov s2, #1.0",
+        "0x551c0: ldp s1, s3, [request, #32]",
+        "0x551c8: ldr s0, [request, #40]",
+        "0x551cc: blr x2 (indirect MoveRelative wrapper call)",
+        "0x55230: stores error_code 2 on one failure path; 0x55244 stores 1 on another"
+      ]
+    },
+    "controller_wrapper": {
+      "symbol": "genie::devices::linkhouWrapper::MoveRelative(float,float,float,float)",
+      "binary": "outputs/navigation_contract/robot_probe/hal_static/hal.aarch64",
+      "va": "0x14dce4",
+      "size_bytes": 2212,
+      "http_method_and_endpoint": "POST /api/AMR/MoveRelative",
+      "serialized_json_fields": {
+        "id": "read from the HAL wrapper instance member at offset 0xA0; its live value was not read back",
+        "x": "signed integer conversion of float argument 0 using FCVTZS (truncate toward zero)",
+        "y": "signed integer conversion of float argument 1 using FCVTZS (truncate toward zero)",
+        "z": "signed integer conversion of float argument 2 using FCVTZS (truncate toward zero); the service handler supplies 1.0 in this argument slot",
+        "theta": "signed integer conversion of float argument 3 using FCVTZS (truncate toward zero)"
+      },
+      "static_addresses": [
+        "0x14dd88 loads the wrapper id member; 0x14dd94 names JSON key id",
+        "0x14ddd0/0x14dddc convert/write x",
+        "0x14de18/0x14de24 convert/write y",
+        "0x14de60/0x14de6c convert/write z",
+        "0x14dea8/0x14deb4 convert/write theta",
+        "0x14df04 loads /api/AMR/MoveRelative; 0x14df34 calls PostRequest",
+        "0x14e024 onward checks/parses response ErrorCode"
+      ],
+      "return_contract": "The wrapper parses an HTTP ErrorCode and returns a boolean to HAL. The HAL service maps its wrapper result to error_code, but the result schema has no motion-complete or target-reached field. No saved live MoveRelative response sample exists."
+    },
+    "id_caution": "Static MoveRelative payload takes id from a wrapper member, not from the NavigatePose request. The locally captured linkhou_chassis_config.yaml says amr_id=102, while the fresh controller snapshot reports Agv/device id 424. The exact runtime binding of that member to the current controller ID has not been proven; do not hardcode either value into a candidate body.",
+    "separate_pnc_proto": {
+      "found": true,
+      "schema": "outputs/navigation_contract/robot_probe/protos/pnc/RelativeMove.srv: uint64 request_id, TaskHeader header, geometry_msgs/PoseStamped target -> request_id, TaskServiceResult result",
+      "also_found": "RelativeTranslation uses the same PoseStamped target; RelativeRotation uses QuaternionStamped plus a direction enum comment.",
+      "not_the_sdk_path": "No local SDK/HAL wiring was found from /hal/nav/move_relative to these PNC service types. The installed SDK path uses NavigatePose_Request; do not import PoseStamped's framing or units into it."
+    }
+  },
+  "units_frame_and_motion_semantics": {
+    "units": "The SDK and NavigatePose proto have no x/y/theta unit annotations. HAL converts the four relative-motion float arguments directly to integers by truncation; it does not scale metres to millimetres or radians to degrees. Absolute NavigatePose conventions cannot by themselves establish the separate MoveRelative controller endpoint's units. A fractional input such as 0.1 becomes integer 0 at the HAL boundary.",
+    "frame": "The request carries a Header type, but the installed SDK method does not populate it. HAL reads x/y/theta fields and serializes id/x/y/z/theta without a frame field. The comment calls the endpoint relative-position movement, but does not identify base_link, map, odom, current heading, or another reference frame.",
+    "trajectory": "The API expresses a relative pose/target. It has no line-only, reverse-only, no-yaw, curvature, or trajectory constraint. x/y/theta alone do not prove that motion stays on a straight segment, that reverse is selected, or that heading is held while translating.",
+    "collision_zones": "The live config snapshot contains a backward strategy referencing rear range 7 (rear vision sensor 13), plus rotation ranges. This confirms configuration only; there is no local call-chain evidence that MoveRelative uses these same avoidance strategies or preserves side protection throughout its path."
+  },
+  "mode_speed_and_stop": {
+    "mode": "The SDK exposes switch_nav_mode separately; AGVModeControl documents 1=manual and 2=automatic. MoveRelative has no mode parameter and the inspected HAL handler contains no explicit mode gate before calling the wrapper. The server may still reject commands based on current mode; that behavior was not established. The current controller schedule snapshot sets isCanBackward=false; its interaction with direct MoveRelative is undocumented, so treat a reverse attempt as blocked until clarified.",
+    "speed": "The MoveRelative SDK and REST payloads contain no speed or acceleration field. Current controller values include scheduleParam.maxSpeed=1000, maxFullVectorSpeed=20, maxEmptyVectorSpeed=20, maxCurveSpeed=200, and autoMoveParam.maxSpeed=200, but their units/enforcement on MoveRelative are not established. A historical persisted HAL config records max_linear_speed and max_angular_spped near 0.2; SetChassisConfig evidence concerns a global chassis configuration path, not a verified per-relative-move cap.",
+    "return_and_completion": "The response is an error_code/request-layer result only. It does not contain progress, final pose, completed, or stopped fields. A zero service error_code cannot be treated as arrival. Completion would need independent fresh position/velocity feedback and map identity checks.",
+    "stop": "PauseWalk is a separate endpoint and SDK call; the MoveRelative request contains no cancel token. Existing local code can request pause and confirm multiple fresh near-zero-speed samples, but there is no evidence that PauseWalk is a safety-rated stop or that it cancels this exact controller request under communication loss."
+  },
+  "candidate_request_contract": {
+    "enough_to_build_a_software_candidate": true,
+    "candidate_schema": {
+      "sdk_method": "Slam.move_to_relative(x: float, y: float, theta: float)",
+      "service": "/hal/nav/move_relative",
+      "request_type": "NavigatePose_Request",
+      "request_fields": {"header": "unset/default", "x": "float32", "y": "float32", "theta": "float32"},
+      "response_type": "NavigatePose_Response { error_code: int32 }",
+      "controller_post_body_shape": {"id": "HAL wrapper member; unresolved", "x": "trunc(arg0)", "y": "trunc(arg1)", "z": "trunc(1.0) from HAL handler", "theta": "trunc(arg3)"}
+    },
+    "not_ready_for_dispatch_because": [
+      "x/y/theta physical units are unknown for this endpoint; fractional values are truncated before the controller call.",
+      "Reference frame and sign convention for reverse are not identified.",
+      "The API does not constrain a straight path or specify a velocity; current isCanBackward=false may conflict with a reverse request.",
+      "The live wrapper id value is unresolved and differs potentially from the controller's id (historical amr_id=102 versus current controller id=424).",
+      "No evidence establishes whether this route consumes configured side/rear obstacle zones or how it behaves when a zone triggers.",
+      "A request response does not establish arrival or stopping; pause behavior and independent feedback must be tested for this route before relying on them."
+    ],
+    "execution_status": "Do not send this request until units, frame/sign, HAL wrapper id, mode acceptance, speed behavior, path/avoidance behavior, and independently observed stop semantics have local evidence and a supervised physical validation plan. No numeric candidate values are proposed here."
+  },
+  "evidence": [
+    {"file": ".venv/lib/python3.10/site-packages/a2d_sdk/core/slam/slam_core.py", "lines": "40-85,160-174", "fact": "Separate move_relative client uses NavigatePose request/response; method only assigns x/y/theta and returns send_request result. Installed SHA matches robot_probe/docs/slam_core.py."},
+    {"file": ".venv/lib/python3.10/site-packages/a2d_sdk/robot.py", "lines": "187-191", "fact": "Public Slam method forwards arguments without validation or conversion."},
+    {"file": "outputs/navigation_contract/robot_probe/protos/agv/NavigatePose.srv", "lines": "1-8", "fact": "Comments label global navigate versus relative movement; request is Header+x/y/theta and response is only int32 error_code."},
+    {"file": "outputs/navigation_contract/robot_probe/protos/generated_pb2/NavigatePose_pb2.descriptor.txt", "lines": "5-39", "fact": "AST-extracted descriptor confirms float x/y/theta and int32/sfixed32 error_code; it has no original comments or units."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/symbols_selected.txt", "lines": "45-46", "fact": "HAL contains distinct HandleMoveRelative and HandleNavigatePose handlers over the same NavigatePose request type."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/controller_api_paths.txt", "lines": "23-26", "fact": "HAL contains separate MoveToTargetPose and MoveRelative controller endpoints."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/hal.aarch64", "fact": "Static disassembly at Handler VA 0x55174 and wrapper VA 0x14dce4; the binary hash is 1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309. Key instruction addresses and payload fields are recorded above; the binary was not executed."},
+    {"file": "outputs/navigation_contract/robot_probe/hmi/all_api_occurrences.tsv", "lines": "59", "fact": "HMI exposes POST /api/AMR/MoveRelative with generic data:e; no schema or units in the captured call site."},
+    {"file": "outputs/navigation_contract/g1_nav_api_report.md", "lines": "241,246,250", "fact": "Mode values are documented separately; prior interface review explicitly found MoveRelative units undocumented; the cited global chassis limits are separate from per-request semantics."},
+    {"file": "outputs/avoidance_design_20261014/controller_snapshot_current.json", "lines": "1-15,1414-1417,2134-2140,2226-2239,2258-2269", "fact": "Fresh map-7/controller-424 configuration snapshot, backward strategy and movement fields; native runtime map remains unverified."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_conf/linkhou_chassis_config.yaml", "lines": "1-6", "fact": "Historical HAL chassis config includes amr_id=102; not sufficient to resolve the live wrapper id field."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_conf/persisted_chassis_config.yaml", "lines": "1-2", "fact": "Historical persisted max linear/angular speed values are about 0.2; this file alone does not prove current MoveRelative enforcement."},
+    {"file": "outputs/navigation_contract/robot_probe/protos/pnc/RelativeMove.srv", "lines": "1-6", "fact": "A different PNC schema exists (request_id, TaskHeader, PoseStamped target), but no wiring to the installed SDK/HAL MoveRelative path was found."}
+  ]
+}

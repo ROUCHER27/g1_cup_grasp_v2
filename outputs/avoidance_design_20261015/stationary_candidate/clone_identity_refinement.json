@@ -1,0 +1,8 @@
+{
+  "change_scope": "new clone only; all original regions unchanged",
+  "region_id": 8,
+  "name": "前停车静态诊断",
+  "uuid": "{f405883a-d0b5-44fd-89b0-58973c94ae3e}",
+  "reason": "unique descriptive name and UUID for the added diagnostic region; controller acceptance still unverified",
+  "controller_modified": false
+}

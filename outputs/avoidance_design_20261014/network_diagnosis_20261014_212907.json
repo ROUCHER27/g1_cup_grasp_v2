@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-10-14T21:29:07.454936+08:00",
+  "status": "ROBOT_ETHERNET_LINK_DOWN",
+  "source_report": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/controller_snapshot_current.json",
+  "observations": {
+    "interface": "enp5s0",
+    "carrier": 0,
+    "link_state": "NO-CARRIER / DOWN",
+    "ipv4_addresses": [],
+    "route_to_10_42_0_153": "via 192.168.3.1 dev wlp3s0 src 192.168.3.13",
+    "tcp_checks": [
+      {
+        "port": 6002,
+        "timeout_s": 3,
+        "result": "timeout"
+      },
+      {
+        "port": 8080,
+        "timeout_s": 3,
+        "result": "timeout"
+      }
+    ]
+  },
+  "interpretation": "The robot wired route is absent. No controller snapshot was obtained; this is not evidence about avoidance geometry or its sensitivity.",
+  "required_external_action": "Restore physical Ethernet connectivity and power on the robot/network device. Confirm the workstation wired address and route are restored, then repeat the read-only capture.",
+  "network_configuration_changed": false,
+  "robot_commands_sent": false
+}

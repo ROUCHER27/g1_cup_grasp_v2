@@ -1,0 +1,317 @@
+{
+  "baseline_commit": "91f812d542dd86f3350592a3a8a625b11e4aa58a",
+  "baseline_tag": "baseline/zip-20261014",
+  "archive_path": "/home/yirong/下载/g1_cup_grasp_v2.zip",
+  "archive_sha256": "6d409f01379b8092752c90fd60a681c3bc771c20e9812bf6c704fc0ecb63aa3d",
+  "imported_files": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "sha256": "3b5df1de93d7bf6b1e97b3051bbd9d8893dc9b716b3776f4ca13d5e076bc915d",
+      "git_blob": "e727c1b8af87e2eb5542d4cee55feb57200cb827",
+      "bytes": 82
+    },
+    {
+      "path": "config/grasp_v2.yaml",
+      "mode": "100644",
+      "sha256": "80adbdbca668820150f4c7dfacba4503bda6d5ac4c1f0ebe4e1ed6952e2a4f74",
+      "git_blob": "a291caf2f5ae7ed6e201b77ef297a4fbd87db56b",
+      "bytes": 3923
+    },
+    {
+      "path": "config/perception.yaml",
+      "mode": "100644",
+      "sha256": "cf89dc5121723c5f757e6f91bccdba3e288497c4003638c53db99478ae5af26c",
+      "git_blob": "b170b3f771cca96920e513c32741fd871e634075",
+      "bytes": 1106
+    },
+    {
+      "path": "config/transport.yaml",
+      "mode": "100644",
+      "sha256": "99de1104c6c3e3d6c4c0acb4f1bdce9d1bb2d4b54d1b4c3ffeff969b803f71e2",
+      "git_blob": "8b54c39f5e22969d2800f781ec1de203a9fcc592",
+      "bytes": 1491
+    },
+    {
+      "path": "models/robot/G1_120s.urdf",
+      "mode": "100644",
+      "sha256": "865dc8a81a9d93e60f5163a941ca62d67cad61679e9c1cf35db0e9c1bcf5e11b",
+      "git_blob": "be87ed2d856597b91244a9a58052ccf84cb25672",
+      "bytes": 52259
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "sha256": "3ae803ab12dbf70a7e3f97d16535b1d33489d7820cafc1149198d7d1b0833df4",
+      "git_blob": "0bff3e2fc080496a1fc5559badffc36155f7d7f6",
+      "bytes": 385
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "sha256": "9bc0362e44cb63101b2ef0aeb9e001fbb94cb385656ee1d1b19f32f1203eef98",
+      "git_blob": "faf4400f3dd6bd7b842b2513635559e9222ee5d7",
+      "bytes": 13700
+    },
+    {
+      "path": "requirements.txt",
+      "mode": "100644",
+      "sha256": "b546488bf7a1d84f504c5cdf10ffb579bfdcb3846115005fb7c13155b00524cd",
+      "git_blob": "7f35e9b1be060512e5791eea8353dfe64729833d",
+      "bytes": 416
+    },
+    {
+      "path": "src/g1_cup_grasp/carry.py",
+      "mode": "100644",
+      "sha256": "cb91a4106aa3875440e0b5d55b0eab86cfaa795c8fada9a14eb9724111c41047",
+      "git_blob": "0e29cd0edec86e1ab715c00db361c308d31bedf0",
+      "bytes": 5053
+    },
+    {
+      "path": "src/g1_cup_grasp/config.py",
+      "mode": "100644",
+      "sha256": "61ee45ea2f71525cbcb375adeab873aac22dcb24a44ff01670cd6fd7b998d147",
+      "git_blob": "e37661c8caed0d808541cc27bd7b9331bdc9a6be",
+      "bytes": 1745
+    },
+    {
+      "path": "src/g1_cup_grasp/domain.py",
+      "mode": "100644",
+      "sha256": "8a8b0f67d7c8512db2a1acc35079afbb2121d90ea8ec9f37810a52e2c732cde2",
+      "git_blob": "03d37413ac1bbb11b0ab0eecedfae55baa0bdeca",
+      "bytes": 2233
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/deprojection.py",
+      "mode": "100644",
+      "sha256": "8c818d5ca2a8a9ccf67005a62a8eddc403f8e7f9848f343fd61e5a47d4d8b4c5",
+      "git_blob": "66adf74f36b2c0b251a7f4578530d0a97dfd473f",
+      "bytes": 6370
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/transforms.py",
+      "mode": "100644",
+      "sha256": "7c3159b5c5f886c0f5dd3e54c02be08f61fae15209442083182b256f76a4f4cc",
+      "git_blob": "ff8602fc592d7402fadb6251e61080c83a4c4263",
+      "bytes": 4003
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/__init__.py",
+      "mode": "100644",
+      "sha256": "0029aede98d067cc2347edafcc404ac1f744508621a23f12acb9db97fdbafa1a",
+      "git_blob": "f36b8349084e0851f8cdee0ad057eaed3591dce6",
+      "bytes": 457
+    },
+    {
+      "path": "src/g1_cup_grasp/grasp_planner.py",
+      "mode": "100644",
+      "sha256": "e30166f493f9e05d3cc7380b43ce953545420520a35f6079b564432f9d02e2a6",
+      "git_blob": "43d1be039089608c4eca7f341108e83c0fc79b92",
+      "bytes": 13704
+    },
+    {
+      "path": "src/g1_cup_grasp/io/camera.py",
+      "mode": "100644",
+      "sha256": "d73884f8b87169171f41003f5c3f306bda6caea48e82eec65cf7232569dd3812",
+      "git_blob": "f41af2e07c4fd44e1b6275b9b4b6cf918f114de7",
+      "bytes": 4259
+    },
+    {
+      "path": "src/g1_cup_grasp/io/chassis_feedback.py",
+      "mode": "100644",
+      "sha256": "7d9e3c7c90fbdbee13b921ecbafd1142d43afa77076e198e861114effb08bbe3",
+      "git_blob": "4f00156f3d8a9735a03f7f7ab3cf2e3a8fae75b8",
+      "bytes": 4111
+    },
+    {
+      "path": "src/g1_cup_grasp/io/robot.py",
+      "mode": "100644",
+      "sha256": "e1bcaf63ab26a32bc6421bba8125ec68f3724babc8e3d5b9df1f06daa249d097",
+      "git_blob": "f8d766e94a342f5cd94675b4fafc4a363ad2a0de",
+      "bytes": 10313
+    },
+    {
+      "path": "src/g1_cup_grasp/io/shutdown.py",
+      "mode": "100644",
+      "sha256": "95c139cad437ebd9e3b673dbcd450525ee3e74c9570af92c18ad68f24677c798",
+      "git_blob": "dd51bc90a25dd9214d2e654ad353c93ce2c6c057",
+      "bytes": 266
+    },
+    {
+      "path": "src/g1_cup_grasp/io/transport_arm.py",
+      "mode": "100644",
+      "sha256": "37bbad76f65ee7f09a6a941fd791ee0176b8d7666f1cee4caf8e189f2b555795",
+      "git_blob": "6859ae5260590d3cf7b04e722cf8ae58b77200e4",
+      "bytes": 1581
+    },
+    {
+      "path": "src/g1_cup_grasp/io/__init__.py",
+      "mode": "100644",
+      "sha256": "a5c0ff206e709254af87bf50ab24957bbe8f9b18841fa7fd01d3a47d7999d029",
+      "git_blob": "4a0979b166e2ff04b639b37c75653efd7660eee5",
+      "bytes": 96
+    },
+    {
+      "path": "src/g1_cup_grasp/kinematics.py",
+      "mode": "100644",
+      "sha256": "f558675b654a4071513ae5ae8d846f2117075568e98a4576cf2e5135f523f55d",
+      "git_blob": "4327543379c42860c2c7fc98665d2e2068310880",
+      "bytes": 11061
+    },
+    {
+      "path": "src/g1_cup_grasp/perception/yolo_segmenter.py",
+      "mode": "100644",
+      "sha256": "7e0f6e8e1142b14e3ee1587b1dc40ead481b224991f047a44610f7735a0843af",
+      "git_blob": "2d02761444016f99e027e4d683030c0a0d3cd64b",
+      "bytes": 3734
+    },
+    {
+      "path": "src/g1_cup_grasp/perception/__init__.py",
+      "mode": "100644",
+      "sha256": "96ede8fdf646e5ffa50524ecb40a238fa21f3d4002401a26edaa3a44db69e65a",
+      "git_blob": "21194c411286445ab18cad6fda9475b14b69fe20",
+      "bytes": 78
+    },
+    {
+      "path": "src/g1_cup_grasp/__init__.py",
+      "mode": "100644",
+      "sha256": "74e14426090e9ea8535986b25680ff587a297f201d3e7936b4480599934ee3bc",
+      "git_blob": "6fa57dca8b51d9ab5ddf5407bf49018a0a84bb7c",
+      "bytes": 98
+    },
+    {
+      "path": "tests/check_nearby_seed.py",
+      "mode": "100644",
+      "sha256": "2accb94b32e972c9683ab0f539292493aa1c91f02bca17eeed2e49e0cabe985a",
+      "git_blob": "7b6490966b3abddd1ab1672ce49b9c498afe8d05",
+      "bytes": 2747
+    },
+    {
+      "path": "tests/fixtures/carry_grasp_20261013.json",
+      "mode": "100644",
+      "sha256": "11c51b349c3068dc8fce5dda746af061c132b74177abf8ee4b2933825c9af86b",
+      "git_blob": "85c88af1d03a38bd5625b14c7f0a11ad91e5578a",
+      "bytes": 11368
+    },
+    {
+      "path": "tests/fixtures/carry_teach_20261013.json",
+      "mode": "100644",
+      "sha256": "201013df4628d79b1ad2ef6c0818dafe2bbb2bf626d4ec0777fb74c8fb2a31e9",
+      "git_blob": "8a387c4e149f8d3442b4f832e6156cc22e69f3e1",
+      "bytes": 1783
+    },
+    {
+      "path": "tests/fixtures/navigation_failure_20261013.json",
+      "mode": "100644",
+      "sha256": "214edf2b1967f9358d6f24bce5ab8d2790002ff2d1a136cb162ba750a0463223",
+      "git_blob": "c22a6efefb4411f6e2df8a43843051770dacf989",
+      "bytes": 15196
+    },
+    {
+      "path": "tests/fixtures/place_teach_20261013.json",
+      "mode": "100644",
+      "sha256": "b11953a2b1b7f44afa7f06c0691f5fb5e29923798fff14a7351f29ff62652ece",
+      "git_blob": "c7bda5540d648818a4953ca5ad580cdb38f89575",
+      "bytes": 2084
+    },
+    {
+      "path": "tests/test_navigation_check.py",
+      "mode": "100644",
+      "sha256": "8785d5fa1549c8e69bade2d5e8b50ec7f8f52070a20c7d1fbd9bbbbbabe2ce53",
+      "git_blob": "15dd48755890de24130e87705f02aa2c76c483f5",
+      "bytes": 3355
+    },
+    {
+      "path": "tests/test_navigation_execution.py",
+      "mode": "100644",
+      "sha256": "62ca367c646d68a6a930b84eba4746c08578e0bd824549d75573df47eeb6d45c",
+      "git_blob": "30ececed8cb2453a571b8521e616a047dbfc9a08",
+      "bytes": 12629
+    },
+    {
+      "path": "tests/test_planning.py",
+      "mode": "100644",
+      "sha256": "00a603d18875fdcfd5f632534745ed28fd7e4618c455695c7e0ff56ddea9ef66",
+      "git_blob": "0305922db7214d770a21b999ff806fab2d9ffd43",
+      "bytes": 5824
+    },
+    {
+      "path": "tests/test_transport.py",
+      "mode": "100644",
+      "sha256": "da5890d6ee192db8eb72a093e5b421c7d1d95dcc5f216df62fbdb0c088fb9904",
+      "git_blob": "b54906b49464ced9fe6ff527c0e9786ba95be888",
+      "bytes": 16191
+    },
+    {
+      "path": "tools/check_navigation.py",
+      "mode": "100644",
+      "sha256": "555a3df81bc6f69922cb5a4935d280cea242594e386b60423e9d59ac85f66098",
+      "git_blob": "a35b3d1a02c9370208ba78852176f8d310fbcbf2",
+      "bytes": 9591
+    },
+    {
+      "path": "tools/check_rgbd.py",
+      "mode": "100644",
+      "sha256": "cad1e6b4303d57433119c9e9ecb492ac819df28283dc981526e78e126081bb87",
+      "git_blob": "edbae7139cafafac608429607bff63db4d706bdc",
+      "bytes": 20154
+    },
+    {
+      "path": "tools/grasp_v2.py",
+      "mode": "100644",
+      "sha256": "23a67f6017405117108d6796221d0f7f4bd07bb323b0e0265745230cb52e4a6c",
+      "git_blob": "f8c9dd5238e8fdae4c476387eee53523f46aaa77",
+      "bytes": 18229
+    },
+    {
+      "path": "tools/live_yolo_preview.py",
+      "mode": "100644",
+      "sha256": "4260edc1c0040cb793d387883a895aa37968baa9240d2d436dcd91b96561da59",
+      "git_blob": "fa644561817ac18b40c0848a290090b3659a6e54",
+      "bytes": 23475
+    },
+    {
+      "path": "tools/native_chassis_feedback.py",
+      "mode": "100644",
+      "sha256": "f21cc6c2aeb5c8dd4ebf34bbb23af5f52175a1c33d06ba1a7b09b97b17e46bb6",
+      "git_blob": "6327422a8f89fc128c82396a75978ce0a6d1245b",
+      "bytes": 1696
+    },
+    {
+      "path": "tools/navigate_station.py",
+      "mode": "100644",
+      "sha256": "401c1c24d873c710c7e235b4c98d7f6ed9b40eab9ea462478c5d3de35b72cb6f",
+      "git_blob": "73db2c3c09ed99238712b96ed9d9cc28544d8cc0",
+      "bytes": 16279
+    },
+    {
+      "path": "tools/teach_carry_pose.py",
+      "mode": "100644",
+      "sha256": "4938b1dcfcb16f41fb7e7a395e1aa11c9532b0faf69076b5d4b9a6fb4bbd0b19",
+      "git_blob": "2398ff80d3274e38a56c90402667ef0cd03c852e",
+      "bytes": 2711
+    },
+    {
+      "path": "tools/teach_place_pose.py",
+      "mode": "100644",
+      "sha256": "4fed1f99c4b260a858b4410282f21f24fb1720493557364a8120c756a733ff8f",
+      "git_blob": "a6350c29e13152f031caa8d2161fc407b985dc2b",
+      "bytes": 2125
+    },
+    {
+      "path": "tools/teach_side_grasp.py",
+      "mode": "100644",
+      "sha256": "0979d3a24252fb501e47194173d55d5c3341cace09a4700ece0c6ef27a1d2714",
+      "git_blob": "e9078faeae3b2c6e48aed1c36965e3a3eb817b92",
+      "bytes": 4283
+    },
+    {
+      "path": "tools/transport_cup.py",
+      "mode": "100644",
+      "sha256": "b19332331348eb02276b1dc012dbf06ea933c3af7cae56b596138bfec851bc1b",
+      "git_blob": "e876bf68b85392061b6b755bc7948de628ebd562",
+      "bytes": 13865
+    }
+  ],
+  "scope_note": "Only project source/config/tests/docs and URDF imported. No historical authorship or intermediate commits inferred."
+}

@@ -1,0 +1,285 @@
+{
+  "status": "STATIC_STATIONARY_DIAGNOSTIC_CANDIDATE_NOT_APPROVED",
+  "candidate_scope": "stationary-state isolation candidate only; not a permanent design and not executable authorization",
+  "source": {
+    "run_report_path": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/static_probe_candidate/run_20261014_155222_198445/report.json",
+    "run_report_sha256": "b80a23d38bd47245bc41d5b93e9e18512783bb23b7d59348fc8284fe5ef086f6",
+    "saved_run_status": "PROBE_COMPLETE_RESTORED",
+    "saved_restoration_verified": true,
+    "saved_late_apply_risk_unresolved": false,
+    "base_group": "last_group from the saved, restored probe report",
+    "current_controller_state_rechecked": true,
+    "read_only_recheck": "../front_stop_readonly_current.json; operational parameters match restored baseline"
+  },
+  "candidate_payload_semantics": "old_group_candidate.json and new_group_candidate.json are full copies of report.last_group; they are offline candidate group-parameter objects, not approved manifests and not API requests",
+  "identity": {
+    "group_id": 1,
+    "map_id": 7,
+    "sensor_id": 6,
+    "source_range_ids": [
+      1,
+      3,
+      5,
+      6,
+      7
+    ],
+    "new_range_id": 8
+  },
+  "requested_isolation": {
+    "stationary_strategy_id": 7,
+    "stationary_strategy_name": "前停车",
+    "old_range_list": [
+      1
+    ],
+    "candidate_range_list": [
+      8
+    ],
+    "unchanged_movement_strategy": {
+      "id": 1,
+      "name": "前进",
+      "rangeList": [
+        1,
+        6
+      ]
+    },
+    "unchanged_backward_strategy": {
+      "id": 2,
+      "name": "后退",
+      "rangeList": [
+        7
+      ]
+    },
+    "unchanged_rotation_strategies": [
+      {
+        "id": 3,
+        "name": "左旋",
+        "rangeList": [
+          5,
+          3
+        ]
+      },
+      {
+        "id": 4,
+        "name": "右旋",
+        "rangeList": [
+          3,
+          5
+        ]
+      }
+    ],
+    "unchanged_rear_stop_strategy": {
+      "id": 8,
+      "name": "后停车",
+      "rangeList": [
+        7
+      ]
+    },
+    "original_region_1_unchanged": true
+  },
+  "exact_changes": [
+    {
+      "operation": "append",
+      "array_pointer": "/avoidRangesParam/avoidRangeList",
+      "index": 5,
+      "new_region_id": 8,
+      "before": null,
+      "after": {
+        "id": 8,
+        "mark": 0,
+        "name": "前停车静态诊断",
+        "sensorId": 6,
+        "shape": 0,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -272
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": -272
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "uuid": "{f405883a-d0b5-44fd-89b0-58973c94ae3e}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -272
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": -272
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -272
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": -272
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      },
+      "rationale": "clone region 1 on sensor 6; retain its stop exactly and set warn2/warn1 to the same non-empty stop polygon"
+    },
+    {
+      "operation": "replace",
+      "json_pointer": "/avoidStrategyParam/globalStrategy/6/rangeList",
+      "strategy_id": 7,
+      "strategy_name": "前停车",
+      "before": [
+        1
+      ],
+      "after": [
+        8
+      ]
+    }
+  ],
+  "rollback": {
+    "steps": [
+      {
+        "operation": "replace",
+        "json_pointer": "/avoidStrategyParam/globalStrategy/6/rangeList",
+        "from_candidate": [
+          8
+        ],
+        "restore": [
+          1
+        ]
+      },
+      {
+        "operation": "remove",
+        "array_pointer": "/avoidRangesParam/avoidRangeList",
+        "index": 5,
+        "region_id": 8,
+        "remove_condition": "only remove this appended clone; preserve all original range objects"
+      }
+    ],
+    "rollback_required_after_any_separately_authorized_diagnostic": true,
+    "automatic_apply_or_rollback_performed": false
+  },
+  "validator_check": {
+    "existing_validator_module": "src/g1_cup_grasp/avoidance_guard.py",
+    "routines_called_offline": [
+      "_validate_avoid_ranges",
+      "_validate_avoid_strategy"
+    ],
+    "candidate_accepted_by_these_existing_structural_routines": true,
+    "equal_nonempty_stop_warn2_warn1_polygons_accepted": true,
+    "validated_range_ids": [
+      1,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "interpretation": "The validator checks finite non-zero-area polygons, configured sensor IDs, unique range IDs, and strategy references; it does not establish that the controller firmware accepts equal tiers or defines their runtime semantics.",
+    "validator_modified": false
+  },
+  "geometry_and_semantics": {
+    "clone_sensor_id": 6,
+    "clone_stop_warn2_warn1_exactly_equal": true,
+    "clone_stop_polygon": {
+      "positions": [
+        {
+          "x": 50,
+          "y": -272
+        },
+        {
+          "x": 50,
+          "y": 260
+        },
+        {
+          "x": 221,
+          "y": 260
+        },
+        {
+          "x": 221,
+          "y": -272
+        }
+      ],
+      "zRange": {
+        "max": 0,
+        "min": 0
+      }
+    },
+    "navigation_allowed": false,
+    "arm_or_cup_coverage_claimed": false,
+    "controller_write_performed": false,
+    "approved_manifest_created": false,
+    "clone_name_copied_from_region_1": false,
+    "clone_uuid_copied_from_region_1": false,
+    "intended_use_stationary_diagnostic_only": true,
+    "runtime_activation_only_while_stationary_verified": false
+  },
+  "unverified_assumptions_and_limits": [
+    "Whether controller firmware accepts three equal non-empty tiers and how equal tiers behave at runtime is unknown; offline schema acceptance is not firmware validation.",
+    "This candidate isolates the configured 前停车 strategy binding only; it does not prove that this strategy is active or is the source of any Avoid state.",
+    "This candidate is for stationary diagnosis only; it must not be treated as a travel profile or permission to navigate.",
+    "The unchanged original region 1 remains bound to 前进 and is not altered; no arm, gripper, cup, cable, field-of-view, height, stopping-distance, or route-coverage claim is made.",
+    "The new clone has a unique descriptive name and fresh UUID; firmware acceptance still requires a separately authorized test.",
+    "Changing a global 前停车 binding is not proven to affect stationary use only; no navigation is authorized while the candidate is installed.",
+    "If Avoid remains while the candidate is installed, the result does not distinguish inactive 前停车 strategy, another active region, or another obstacle."
+  ],
+  "output_sha256": {
+    "old_group_candidate.json": "4843dc275c2e51440c4ae015cb6139e19d42f7863d67311e7ef766be9c7fcd3a",
+    "new_group_candidate.json": "25fb1d2baf475b750eeb1cbc0763504f1d7623cbc28c8ba6ff96021422455b77"
+  },
+  "controller_contacted": false,
+  "api_requests_made": false,
+  "physical_3d_collision_verified": false,
+  "sensor_coverage_verified": false,
+  "route_clearance_verified": false,
+  "execution_preparation": {
+    "script": "run_stationary_probe.py",
+    "offline_scenarios_passed": 9,
+    "task_state_must_be_idle": true,
+    "new_authorization_received": false,
+    "real_execution_performed": false,
+    "rollback": "Restore front-stop reference [1], verify it, then remove owned clone8; read group and effective robot parameters repeatedly."
+  }
+}

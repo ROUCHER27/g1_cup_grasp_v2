@@ -1,0 +1,62 @@
+{
+  "status": "OFFLINE_IMPLEMENTATION_TESTED_NOT_DEPLOYED",
+  "completed_at": "2026-10-14T20:38:16.334955+08:00",
+  "subagent_model": "gpt-6-luna",
+  "subagent_reasoning_effort": "max",
+  "features": [
+    "Offline body-envelope and nested avoidance-zone generation with sensor-frame transforms",
+    "Offline docking sequence candidates with explicit unverified geometry/interface blockers",
+    "Optional preserve_verified controller-configuration monitor integrated into both navigation entries",
+    "Read-only controller manifest candidate capture and offline comparison",
+    "HMI avoidance-trigger fields retained in inspection reports"
+  ],
+  "tests": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src .venv/bin/python -m pytest tests -q",
+    "passed": 200,
+    "subtests_passed": 42,
+    "duration_s": 15.73
+  },
+  "active_transport_config_unchanged": true,
+  "controller_parameters_changed": false,
+  "robot_commands_sent": false,
+  "live_capture_performed": false,
+  "preserve_verified_activated": false,
+  "docking_execution_implemented": false,
+  "limitations": [
+    "Actual profile approval, geometry/sensor/stop validation and current controller snapshot remain pending.",
+    "No verified constrained straight reverse, stationary motion inhibition, or near-table avoidance switching interface.",
+    "No full 3D arm/scene collision model.",
+    "Monitor freshness only establishes recent local request/response receipt, not server cache freshness.",
+    "Manifest digest is an integrity checksum, not authentication or safety certification."
+  ],
+  "next_read_only_command": ".venv/bin/python tools/check_avoidance_profile.py --live --output outputs/avoidance_design_20261014/controller_snapshot_current.json",
+  "artifacts": {
+    "geometry": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/geometry_plan.json",
+    "docking": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/docking_plan.json",
+    "contract_review": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/contract_review.json",
+    "offline_cli_checks": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/offline_cli_checks.json"
+  },
+  "file_sha256": {
+    "src/g1_cup_grasp/avoidance_profile.py": "09d14e7ba518d214343d4f376efddd33ecf1dac8e1a0e859b49a48f45df409a7",
+    "src/g1_cup_grasp/docking_plan.py": "bcbae57015c35b82a2ee14aa2b4c401662c61b4e85f43547c7ce939c61c4d5fc",
+    "src/g1_cup_grasp/avoidance_guard.py": "1695967e25d7280fc127e48bec8321d87dd6be068e3a746854bec480216d2095",
+    "src/g1_cup_grasp/io/controller_avoidance.py": "00e4777b6cfd1b8ea547120825e1b0ee5878034cbb0667b6374dd993d6d5bf2e",
+    "tools/plan_avoidance.py": "43d4ea446d4190c8f3cefbed91e0ab93707ae3db75903c722595268fac93143f",
+    "tools/plan_docking.py": "10b78b27852e69e6e05c2a9fa6090501b2929ed09dc00ea0e70741bff3b2c36a",
+    "tools/check_avoidance_profile.py": "d9eafad1ee2dbc04f4c2489acf87c71daea5ae4bb21e613efab4cc1c8cc10843",
+    "tools/navigate_station.py": "289ee67e02cfe1001ef821c6b314adb7c31e74372e82d8cb9a4097dd71bc6e5f",
+    "tools/transport_cup.py": "b59ccc0b35902de346b4f1bc48374e2075b301a583e7e4fad0a4089e4a7f6220",
+    "tools/check_navigation.py": "d1a5fa459cbd5d5162aeceea7b3eb117da0220fc3a843deb446fa3cc374d724f",
+    "config/avoidance_profile.example.yaml": "66c31775a863f5b7435446c0be652855fac83ecd4bff4caa0294e473e509a8f9",
+    "config/docking_plan.example.yaml": "b2709c678ace4dc16d816993ff7e33339aefb5e510fed72c87e643d45fda0e3e",
+    "config/avoidance_control.example.yaml": "045805b244eb94385564789e4a2d573095d95ec9c902d44fa2d6d63ae5fb6c85",
+    "tests/test_avoidance_profile.py": "c463b07526122a10c3bf6c3863fafbb56fa95ae7e6ed3b5e84d1194d4a10e139",
+    "tests/test_docking_plan.py": "73b2210ab13ada874f317cec3ee59215aea10bc4232eaab50f8fc628679f541e",
+    "tests/test_avoidance_guard.py": "ecddd9f4955a8bb732730f09ae565cf6b5b2e7efd0afa0eb7809114ddeda4078",
+    "tests/test_controller_avoidance_snapshot.py": "2986e3c1fa0e8c488e18e5c6dd485bf20780523c0f481435f894e47d1d5229a5",
+    "tests/test_avoidance_control_integration.py": "19c588b5e105dc93ec4451d3af730fc7e14a546c9eabefd71e8356ea16357ad5",
+    "tests/test_avoidance_profile_cli.py": "61305f80db35020648b066c688d8439f55f28d0e5313ee2e16fd6c4854fee52b",
+    "README.md": "4e7cc762ca861d6998574d0a08368e7333fc4b6f21aa09c01c1496f2a4e19dde",
+    "docs/field_test_runbook.md": "7af5f5bf89a88f08eea2bc2f0943dd9ee529be949bf9d452e2ba73c88288aafb"
+  }
+}

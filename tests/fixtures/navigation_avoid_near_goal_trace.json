@@ -1,0 +1,21 @@
+[
+  {"agv_status":8,"position_conf":99.0,"agv_pos_x":1.542,"agv_pos_y":1.344,"agv_angle":0.0,"linear_speed":0.0,"angular_speed":0.0,"timestamp_ns":0},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":1.346,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":1000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":1.096,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":2000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":0.846,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":3000000000},
+  {"agv_status":5,"position_conf":99.0,"agv_pos_x":0.846,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.1,"angular_speed":0.0,"timestamp_ns":3500000000},
+  {"agv_status":5,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.1,"angular_speed":0.0,"timestamp_ns":4000000000},
+  {"agv_status":5,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.1,"angular_speed":0.0,"timestamp_ns":6000000000},
+  {"agv_status":5,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.1,"angular_speed":0.0,"timestamp_ns":8000000000},
+  {"agv_status":5,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.1,"angular_speed":0.0,"timestamp_ns":9500000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":10000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":14500000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":1.006,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":15100000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":0.946,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":16000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":0.846,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":17000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":0.746,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":18000000000},
+  {"agv_status":7,"position_conf":99.0,"agv_pos_x":0.686,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.2,"angular_speed":0.0,"timestamp_ns":19000000000},
+  {"agv_status":8,"position_conf":99.0,"agv_pos_x":0.686,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.0,"angular_speed":0.0,"timestamp_ns":20000000000},
+  {"agv_status":8,"position_conf":99.0,"agv_pos_x":0.686,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.0,"angular_speed":0.0,"timestamp_ns":20500000000},
+  {"agv_status":8,"position_conf":99.0,"agv_pos_x":0.686,"agv_pos_y":1.098,"agv_angle":3.141592654,"linear_speed":0.0,"angular_speed":0.0,"timestamp_ns":21100000000}
+]

@@ -1,0 +1,50 @@
+{
+  "status": "MEASUREMENTS_ADOPTED_DESIGN_NOT_APPLIED",
+  "recorded_at": "2026-10-14T22:31:41.321509+08:00",
+  "scope": "current docking pose; station-specific A/B equivalence not established",
+  "manual_measurements": {
+    "reference": "chassis front edge, forward gap",
+    "table_edge_gap_m": 0.2,
+    "two_table_legs_gap_m": 0.4,
+    "source": "user on-site approximate manual measurements",
+    "user_explicitly_requested_use": true,
+    "adopted_as_design_inputs": true,
+    "camera_remeasurement_required_for_adoption": false
+  },
+  "current_region_projection_comparison": {
+    "laser_stop_front_extent_m": 0.144,
+    "leg_minus_laser_boundary_m": 0.256,
+    "front_vision_stop_front_extent_m": 0.44,
+    "table_edge_overlap_with_vision_x_projection_m": 0.24,
+    "interpretation": "Distance projection only. Height intersection, active trigger source, and braking performance are not established."
+  },
+  "design_decisions": [
+    "Use the accepted 0.20 m and 0.40 m manual distances for this docking pose.",
+    "Retain low obstacle and lateral arm protection when designing near-table approach.",
+    "Investigate the front visual region height and actual trigger source before changing it.",
+    "Do not disable all collision protection or assume point navigation enforces a straight approach.",
+    "Keep travel protection referenced to the full arm/body envelope; do not replace it with 0.20 m measured from the bare chassis."
+  ],
+  "rgbd_capture": {
+    "report": "outputs/ego_rgbd/20261014_222140/capture_report.json",
+    "frame_count": 97,
+    "span_s": 9.958522429998993,
+    "color_video": "outputs/ego_rgbd/20261014_222140/color.mp4",
+    "depth_video": "outputs/ego_rgbd/20261014_222140/depth_preview.mp4",
+    "analysis": "outputs/ego_rgbd/20261014_222140/depth_scene_analysis.json",
+    "video_validation": "Both H.264 1280x800, 97 frames, playback duration 10.062257 s",
+    "calibration_live_pose_verified": false,
+    "limitations": "Visible tabletop and arms supplement the manual inputs; hidden support clearance and full arm sweep are not measured by this recording."
+  },
+  "verification": {
+    "pytest": "224 passed, 42 subtests passed in 15.74s"
+  },
+  "controller_configuration_changed": false,
+  "robot_motion_commands_sent": false,
+  "near_table_execution_enabled": false,
+  "artifacts": [
+    "outputs/avoidance_design_20261014/comparison.json",
+    "outputs/avoidance_design_20261014/docking_clearance_check.json",
+    "outputs/avoidance_design_20261014/relative_motion_contract_review.json"
+  ]
+}

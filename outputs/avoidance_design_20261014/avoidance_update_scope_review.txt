@@ -1,0 +1,48 @@
+Offline HMI/controller update-scope review
+No controller request or write was performed for this review.
+
+HMI editor path
+
+- HMI bundle outputs/navigation_contract/robot_probe/hmi/app.643cf7521fd056dc5180.js
+  at character offset 303434 initializes the avoid-range editor from
+  rowData.avoidRangesParam.avoidRangeList; its save handler merges the
+  modified avoidRangesParam into submitData and calls
+  Object(K.i)(submitData,"AgvType").
+- The request helper is extracted in
+  outputs/navigation_contract/robot_probe/hmi/additional_api_context.txt:4:
+  it sends POST /api/Config/ + type + /UpdateParam with data:e.
+  Together with the explicit "AgvType" call above, the HMI area editor uses
+  POST /api/Config/AgvType/UpdateParam and sends the complete submit object,
+  including nested avoidRangesParam, rather than a single-region patch.
+
+Scope observed in local saved responses
+
+- controller/api_Config_AgvType_GetParam_empty.json returns the AgvType
+  collection keyed by type ID 1, whose record contains avoidRangesParam.
+- controller/api_Config_AgvType_GetParam_id424.json returns
+  ErrorCode=2, Invalid Argument: Id Not Exist; 424 is a robot ID, not an
+  AgvType ID.
+- controller/api_Config_Agv_GetParam_id424.json returns the individual
+  robot record with id=424, agvTypeId=1 and its current avoidance fields.
+- Therefore the HMI's documented avoidance editor changes shared AgvType 1
+  configuration, not a robot-424-only record. The UI has a generic Agv
+  UpdateParam path, but local evidence does not establish that it is a
+  robot-specific avoidance editor or that HAL consumes a per-robot override.
+
+HAL corroboration
+
+- hal_static/SetAvoidRange.disasm.txt:23-39 GETs
+  /api/Config/AgvType/GetParam; lines 141-171 select response Content key
+  "1"; lines 263-287 select and modify that record's avoidRangesParam field;
+  lines 303-316 POST the full dumped configuration to
+  /api/Config/AgvType/UpdateParam. The HAL path is group/type ID 1 here.
+
+Limits
+
+- No local evidence establishes how many other robots share AgvType 1, whether
+  HMI UpdateParam requires reload,
+  whether the update is applied immediately to active runtime state, or how a
+  per-robot override would be applied and restored. The HAL's direct
+  GetParam/UpdateParam path shows an API mechanism, not those runtime
+  guarantees. A robot-specific temporary write and its restoration protocol
+  are therefore unverified.

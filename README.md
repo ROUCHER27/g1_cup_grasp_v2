@@ -1,5 +1,7 @@
 # G1 Cup Grasp V2
 
+> 2026-10-15 交接入口：[当前状态、全部代码改动和 Git 基线](docs/handoff_codex_20261015.md)。下文现场命令需结合该文档的未完成项阅读。
+
 V2 将现有 RGB-D、YOLO 和手眼矩阵接到一个新的最小抓取流程：
 
 ```text
@@ -30,11 +32,11 @@ YOLO 分割
 V2 暂时复用已经可以连接 GDK 和相机的旧环境，不需要重新安装：
 
 ```bash
-source /home/mskjuzi/a2d_sdk/env.sh
-source /home/mskjuzi/projects/g1_cup_grasp_gdk/.venv/bin/activate
-cd /home/mskjuzi/projects/g1_cup_grasp_v2
-export PYTHONPATH="$PWD/src"
+source /home/yirong/g1_cup_grasp_v2/scripts/env_laptop.sh
 ```
+
+2026-10-14 起工作机迁到 RTX 5090 笔记本（`/home/yirong/g1_cup_grasp_v2`，venv `.venv`，G1 GDK 在
+`/home/yirong/g1_gdk/a2d_sdk`）；旧 WSL 路径 `/home/mskjuzi/...` 已废弃。torch 为 CPU 版，YOLO 用 `--device cpu`。
 
 V2 使用的 NumPy、SciPy、OpenCV、PyYAML、Ultralytics 和 GDK 已在该环境中。
 
@@ -142,14 +144,17 @@ python tools/teach_side_grasp.py --device cpu
 
 ## 导航步骤 1：停靠点与只读检查
 
-`config/transport.yaml` 保存地图 6（CUP）的底盘停靠目标：
-A 为 `(1.542, 1.344) m, 0 rad`，B 为 `(0.646, 1.098) m, pi rad`。
-这是地图中的底盘位置，杯子放置点仍需在 B 桌单独示教。
+`config/transport.yaml` 保存地图 7（cup_new）的底盘停靠目标：
+A 为 `(0.049, 0.072) m, -0.185039 rad`，B 为 `(-1.570, 0.396) m, 2.976621 rad`。
+这是地图中的底盘位置；B 桌放杯姿态已在 2026-10-14 重新录入，并保存当时的底盘地图参考。
+A 采用用户确认的新停靠位，来源为 `outputs/navigation_check/20261014_103008_033002_A.json` 的五次稳定采样；
+B 使用最终复采的 `station_teach_20261014_100550_490773_B.json`。
+当前离线请求为 A=`(49,72,349)`、B=`(-1570,396,171)` 毫米／度。
 
 在原 GDK 环境下运行，只读取地图列表、底盘状态和 HMI 配置：
 
 ```bash
-cd /home/mskjuzi/projects/g1_cup_grasp_v2
+cd /home/yirong/g1_cup_grasp_v2
 python tools/check_navigation.py --station B
 ```
 
@@ -160,7 +165,7 @@ python tools/check_navigation.py --station B
 不表示已验证导航、抓取可达性或放置安全性。普通 GDK 状态消息不提供运行时地图 ID；使用 `--native-feedback` 从机器人原生
 `/hal/position` 获取实际 `map_id`，报告要求连续更新的反馈。充电状态和导航模式可在报告的 HMI 状态中查看。
 
-地图 6 的导航入口为 `tools/navigate_station.py`。默认只读取反馈；`--preview`
+地图 7 的导航入口为 `tools/navigate_station.py`。默认只读取反馈；`--preview`
 只在离线计算请求参数，不初始化 SDK、不访问机器人：
 
 ```bash
@@ -171,7 +176,7 @@ python tools/navigate_station.py --station B
 2026-10-13 携杯导航发生碰撞，未到达 B。已核对实际机器人上的 HAL 服务实现：
 此版本 `navigate_to_pose(x, y, theta)` 请求采用 **毫米／度**，
 `get_chassis_position()` 的地图位置反馈采用 **米／弧度**，两者单位不同。
-配置仍保存米／弧度，发送前只转换一次：A=`(1542,1344,0)`，
+事故时旧图 6 的配置保存米／弧度，正确转换请求为 A=`(1542,1344,0)`，
 B=`(646,1098,180)`。原 B 请求 `(0.646,1.098,pi)` 经服务端整数截断后
 实际被编码为 `(0,1,3)`，造成目标解释错误。接口使用当前地图的绝对坐标；
 `odom_x/y/angle` 属于里程计坐标系，不能用作 A/B 目标。
@@ -179,15 +184,17 @@ B=`(646,1098,180)`。原 B 请求 `(0.646,1.098,pi)` 经服务端整数截断后
 证据见 `outputs/navigation_contract/verification.md` 与该目录的服务器二进制、
 反汇编记录。这一契约只针对已核对的 HAL 版本，升级后必须重新验证。
 
-`enable_real_navigation: false` 保持真实派发禁用。即使开启该配置，执行检查仍要求
-连续更新的原生 `map_id` 与地图 6 一致；HMI 配置或控制器选择的地图不能替代这项证据。
+`enable_real_navigation` 控制独立导航入口，必须显式设为 `true` 并传入 `--dispatch` 才会派发。执行检查仍要求
+连续更新的原生 `map_id` 与地图 7 一致；HMI 配置或控制器选择的地图不能替代这项证据。
 当前安装的 GDK 没有透传该字段；完整携杯入口通过原生反馈核对地图。工具不会自动切换模式、
 重定位或恢复行走。
 
-真实导航派发前，`tools/navigate_station.py` 会先调用 GDK 的
+默认 `hal_level` 模式下，真实导航派发前，`tools/navigate_station.py` 会先调用 GDK 的
 `set_agv_col_level(agv_collision_level)` 设置底盘避障等级，再调用
 `set_agv_col_ctrl(True)` 开启底盘避障；只有两项响应都成功才会发送导航目标。
-`config/transport.yaml` 当前设为 3（指南说明等级越高越灵敏）。这只接入底盘避障，
+`config/transport.yaml` 当前设为 2。已核对的 HAL 7.2.0.23 实测表明避障区域倍率为
+1→0.8×、2→1.0×、3→0.8×；结论见
+`outputs/navigation_contract/g1_nav_api_report.md` §1.1。这只接入底盘避障，
 不代表机械臂轨迹已有碰撞规划；机械臂规划边界见下文。
 
 未来执行分支要求：底盘 Idle、定位置信度至少 50、A 点位置/朝向符合容差、
@@ -202,29 +209,75 @@ B=`(646,1098,180)`。原 B 请求 `(0.646,1.098,pi)` 经服务端整数截断后
 原始故障轨迹保存在 `outputs/navigation_check/20261013_092408_948878_B_navigation.json`。
 修复经过离线请求预览与故障轨迹回放测试；用户已完成空载 A→B 验证；携杯运输尚未进行实机验收。
 
+### 避障容忍（2026-10-14）
+
+导航看门狗将底盘 `Avoid`（`agv_status=5`）作为可恢复状态。单次避障最多 30 秒，累计最多 60 秒，最多进入 5 次；避障及其后 5 秒宽限期内，单 episode 偏离不得超过 `avoid_max_departure_m`，所有 episode 的最大偏离合计不得超过 `avoid_total_departure_m`（默认 2 m）。该期间冻结“接近后远离”和无进展检查；宽限期结束后重设进度基线。置信度、地图、底盘错误和其它保护状态仍按原规则检查；到达仍需位置误差不超过 0.05 m、朝向误差不超过 5°、Idle、近零速度、至少 3 个新样本并持续 1 秒。
+
+`config/transport.yaml` 的 `navigation:` 可配置 `no_progress_timeout_s`、`timeout_base_s`、`timeout_per_metre_s`、`timeout_max_s`、`avoid_timeout_s`、`avoid_total_timeout_s`、`avoid_grace_s`、`avoid_max_episodes`、`avoid_max_departure_m`、`avoid_total_departure_m`、`treat_halted_walking_as_avoid` 和 detour 参数。detour 尚未实现，`detour.enabled: true` 会被拒绝；`occupied_threshold` 范围为 1..100。默认将暂停行走的状态 7 视为普通 Walking，只有显式开启 `treat_halted_walking_as_avoid` 才计为避障。每段导航的默认超时为 `min(timeout_max_s, timeout_base_s + timeout_per_metre_s × 起点到目标距离 + avoid_total_timeout_s)`；命令行显式提供 `--timeout-s` 时使用该值。
+
+可选 `chassis_info:` 用于设置 `max_linear_speed`、`max_angular_speed` 和 `min_collision_distance`。速度单位为 m/s、rad/s；该 HAL 未将 `min_collision_distance` 接入避障多边形。设置前必须读到现值，设置后须通过更新的读回确认；未确认时重新发布原值并中止。导航报告新增 `navigation_settings`、`navigation_timeout_s`，每条反馈带 `leg`，并记录 `avoidance` episode 汇总及碰撞等级、`chassis_info` 读回状态。
+
+### 新工具（2026-10-14）
+
+```bash
+python tools/chassis_pause.py --release --confirm-path-clear
+python tools/teach_station.py --station A --samples 5 --expect-map-id 7
+python tools/map_manager.py --list
+```
+
+- `chassis_pause.py --release` 要求显式确认路径畅通；它检查 HMI 和底盘反馈，在发出继续命令前再核对一次 HMI 暂停状态，之后监视底盘反馈与 HMI，检测到运动或状态 7 会请求再暂停并确认停车。`--pause` 只发送一次 `pause_walk(True)`；SDK 未返回 `success is True` 时写入失败报告并返回 2。`--native-feedback` 只适用于 `--release`。`PAUSE_RELEASED` 返回 0；确认再暂停后的运动恢复或 `PAUSE_NOT_RELEASED_REPAUSED` 返回 2；再暂停未能确认、异常返回 1。所有已发命令和采样会写入报告，关闭 native 反馈失败记在 `close_error`，不覆盖业务状态。
+- `teach_station.py` 始终通过原生底盘反馈采集停靠点，`--samples` 至少为 3，只生成候选、请求预览和 JSON 报告；不会发送机器人命令，也不会修改 `config/transport.yaml`。运行时地图要求样本至少 3 个、时间戳递增且所有样本地图 ID 一致；与配置地图不一致只作标记。给出 `--expect-map-id` 后，候选地图不符则拒绝。候选通过返回 0，稳定性/状态/地图/显式地图要求不通过返回 2，异常返回 1。HMI 或控制器读取失败会保留样本并记录对应错误字段。
+- `map_manager.py` 只读取地图清单、HMI 和控制器地图选择；可加 `--native-feedback` 核对运行时地图 ID。未加该选项时报告将 `runtime_map_verified` 记为 `false` 并说明未核验。它不会调用切图、重定位、删图或建图接口；地图 ID 和名称数组长度不一致或地图接口报错返回 1，地图信息一致返回 0，不一致返回 2。关闭 native 反馈失败记在 `close_error`，不覆盖业务状态。
+
+暂停释放报告写入 `outputs/navigation_check/`，停靠点候选写入 `outputs/station_teach/`，地图清单写入 `outputs/map_manager/`。
+
+### 保护区设计、近桌计划与配置保留（2026-10-14）
+
+以下两个入口只做本地计算，不初始化机器人 SDK，不访问控制器，也不生成可执行的运动序列：
+
+```bash
+.venv/bin/python tools/plan_avoidance.py --config config/avoidance_profile.example.yaml --output outputs/avoidance_design_20261014/geometry_plan.json
+.venv/bin/python tools/plan_docking.py --config config/docking_plan.example.yaml --transport-config config/transport.yaml --output outputs/avoidance_design_20261014/docking_plan.json
+```
+
+保护区示例按左右各额外 0.30 m、前方额外 0.50 m 的估算计算；一级前/侧余量 0.20/0.20 m，二级 0.40/0.30 m，三级 0.70/0.40 m。输出为车体坐标系，传感器位姿使用米/弧度；几何换算不证明传感器能看见该区域。输出始终为 `PROPOSAL_NOT_APPLIED`，后向保护尚未指定。必须先核对实测包络、传感器高度/视场与制动距离，再形成控制器参数。
+
+近桌计划的例子使用未测量的 0.9 m 退离/靠近距离。它只输出候选点、转向需求和缺失证据；示例候选点沿 A→B 的投影次序倒置，场地净空亦未验证。状态始终为 `OFFLINE_PLAN_NOT_EXECUTABLE`。现有 `navigate_to_pose` 只约束目标位姿，不能保证直退、直线靠桌、驻车锁止或保护区阶段切换；不能把候选点逐个派发当作已验证近桌流程。
+
+新的只读参数采集入口不需要机器人密码；只有显式 `--live` 才会读取控制器：
+
+```bash
+.venv/bin/python tools/check_avoidance_profile.py --live --output outputs/avoidance_design_20261014/controller_snapshot_current.json
+```
+
+它只调用 `GetDeviceInfo` 和 `Agv/GetParam`，保存配置快照及 `review_required` manifest 候选。`--snapshot <已保存的报告>` 完全离线；加 `--manifest <已审查的manifest>` 可比对配置。工具不会批准或应用候选，也不会把旧图 6 的快照当成当前图 7。候选的 `canonical_sha256` 只用于内容一致性检查，不是签名或物理安全证明。常规 `check_navigation.py` 报告现在还保留 `isAvoid`、`avoidStatus`、`avoidSensorList`；缺失字段保持 `null`。
+
+只有已审查实际控制器区域、策略、安装坐标、速度配置和现场保护条件后，才可显式选择 `config/avoidance_control.example.yaml` 中的 `preserve_verified` 模式。该模式要求完整的 `approved_controller_snapshot` manifest，与当前机器人 ID、地图 ID/名称、控制器版本和已核对的 HAL 哈希一致；不能把几何设计 JSON 或 `review_required` 候选直接使用。实际配置默认仍走原有 `hal_level` 模式，示例不会自动激活。
+
+`preserve_verified` 在派发前与导航期间核对控制器配置，跳过 `set_agv_col_level` 和 `set_agv_col_ctrl`，因此不会因入口启动重新写回 HAL 的区域基准。完整比较区域、策略、传感器、底盘、调度和自动速度子树；不得同时配置会改速度的 `chassis_info`。后台读回使用本机单调收包时间，默认每秒采集、最长允许年龄 2 秒；错误、变更或超时会锁存。派发前失败直接拒绝；派发后失败通过现有暂停并确认停车流程处理。该核验仍不替代原生地图反馈、Idle、机械臂就绪和通道净空要求。
+
+配置匹配仅证明监测到的参数一致；不代表真实刹停距离、完整三维手臂碰撞、直线倒退或传感器覆盖已经验证。上述近桌阶段控制尚未接入实机执行。
+
 
 ## 携杯 A→B：到达后按示教姿态放杯
 
 `tools/transport_cup.py` 每次重新识别并规划抓取，抬杯后移到运输姿态，
-然后向地图 6 派发 B=`(646,1098,180)` 毫米／度目标。
+然后向地图 7 派发 B=`(-1570,396,171)` 毫米／度目标。
 已配置 B 桌 `place` 示教姿态时，到位停车后移动至该姿态并松开右夹爪；未配置时保持夹持。
 机械臂控制状态必须正在更新；程序不会启动控制器或自动切换 SERVO。
 
 默认只读取状态和规划，不执行动作：
 
 ```bash
-cd /home/mskjuzi/projects/g1_cup_grasp_v2
-export LOCATOR_IP=10.42.0.10
-export AORTA_DISCOVERY_URI=http://10.42.0.101:2379
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-export DYLOG_DEFAULT_LEVEL=FATAL
-/home/mskjuzi/projects/g1_cup_grasp_gdk/.venv/bin/python tools/transport_cup.py --device cpu
+cd /home/yirong/g1_cup_grasp_v2
+source scripts/env_laptop.sh
+python tools/transport_cup.py --device cpu
 ```
 
 用户现场执行完整流程（会抓取、移动机械臂并导航）：
 
 ```bash
-/home/mskjuzi/projects/g1_cup_grasp_gdk/.venv/bin/python tools/transport_cup.py --device cpu --execute --enable-real
+python tools/transport_cup.py --device cpu --execute --enable-real
 ```
 
 终端会询问机器人 SSH/sudo 密码，不保存密码。完整入口要求同时提供两个执行参数；
@@ -246,7 +299,7 @@ export DYLOG_DEFAULT_LEVEL=FATAL
 在上述 GDK 环境和 v2 项目目录中，可只读验证状态恢复：
 
 ```bash
-/home/mskjuzi/projects/g1_cup_grasp_gdk/.venv/bin/python outputs/navigation_contract/verify_arm_recovery.py
+python outputs/navigation_contract/verify_arm_recovery.py
 ```
 
 报告 `motion_status_available: true`、五次更新的 `SERVO`、`execution_ready: true`
@@ -259,7 +312,7 @@ export DYLOG_DEFAULT_LEVEL=FATAL
 2026-10-13 已录入右臂运输示教姿态：`position_m=[0.631880,-0.226864,0.683523]`，
 `rpy_rad=[-1.557688,0.005777,-0.067131]`，坐标系为 GDK `base_link`。
 记录位于 `outputs/carry_teach/carry_teach_20261013_210132_609892.json`。
-`config/transport.yaml` 的运输目标已更新为这一姿态；地图 6、A/B 底盘目标保持原值。
+`config/transport.yaml` 的运输目标沿用这一姿态；地图和 A/B 底盘目标已按 2026-10-14 的新图采样更新。
 规划先从试抬杯姿态垂直抬升，再过渡到示教姿态，逐点验证 IK、关节余量和杯子倾斜。
 不会再使用旧的固定侧移点；示教时夹爪反馈只作记录，不作为运输时的夹爪命令。
 配置 B 桌放杯姿态后，到 B 并停车再放杯。
@@ -267,7 +320,7 @@ export DYLOG_DEFAULT_LEVEL=FATAL
 以后重新示教时，将右臂通过官方示教方式摆到运输姿态，保持标定头部和腰部位置，然后运行：
 
 ```bash
-/home/mskjuzi/projects/g1_cup_grasp_gdk/.venv/bin/python tools/teach_carry_pose.py
+python tools/teach_carry_pose.py
 ```
 
 该工具只保存姿态候选，不自动覆盖当前运输配置，也不控制夹爪或机械臂；
@@ -275,12 +328,14 @@ export DYLOG_DEFAULT_LEVEL=FATAL
 原配置备份为 `outputs/carry_teach/transport_before_teach_20261013_210132.yaml`。
 
 
-### B 桌示教放杯（2026-10-13）
+### B 桌示教放杯（2026-10-14）
 
-已录入 `outputs/place_teach/place_teach_20261013_221756_885856.json`，配置位于
-`config/transport.yaml` 的 `place`。示教末端位置为 `[0.586697,-0.194993,0.530769] m`，
-朝向为 `[-1.684836,0.071606,-0.311424] rad`（GDK `base_link`）。同时记录地图中的
+已录入 `outputs/place_teach/place_teach_20261014_180011_909900.json`，配置位于
+`config/transport.yaml` 的 `place`。示教末端位置为 `[0.585554,-0.126298,0.530701] m`，
+朝向为 `[-1.684908,0.071742,-0.218503] rad`（GDK `base_link`）。同时记录地图中的
 底盘位置和朝向，以便到 B 后按实际底盘位姿换算同一个放杯落点。
+放杯示教底盘参考为地图 7，`(-1.570, 0.396) m, 2.979762 rad`；最终 B 停靠点在同一位置，
+朝向仅差约 0.18°。运输姿态到换算后放杯姿态的离线路径已通过关节余量检查，实机跟踪和场景碰撞净距仍需现场验证。
 
 完整执行命令仍为 `tools/transport_cup.py --device cpu --execute --enable-real`，
 现在包含：重新识别抓杯 → 示教运输姿态 → A 到 B → 到位停车 → 示教放杯位置 → 松开右夹爪。

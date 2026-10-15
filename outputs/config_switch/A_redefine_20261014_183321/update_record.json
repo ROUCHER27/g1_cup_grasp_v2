@@ -1,0 +1,58 @@
+{
+  "status": "A_REDEFINED_AND_OFFLINE_CHECKS_PASSED",
+  "changed_at": "2026-10-14T18:33:21.721247+08:00",
+  "user_authorization": "User chose the current coordinates as the new A after repeated attempts to return to the former A.",
+  "source_report": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_103008_033002_A.json",
+  "backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/A_redefine_20261014_183321/transport_before.yaml",
+  "old_A": {
+    "x_m": -0.03099999949336052,
+    "y_m": -0.02199999988079071,
+    "yaw_rad": -0.13331681886709926
+  },
+  "new_A": {
+    "x_m": 0.04899999871850014,
+    "y_m": 0.07199999690055847,
+    "yaw_rad": -0.1850386778461329
+  },
+  "map_id": 7,
+  "map_name": "cup_new",
+  "saved_feedback_summary_vs_new_A": {
+    "position_error_m": 0.0,
+    "dx_m": 0.0,
+    "dy_m": 0.0,
+    "yaw_error_deg": 0.005999638169357655,
+    "x_range_m": 0.0,
+    "y_range_m": 0.0,
+    "yaw_range_deg": 0.009999396944898667,
+    "confidence_range": [
+      99.0,
+      99.0
+    ],
+    "max_abs_linear_speed_m_s": 0.0,
+    "max_abs_angular_speed_rad_s": 0.0
+  },
+  "saved_report_preflight": "PASS",
+  "navigation_requests": {
+    "A": {
+      "x_mm": 49,
+      "y_mm": 72,
+      "yaw_deg": 349,
+      "frame": "active_map",
+      "endpoint": "/hal/nav/navigate_to_pose",
+      "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+    },
+    "B": {
+      "x_mm": -1570,
+      "y_mm": 396,
+      "yaw_deg": 171,
+      "frame": "active_map",
+      "endpoint": "/hal/nav/navigate_to_pose",
+      "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+    }
+  },
+  "B_and_place_unchanged": true,
+  "dispatch_enabled": false,
+  "robot_commands_sent": false,
+  "validation_scope": "Re-evaluated saved report only; no new live robot sample.",
+  "offline_previews": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/A_redefine_20261014_183321/offline_navigation_previews.json"
+}

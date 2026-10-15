@@ -1,0 +1,28 @@
+{
+  "archive_path": "/home/yirong/下载/g1_cup_grasp_v2.zip",
+  "archive_sha256": "6d409f01379b8092752c90fd60a681c3bc771c20e9812bf6c704fc0ecb63aa3d",
+  "assets": [
+    {
+      "path": "models/cup_yolo11s_seg.pt",
+      "bytes": 20542421,
+      "sha256": "0bb3db43b493121d4c392598e1087f1bfe8718c0c53bbf0c49cc4e619349719e",
+      "unchanged_from_archive": true,
+      "tracked": false,
+      "recovery_archive_member": "g1_cup_grasp_v2/models/cup_yolo11s_seg.pt"
+    },
+    {
+      "path": "models/robot/G1_120s.urdf",
+      "bytes": 52259,
+      "sha256": "865dc8a81a9d93e60f5163a941ca62d67cad61679e9c1cf35db0e9c1bcf5e11b",
+      "unchanged_from_archive": true,
+      "tracked": true,
+      "recovery_archive_member": "g1_cup_grasp_v2/models/robot/G1_120s.urdf"
+    }
+  ],
+  "other_external_dependencies": [
+    "G1 a2d_sdk at /home/yirong/g1_gdk/a2d_sdk",
+    "Local .venv and Python dependencies",
+    "RGB-D raw media at outputs/ego_rgbd/20261014_222140/",
+    "Robot/controller runtime state and deployed map, not restored by Git"
+  ]
+}

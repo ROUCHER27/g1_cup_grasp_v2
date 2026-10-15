@@ -1,0 +1,19 @@
+{
+  "status": "SOFT_AUTO_CONFIRMED_AVOID_REMAINS",
+  "read_only": true,
+  "robot_commands_sent": false,
+  "hmi_controller_source": "soft_auto_state_20261014_153058.json",
+  "gdk_source": "soft_auto_gdk_20261014_153314.json",
+  "soft_auto_samples": 5,
+  "gdk_avoid_samples": 5,
+  "gdk_agv_status": 5,
+  "confidence": 88,
+  "reported_sensor": 6,
+  "reported_point_membership": "region 1 warn1 only, based on current rectangles",
+  "a_position_error_m": 0.10357605900979241,
+  "a_departure_tolerance_m": 0.08,
+  "mapping_evidence": "hal_status_trace_review.txt",
+  "diagnosis": "HAL forwards controller protoStatus to agv_status; preflight requires Idle=8. The controller reports 5 while an outer-warning point is observed, but exact causal tier classification remains unproven.",
+  "next_test_candidate": "static_probe_candidate/probe_review.json",
+  "candidate_applied": false
+}

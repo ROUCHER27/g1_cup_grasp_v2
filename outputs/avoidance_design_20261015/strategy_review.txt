@@ -1,0 +1,30 @@
+离线避障策略与静止专用区域审查
+范围：只读本地 JSON、HMI bundle、HAL 摘录和已保存的静态对照结果；未访问机器人、未运行实验、未修改配置。
+
+1. “前停车”能确认到什么
+
+- 当前 group 1 的 globalStrategy 中，id 7 的 name 为“前停车”，rangeList=[1]；id 1“前进”也引用区域 1 和 6。见 outputs/avoidance_design_20261014/controller_snapshot_current.json:426-481。
+- HMI 把此页作为“全局避障策略”数组页展示；globalStrategy 的可编辑字段是多选 rangeList，数据类型为 avoidRangeSelect。选项来自 AgvTypeGroup[currentId].avoidRangesParam.avoidRangeList，只显示区域 id/name。见 outputs/navigation_contract/robot_probe/hmi/app.643cf7521fd056dc5180.js（offset 273007、833733、856724）。
+- 因而本地可确认的合同只有：策略行 7 名为“前停车”，它引用区域 1。HMI 名称与组级 JSON 没定义具体触发条件、优先级、何时从前进切入前停车、是否要求底盘静止、与普通前进策略的冲突规则。未发现控制器侧策略执行文档或对应协议枚举，不能把“前停车”解释成只在已静止状态运行。
+
+2. rangeList 绑定的是区域 ID，不是等级
+
+- 区域 1 是一个对象，整体包含 sensorId、shape 及 stop/warn2/warn1 三套边界；当前 x 远边分别是 221/840/1240 mm，见 controller_snapshot_current.json:19-99。
+- HMI 的策略 rangeList 是多选“避障范围”，选项来自完整 avoidRangeList；没有 warn1、warn2、stop 的独立策略勾选位。区域编辑器的字段则分别为 stop、warn2、warn1，且标为必填；见 robot_probe/hmi/labels_context.txt:1-3 与 HMI bundle offset 833733。
+- HMI 文案将 warn1 标为三级减速、warn2 标为二级减速、stop 标为一级停车；这是等级文字，不是每个 globalStrategy 行如何消费这三层的运行代码。没有证据说明 id 7 只消费 stop 层，也没有分级 mask 可让 rangeList 只绑定“静止时 warn1”。
+
+3. 已完成静态对照提供的状态证据
+
+- 暂时把区域 1 的 warn1 外沿 x 从 1240 改为 1100 后，settled 样本仍为 protoStatus 5；传感器 6 随后报告 x=1076..1093、y=-37..-38。该点落在缩小后的 warn1 内，但在 warn2（远边 840）和 stop（远边 221）之外。见 static_probe_conclusion.json:25-66；原始状态样本在 static_probe_candidate/run_20261014_155222_198445/report.json:89758-89985。
+- 同一批报告保留 isAvoid=true、avoidStatus=1、protoStatus=5。结合当前只剩 warn1 包含这些已报告点，这与“warn1 时也呈现广义 Avoid 状态”相符；但采样不是完整激光点云，也不能排除未报告点或其他触发源。
+- 本地 HMI 只把 warn1/warn2/stop 文案标成减速/停车；没有找到 avoidStatus=1 的等级解释。唯一清楚的本地状态枚举是 Position.agv_status，其中 5 表示 Avoid（robot_probe/protos/agv/Position.msg:2）；不能据此解码 avoidStatus，也不能由 protoStatus 5 区分警告与停车。
+
+4. 克隆区域是否支持，以及 transit 影响
+
+- HMI 新增区域时可以选一个已有 associatedAvoidRange；选择后代码复制该区域的 warn1、warn2、stop，再分配新区域 ID。结构上支持“复制一整个三层区域”，见 robot_probe/hmi/units_strategy_context.txt:19-20。
+- 新区域 ID 可以作为 rangeList 的一个值，因此可以在静态 JSON 结构上把新 ID 挂到 id 7。不过这仍是 AgvType 组级 globalStrategy；没有站点、当前速度、载荷或“已静止”的作用域字段。type 1 当时的成员快照只有 robot 424（static_probe_candidate/configuration_scope.json），但该名单是 2026-10-14 的旧快照，不能视为 2026-10-15 实时成员表。
+- 同一组的 id 1“前进”当前也引用区域 1；HMI 和 controller 参数都是全局 AgvType 配置。新建并绑定区域的运行调用条件没有本地代码证据，因此不能保证绑定到“前停车”行只影响停车瞬间或不会影响其他导航停车场景。
+- HAL 的 collision_level 1/2/3 几何缩放与区域里的 stop/warn1/warn2 是不同层级：静态表是 0.8/1.0/0.8，服务注释称 collision_level 越高越灵敏（hal_static/avoid_level_table.txt:2-5；protos/agv/AGVCollisionLevel_Request.msg:1-3）。不应把 collision_level 数字当成策略 rangeList 的 warn 层选择。
+- IO 输出列表中“一级避障(停车)”“二级避障(减速)”“三级避障(减速)”的 portList 均为空（controller_snapshot_current.json:701-728），不能用 DOState 验证触发等级。
+
+结论：组级 JSON 支持“前停车”策略行引用某个完整区域 ID，也支持复制带有三层边界的区域；但本地证据不能证明 id 7 的触发/优先级条件，也不能表达或验证“只在机器人静止时启用某个 warn 层”。当前 warn1 点位与 protoStatus 5 并存，说明 5 不是足以分辨 warn1、warn2、stop 的可用层级状态。克隆并绑定到 id 7 可能影响所有调用该全局策略的前方停车情形；是否波及 transit 路径尚未实证。

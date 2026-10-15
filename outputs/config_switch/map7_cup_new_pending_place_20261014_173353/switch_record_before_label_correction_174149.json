@@ -1,0 +1,45 @@
+{
+  "status": "STATIONS_VERIFIED_PLACE_REFERENCE_PENDING",
+  "created_at": "2026-10-14T17:33:53.513180+08:00",
+  "active_config_modified": false,
+  "backup_path": "/home/yirong/g1_cup_grasp_v2/outputs/config_switch/map7_cup_new_pending_place_20261014_173353/transport_before.yaml",
+  "station_reports": {
+    "A": "/home/yirong/g1_cup_grasp_v2/outputs/station_teach/station_teach_20261014_092644_524223_A.json",
+    "B": "/home/yirong/g1_cup_grasp_v2/outputs/station_teach/station_teach_20261014_093023_824975_B.json"
+  },
+  "map_id": 7,
+  "map_name": "cup_new",
+  "stations": {
+    "A": {
+      "x_m": -1.5750000476837158,
+      "y_m": 0.23399999737739563,
+      "yaw_rad": 2.7944429397583
+    },
+    "B": {
+      "x_m": -0.03099999949336052,
+      "y_m": -0.02199999988079071,
+      "yaw_rad": -0.13331681886709926
+    }
+  },
+  "distance_AB_m": 1.5650789588413778,
+  "old_place": {
+    "position_m": [
+      0.5866973846125499,
+      -0.19499298447975624,
+      0.5307687236285537
+    ],
+    "rpy_rad": [
+      -1.6848358239163232,
+      0.07160623453537052,
+      -0.3114240956125436
+    ],
+    "base_pose": {
+      "map_id": 6,
+      "agv_pos_x": 0.6520000100135803,
+      "agv_pos_y": 1.1039999723434448,
+      "agv_angle": 3.2479686737060547
+    }
+  },
+  "user_confirmed": "B was sampled near the same table, but the old arm-teaching chassis position and heading were not reproduced.",
+  "pending_action": "Capture a new arm release pose at the current B docking position. Keep A/B reports and the active config unchanged until a verified new place candidate is available. No motion commands sent."
+}

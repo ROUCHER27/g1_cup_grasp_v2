@@ -91,6 +91,7 @@ def read_hmi(config: dict) -> dict:
         "id", "globalPose", "confidence", "protoStatus", "workStatus",
         "navigationStatus", "isHardAuto", "isSoftAuto", "isNormal",
         "isPause", "isScram", "isEdged", "batteryStateList", "exceptions", "updateTime",
+        "isAvoid", "avoidStatus", "avoidSensorList",
     )
     return {
         "read_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -209,5 +210,4 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     exit_without_sdk_thread_wait(main())
-
 

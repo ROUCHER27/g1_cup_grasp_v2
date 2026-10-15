@@ -1,0 +1,7 @@
+# Example only. Do not copy into transport.yaml before a real controller
+# snapshot has been reviewed against measured geometry, sensor coverage,
+# stopping distance, route clearance, and the near-table operating sequence.
+# This does not enable automatic near-table protection switching.
+avoidance_control:
+  mode: preserve_verified
+  manifest_path: config/avoidance_travel_reviewed.json

@@ -1,0 +1,32 @@
+[
+  {
+    "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_101010_384347_A_navigation_config_switch.json",
+    "status": "OFFLINE_REQUEST_PREVIEW",
+    "station": "A",
+    "planned_request": {
+      "x_mm": -31,
+      "y_mm": -22,
+      "yaw_deg": 352,
+      "frame": "active_map",
+      "endpoint": "/hal/nav/navigate_to_pose",
+      "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+    },
+    "read_only": true,
+    "request_attempted": false
+  },
+  {
+    "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/navigation_check/20261014_101010_750648_B_navigation_config_switch.json",
+    "status": "OFFLINE_REQUEST_PREVIEW",
+    "station": "B",
+    "planned_request": {
+      "x_mm": -1570,
+      "y_mm": 396,
+      "yaw_deg": 171,
+      "frame": "active_map",
+      "endpoint": "/hal/nav/navigate_to_pose",
+      "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+    },
+    "read_only": true,
+    "request_attempted": false
+  }
+]

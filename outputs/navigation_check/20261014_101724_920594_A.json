@@ -1,0 +1,295 @@
+{
+  "checked_at_utc": "2026-10-14T10:17:24.920594+00:00",
+  "read_only": true,
+  "station": "A",
+  "config": {
+    "enable_real_navigation": false,
+    "agv_collision_level": 2,
+    "navigation": {
+      "no_progress_timeout_s": 25.0,
+      "timeout_base_s": 60.0,
+      "timeout_per_metre_s": 60.0,
+      "timeout_max_s": 300.0,
+      "avoid_timeout_s": 30.0,
+      "avoid_total_timeout_s": 60.0,
+      "avoid_grace_s": 5.0,
+      "avoid_max_episodes": 5,
+      "avoid_max_departure_m": 1.0,
+      "avoid_total_departure_m": 2.0,
+      "treat_halted_walking_as_avoid": false,
+      "detour": {
+        "enabled": false,
+        "lateral_offsets_m": [
+          0.5,
+          0.7
+        ],
+        "ahead_m": 0.6,
+        "robot_radius_m": 0.35,
+        "via_tolerance_m": 0.15,
+        "occupied_threshold": 50
+      }
+    },
+    "map_id": 7,
+    "map_name": "cup_new",
+    "robot_id": 424,
+    "hmi_url": "http://10.42.0.153:8080",
+    "controller_url": "http://10.42.0.153:6002",
+    "stations": {
+      "A": {
+        "x_m": -0.03099999949336052,
+        "y_m": -0.02199999988079071,
+        "yaw_rad": -0.13331681886709926
+      },
+      "B": {
+        "x_m": -1.5700000524520874,
+        "y_m": 0.3959999978542328,
+        "yaw_rad": 2.976620960236659
+      }
+    },
+    "native_feedback": {
+      "ssh_target": "agi@192.168.3.30",
+      "helper_path": "/home/agi/g1_cup_grasp_tools/native_chassis_feedback.py",
+      "known_hosts_file": "/home/yirong/.ssh/known_hosts"
+    },
+    "carry": {
+      "lift_height_m": 0.58,
+      "position_m": [
+        0.6318802231021403,
+        -0.22686368192244755,
+        0.6835225653633393
+      ],
+      "rpy_rad": [
+        -1.557687809846601,
+        0.005776759782713414,
+        -0.06713061333928094
+      ],
+      "duration_s": 8.0,
+      "position_tolerance_m": 0.015,
+      "orientation_tolerance_deg": 5.0,
+      "gripper_feedback_range": [
+        5.0,
+        90.0
+      ]
+    },
+    "place": {
+      "position_m": [
+        0.5855542322016546,
+        -0.12629758369871474,
+        0.530700844836105
+      ],
+      "rpy_rad": [
+        -1.684908231454222,
+        0.07174230293963824,
+        -0.21850297055423895
+      ],
+      "base_pose": {
+        "map_id": 7,
+        "agv_pos_x": -1.5700000524520874,
+        "agv_pos_y": 0.3959999978542328,
+        "agv_angle": 2.979761838912964
+      }
+    }
+  },
+  "active_map_id_verified": true,
+  "active_map_note": "updating position feedback reports the requested map",
+  "physical_reach_and_clearance_verified": false,
+  "map_list": {
+    "error_code": 0,
+    "map_id": [
+      2,
+      5,
+      6,
+      7
+    ],
+    "map_name": [
+      "ssd",
+      "444",
+      "CUP",
+      "cup_new"
+    ]
+  },
+  "requested_map_exists": true,
+  "samples": [
+    {
+      "agv_status": 9,
+      "position_conf": 95.0,
+      "agv_pos_x": 0.06400000303983688,
+      "agv_pos_y": 0.05700000002980232,
+      "agv_angle": 6.099472999572754,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": null,
+      "map_id": 7,
+      "chassis_error": 0,
+      "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+      "timestamp_ns": 1791973050640359970,
+      "status_name": "NotReady"
+    },
+    {
+      "agv_status": 9,
+      "position_conf": 95.0,
+      "agv_pos_x": 0.06400000303983688,
+      "agv_pos_y": 0.05700000002980232,
+      "agv_angle": 6.099298477172852,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": null,
+      "map_id": 7,
+      "chassis_error": 0,
+      "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+      "timestamp_ns": 1791973051151381997,
+      "status_name": "NotReady"
+    },
+    {
+      "agv_status": 9,
+      "position_conf": 95.0,
+      "agv_pos_x": 0.06400000303983688,
+      "agv_pos_y": 0.05700000002980232,
+      "agv_angle": 6.099647521972656,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": null,
+      "map_id": 7,
+      "chassis_error": 0,
+      "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+      "timestamp_ns": 1791973051652343383,
+      "status_name": "NotReady"
+    },
+    {
+      "agv_status": 9,
+      "position_conf": 95.0,
+      "agv_pos_x": 0.06400000303983688,
+      "agv_pos_y": 0.05700000002980232,
+      "agv_angle": 6.099822044372559,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": null,
+      "map_id": 7,
+      "chassis_error": 0,
+      "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+      "timestamp_ns": 1791973052155545587,
+      "status_name": "NotReady"
+    },
+    {
+      "agv_status": 9,
+      "position_conf": 95.0,
+      "agv_pos_x": 0.06400000303983688,
+      "agv_pos_y": 0.05700000002980232,
+      "agv_angle": 6.099822044372559,
+      "linear_speed": 0.0,
+      "angular_speed": 0.0,
+      "agv_task_state": null,
+      "map_id": 7,
+      "chassis_error": 0,
+      "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309",
+      "timestamp_ns": 1791973052656562903,
+      "status_name": "NotReady"
+    }
+  ],
+  "summary": {
+    "position_error_m": 0.12355565736614901,
+    "dx_m": 0.0950000025331974,
+    "dy_m": 0.07899999991059303,
+    "yaw_error_deg": -2.867450017395987,
+    "x_range_m": 0.0,
+    "y_range_m": 0.0,
+    "yaw_range_deg": 0.029998190834696,
+    "confidence_range": [
+      95.0,
+      95.0
+    ],
+    "max_abs_linear_speed_m_s": 0.0,
+    "max_abs_angular_speed_rad_s": 0.0
+  },
+  "hmi": {
+    "read_at_utc": "2026-10-14T10:17:33.327957+00:00",
+    "robot_config_map_id": 7,
+    "map_assignment_matches": true,
+    "state": {
+      "id": 424,
+      "globalPose": {
+        "theta": 349.56,
+        "x": 64,
+        "y": 57,
+        "z": 1
+      },
+      "confidence": 95,
+      "protoStatus": 9,
+      "workStatus": 14,
+      "navigationStatus": 1,
+      "isHardAuto": true,
+      "isSoftAuto": false,
+      "isNormal": true,
+      "isPause": false,
+      "isScram": false,
+      "isEdged": false,
+      "batteryStateList": [
+        {
+          "current": -4.1,
+          "energy": 35,
+          "id": 0,
+          "isCharging": false,
+          "temperature": 0,
+          "voltage": 52
+        }
+      ],
+      "exceptions": [
+        0,
+        0,
+        0
+      ],
+      "updateTime": 1791973808
+    },
+    "global_pose_units": "x/y: mm, theta: degrees (HMI)"
+  },
+  "controller": {
+    "read_at_utc": "2026-10-14T10:17:33.332567+00:00",
+    "serial_number": "424",
+    "software_version": "7.2.0.23",
+    "firmware_version": "2.0.0.7",
+    "driver_selected_map_id": 7,
+    "map_selection_matches": true,
+    "map_source": "/api/Config/Agv/GetParam.mapId (also used by HAL GetCurrentMap)",
+    "independent_slam_map_verified": false,
+    "auto_motion_parameters": {
+      "acc": 600,
+      "dec": 600,
+      "id": 0,
+      "maxRotateSpeed": 200,
+      "maxSpeed": 200,
+      "name": "",
+      "rotateAcc": 200,
+      "rotateDec": 200,
+      "uuid": "{a9e99fe0-c6fa-11f1-b08a-d37e9787e397}"
+    },
+    "chassis_shape": {
+      "head": 300,
+      "id": 1,
+      "mode": 0,
+      "name": "底盘",
+      "tail": 300,
+      "uuid": "{00000000-0000-0000-0000-000000000000}",
+      "wheelAngle": 24.3,
+      "wheelDiameter": 152,
+      "wheelDistance": 375,
+      "wheelSpace": 375,
+      "width": 450
+    }
+  },
+  "runtime_map": {
+    "source": "/hal/position.map_id",
+    "available": true,
+    "updating": true,
+    "map_ids": [
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "verified": true,
+    "note": "updating position feedback reports the requested map"
+  },
+  "navigation_ready": false,
+  "status": "INSPECTION_RECORDED"
+}

@@ -1,0 +1,101 @@
+{
+  "status": "STATIONARY_ISOLATION_COMPLETE_ORIGINAL_CONFIGURATION_RESTORED",
+  "user_confirmation": "confirm",
+  "report_path": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261015/stationary_candidate/run_20261014_170236_809936/report.json",
+  "temporary_change": {
+    "group_id": 1,
+    "name": "test",
+    "added_region_id": 8,
+    "region8_stop_warn2_warn1": "exact original region1 stop",
+    "front_stop_strategy7_binding": [
+      8
+    ],
+    "original_forward_strategy1_binding": [
+      1,
+      6
+    ]
+  },
+  "temporary_group_and_effective_robot_readback_verified": true,
+  "settled_temporary_sample_count": 6,
+  "settled_temporary_protoStatus": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "settled_temporary_isAvoid": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "settled_reported_points": [
+    {
+      "id": 6,
+      "pos": {
+        "x": 1232,
+        "y": -416,
+        "z": 0
+      }
+    },
+    {
+      "id": 6,
+      "pos": {
+        "x": 1226,
+        "y": -414,
+        "z": 0
+      }
+    },
+    {
+      "id": 6,
+      "pos": {
+        "x": 1230,
+        "y": -415,
+        "z": 0
+      }
+    },
+    {
+      "id": 6,
+      "pos": {
+        "x": 1219,
+        "y": -419,
+        "z": 0
+      }
+    }
+  ],
+  "result": "The modified front-stop binding did not clear Avoid at this stationary pose. Reported sensor6 points remained around x1219..1232 mm, outside the diagnostic region8 and within original region1 warn1.",
+  "interpretation_limits": [
+    "This does not establish that front-stop strategy7 was selected by the runtime controller.",
+    "Original forward strategy still references region1; the API does not identify which active region caused the reported state.",
+    "Unchanged Avoid does not prove an unsafe close obstruction or a safe-to-ignore warning.",
+    "No navigation readiness or travel/arm-clearance validation follows from this experiment."
+  ],
+  "restoration": {
+    "original_front_stop_binding": [
+      1
+    ],
+    "added_region8_removed": true,
+    "all_operational_group_parameters_match_before": true,
+    "all_operational_robot_parameters_match_before": true,
+    "metadata_change_only": "controller-generated root UUID"
+  },
+  "robot_motion_commands_sent": false,
+  "observed_xy_mm": [
+    [
+      -53,
+      90
+    ]
+  ],
+  "max_abs_linear_speed_mm_s": 0,
+  "next_required_evidence": [
+    "Controller runtime selection/priority of globalStrategy id7 前停车 versus id1 前进 when stationary.",
+    "Formal meaning of avoidStatus=1 and which fields separate warning/deceleration from protective stop.",
+    "Whether avoidSensorList reports only active-region hits or aggregates other region hits."
+  ],
+  "permanent_application": false,
+  "further_configuration_experiments_authorized": false
+}

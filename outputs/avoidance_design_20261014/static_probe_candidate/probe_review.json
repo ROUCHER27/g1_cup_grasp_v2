@@ -1,0 +1,76 @@
+{
+  "status": "EXECUTED_AND_RESTORED",
+  "executed": true,
+  "purpose": "Test whether excluding the reported fixed point from outer warning region changes Avoid status while stationary; then restore original group configuration.",
+  "scope": {
+    "group_id": 1,
+    "group_name": "test",
+    "currently_configured_robot_ids": [
+      424
+    ],
+    "membership_evidence": "configuration_scope.json",
+    "recheck_membership_before_any_write": true
+  },
+  "known_write_interface": {
+    "endpoint": "http://10.42.0.153:6002/api/Config/AgvType/UpdateParam",
+    "method": "POST",
+    "payload_contract": "complete AgvType object, id 1; not Agv id 424"
+  },
+  "candidate": "group_probe_candidate.json",
+  "baseline": "group_before.json",
+  "baseline_sha256": "5d12667d29d6c3518d49372b57333c095f344574b5e5cb77865400f2825eb361",
+  "candidate_sha256": "ce31cad5bdf999857b0d9df656239dae6fe857435dee83879a46a37642d1c2f6",
+  "exact_changes": [
+    {
+      "path": "/avoidRangesParam/avoidRangeList/0/warn1/positions/2/x",
+      "before": 1240,
+      "after": 1100
+    },
+    {
+      "path": "/avoidRangesParam/avoidRangeList/0/warn1/positions/3/x",
+      "before": 1240,
+      "after": 1100
+    }
+  ],
+  "unchanged": [
+    "stop",
+    "warn2",
+    "all other regions",
+    "all strategy bindings",
+    "all speeds",
+    "left/right widths",
+    "all z ranges"
+  ],
+  "nominal_projected_geometry_mm": {
+    "front_laser_offset": 223,
+    "chassis_head": 300,
+    "old_warn1_front_clearance": 1163,
+    "candidate_warn1_front_clearance": 1023,
+    "user_estimated_arm_front_overhang": 500,
+    "candidate_projected_gap_beyond_arm": 523
+  },
+  "safety_validation": false,
+  "approved_manifest": false,
+  "navigation_authorized": false,
+  "preconditions": [
+    "Explicit user confirmation for this temporary static parameter test; on-site supervision and no motion dispatch from any tool or UI.",
+    "Fresh automatic/stationary/no-active-task feedback and unchanged baseline/group membership."
+  ],
+  "validation_and_restore_plan": [
+    "Save fresh baseline before write.",
+    "Submit only the two-coordinate change via verified group update interface.",
+    "Read group and effective robot parameters back; an accepted API response alone does not prove effect.",
+    "Observe fresh state without sending navigation or velocity requests.",
+    "Restore original two coordinates and verify both group and effective robot parameters.",
+    "Do not restart services, reset, relocalize, or bypass Idle checks. If immediate application or restoration cannot be verified, report failure and keep navigation withheld."
+  ],
+  "unknowns": [
+    "Controller avoidStatus enum is unverified.",
+    "UpdateParam immediate application/reload semantics have not been proven on this test.",
+    "No stopping-distance, full sensor-coverage, or full arm-sweep validation."
+  ],
+  "note": "old_candidate.json/new_candidate.json are robot-parameter geometry comparison inputs only; they are NOT the AgvType update payload.",
+  "user_confirmation": "执行静态对照，结束恢复原值",
+  "confirmation_recorded_at_utc": "2026-10-14T15:47:10.002379+00:00",
+  "result": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/static_probe_candidate/static_probe_conclusion.json"
+}

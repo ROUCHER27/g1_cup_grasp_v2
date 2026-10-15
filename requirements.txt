@@ -1,3 +1,4 @@
+# 2026-10-14：笔记本先装 CPU 版 torch（pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu），YOLO 使用 --device cpu
 # Python 3.10 / Ubuntu 22.04.  The GDK itself is installed from the G1
 # controller with the official install.sh and is intentionally not pulled
 # from PyPI here.
@@ -10,7 +11,7 @@ ultralytics
 # The following versions are listed by the official GDK v1.5.0 guide.
 # Install them only when they are not already provided by the GDK environment.
 protobuf==3.12.4
-ruckig==0.14.0
+ruckig>=0.14.0
+# 0.14.0 无 cp310 wheel；2026-10-14 在 5090 笔记本实测 0.19.4 wheel 可用，a2d_sdk 所用 API 不变
 pyzmq==26.2.0
 matplotlib
-

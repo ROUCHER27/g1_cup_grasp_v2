@@ -1,0 +1,39 @@
+{
+  "status": "OFFLINE_PLACE_PATH_VERIFIED",
+  "B_report": "/home/yirong/g1_cup_grasp_v2/outputs/station_teach/station_teach_20261014_100550_490773_B.json",
+  "place_report": "/home/yirong/g1_cup_grasp_v2/outputs/place_teach/place_teach_20261014_180011_909900.json",
+  "teaching_position_offset_from_B_m": 0.0,
+  "teaching_yaw_offset_from_B_deg": 0.17995909211489872,
+  "planned_place_at_B": {
+    "position_m": [
+      0.585948028658263,
+      -0.12445780895105929,
+      0.5307008448361049
+    ],
+    "rpy_rad": [
+      -1.684908231454222,
+      0.07174230293963824,
+      -0.2153620918779342
+    ]
+  },
+  "checks": [
+    {
+      "seed": "new_place",
+      "status": "PASS",
+      "sample_count": 20,
+      "minimum_joint_margin_rad": 0.12191869008722067,
+      "maximum_position_error_mm": 0.0064308706050302976,
+      "maximum_orientation_error_deg": 0.0025381289876343534
+    },
+    {
+      "seed": "saved_carry",
+      "status": "PASS",
+      "sample_count": 20,
+      "minimum_joint_margin_rad": 0.1564018855164342,
+      "maximum_position_error_mm": 0.006401089801119701,
+      "maximum_orientation_error_deg": 0.0025563290409915847
+    }
+  ],
+  "physical_tracking_verified": false,
+  "collision_model_verified": false
+}

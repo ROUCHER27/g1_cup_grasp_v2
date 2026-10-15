@@ -1,0 +1,1688 @@
+{
+  "status": "RGBD_CAPTURED",
+  "read_only": true,
+  "robot_commands_sent": false,
+  "started_at_utc": "2026-10-14T14:21:40.963722+00:00",
+  "camera_config": {
+    "group": [
+      "head",
+      "head_depth"
+    ],
+    "color_name": "head",
+    "depth_name": "head_depth",
+    "max_sync_delta_ms": 50.0,
+    "intrinsics_verified": true,
+    "depth_registered_to_color": true,
+    "depth_scale": 0.00098184,
+    "min_valid_depth_pixels": 20,
+    "color_intrinsics": {
+      "fx": 629.1089656717445,
+      "fy": 622.4475546731502,
+      "cx": 667.0533586445007,
+      "cy": 402.01915512005894,
+      "width": 1280,
+      "height": 800
+    }
+  },
+  "calibration": {
+    "enabled": true,
+    "source": "outputs/hand_eye/hand_eye_candidate_validated_20260928_04_filtered.yaml",
+    "T_base_camera": {
+      "matrix": [
+        [
+          -0.0559584191868,
+          -0.5873459266473403,
+          0.8073991687962606,
+          0.37022218985654115
+        ],
+        [
+          -0.9982499931077793,
+          -0.04839913815856489,
+          -0.033977561505011744,
+          -0.03824861660313758
+        ],
+        [
+          -0.019120841572302316,
+          -0.8078875453157367,
+          -0.5890264064889463,
+          0.9301325984160147
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "calibration_live_pose_verified": false,
+  "requested_duration_s": 10.0,
+  "requested_fps": 10.0,
+  "frames": [
+    {
+      "index": 0,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00000.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00000.png",
+      "color_timestamp_ns": 1791987701214121368,
+      "depth_timestamp_ns": 1791987701211436678,
+      "sync_delta_ms": 2.68469,
+      "elapsed_s": 0.0,
+      "valid_depth_fraction": 0.646580078125,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 1,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00001.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00001.png",
+      "color_timestamp_ns": 1791987701340427023,
+      "depth_timestamp_ns": 1791987701312178920,
+      "sync_delta_ms": 28.248103,
+      "elapsed_s": 0.10564880899983109,
+      "valid_depth_fraction": 0.64693359375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 2,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00002.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00002.png",
+      "color_timestamp_ns": 1791987701440708750,
+      "depth_timestamp_ns": 1791987701420306431,
+      "sync_delta_ms": 20.402319,
+      "elapsed_s": 0.20968334899953334,
+      "valid_depth_fraction": 0.64730859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 3,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00003.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00003.png",
+      "color_timestamp_ns": 1791987701540429098,
+      "depth_timestamp_ns": 1791987701543751105,
+      "sync_delta_ms": 3.322007,
+      "elapsed_s": 0.31396459299867274,
+      "valid_depth_fraction": 0.646775390625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68139696,
+        1.1634804
+      ]
+    },
+    {
+      "index": 4,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00004.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00004.png",
+      "color_timestamp_ns": 1791987701638820124,
+      "depth_timestamp_ns": 1791987701640488968,
+      "sync_delta_ms": 1.668844,
+      "elapsed_s": 0.4198932179988333,
+      "valid_depth_fraction": 0.64713671875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 5,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00005.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00005.png",
+      "color_timestamp_ns": 1791987701737574769,
+      "depth_timestamp_ns": 1791987701740429029,
+      "sync_delta_ms": 2.85426,
+      "elapsed_s": 0.5255555219991948,
+      "valid_depth_fraction": 0.646720703125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 6,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00006.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00006.png",
+      "color_timestamp_ns": 1791987701839934048,
+      "depth_timestamp_ns": 1791987701846111915,
+      "sync_delta_ms": 6.177867,
+      "elapsed_s": 0.6308046079993801,
+      "valid_depth_fraction": 0.647314453125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 7,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00007.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00007.png",
+      "color_timestamp_ns": 1791987701973407432,
+      "depth_timestamp_ns": 1791987701943266197,
+      "sync_delta_ms": 30.141235,
+      "elapsed_s": 0.734888510998644,
+      "valid_depth_fraction": 0.64615234375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 8,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00008.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00008.png",
+      "color_timestamp_ns": 1791987702073982986,
+      "depth_timestamp_ns": 1791987702046011174,
+      "sync_delta_ms": 27.971812,
+      "elapsed_s": 0.8374316549998184,
+      "valid_depth_fraction": 0.64583984375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 9,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00009.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00009.png",
+      "color_timestamp_ns": 1791987702174342730,
+      "depth_timestamp_ns": 1791987702143740244,
+      "sync_delta_ms": 30.602486,
+      "elapsed_s": 0.9398575489994982,
+      "valid_depth_fraction": 0.647255859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 10,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00010.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00010.png",
+      "color_timestamp_ns": 1791987702275148046,
+      "depth_timestamp_ns": 1791987702246744166,
+      "sync_delta_ms": 28.40388,
+      "elapsed_s": 1.0433662899995397,
+      "valid_depth_fraction": 0.647353515625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 11,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00011.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00011.png",
+      "color_timestamp_ns": 1791987702372094358,
+      "depth_timestamp_ns": 1791987702374741513,
+      "sync_delta_ms": 2.647155,
+      "elapsed_s": 1.149470244999975,
+      "valid_depth_fraction": 0.64738671875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 12,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00012.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00012.png",
+      "color_timestamp_ns": 1791987702469298240,
+      "depth_timestamp_ns": 1791987702482767071,
+      "sync_delta_ms": 13.468831,
+      "elapsed_s": 1.256098457999542,
+      "valid_depth_fraction": 0.647279296875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1693714400000002
+      ]
+    },
+    {
+      "index": 13,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00013.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00013.png",
+      "color_timestamp_ns": 1791987702603642639,
+      "depth_timestamp_ns": 1791987702574517155,
+      "sync_delta_ms": 29.125484,
+      "elapsed_s": 1.3617425470001763,
+      "valid_depth_fraction": 0.646017578125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.15758936
+      ]
+    },
+    {
+      "index": 14,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00014.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00014.png",
+      "color_timestamp_ns": 1791987702706127166,
+      "depth_timestamp_ns": 1791987702677514357,
+      "sync_delta_ms": 28.612809,
+      "elapsed_s": 1.4634495479986072,
+      "valid_depth_fraction": 0.648080078125,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68041512,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 15,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00015.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00015.png",
+      "color_timestamp_ns": 1791987702806773024,
+      "depth_timestamp_ns": 1791987702777174097,
+      "sync_delta_ms": 29.598927,
+      "elapsed_s": 1.5645810449987039,
+      "valid_depth_fraction": 0.646412109375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 16,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00016.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00016.png",
+      "color_timestamp_ns": 1791987702907634820,
+      "depth_timestamp_ns": 1791987702876278152,
+      "sync_delta_ms": 31.356668,
+      "elapsed_s": 1.6696331909988658,
+      "valid_depth_fraction": 0.6465390625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 17,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00017.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00017.png",
+      "color_timestamp_ns": 1791987703007277279,
+      "depth_timestamp_ns": 1791987702977184332,
+      "sync_delta_ms": 30.092947,
+      "elapsed_s": 1.7714779109992378,
+      "valid_depth_fraction": 0.647130859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 18,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00018.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00018.png",
+      "color_timestamp_ns": 1791987703107781377,
+      "depth_timestamp_ns": 1791987703077937167,
+      "sync_delta_ms": 29.84421,
+      "elapsed_s": 1.8761705399992934,
+      "valid_depth_fraction": 0.646865234375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 19,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00019.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00019.png",
+      "color_timestamp_ns": 1791987703207436348,
+      "depth_timestamp_ns": 1791987703177233512,
+      "sync_delta_ms": 30.202836,
+      "elapsed_s": 1.976750269999684,
+      "valid_depth_fraction": 0.647099609375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 20,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00020.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00020.png",
+      "color_timestamp_ns": 1791987703307061815,
+      "depth_timestamp_ns": 1791987703309625545,
+      "sync_delta_ms": 2.56373,
+      "elapsed_s": 2.0809775939997053,
+      "valid_depth_fraction": 0.647712890625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1683896
+      ]
+    },
+    {
+      "index": 21,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00021.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00021.png",
+      "color_timestamp_ns": 1791987703406388209,
+      "depth_timestamp_ns": 1791987703409834761,
+      "sync_delta_ms": 3.446552,
+      "elapsed_s": 2.186549477999506,
+      "valid_depth_fraction": 0.646244140625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 22,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00022.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00022.png",
+      "color_timestamp_ns": 1791987703506579184,
+      "depth_timestamp_ns": 1791987703509756806,
+      "sync_delta_ms": 3.177622,
+      "elapsed_s": 2.290564101998825,
+      "valid_depth_fraction": 0.64697265625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 23,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00023.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00023.png",
+      "color_timestamp_ns": 1791987703637490791,
+      "depth_timestamp_ns": 1791987703607752182,
+      "sync_delta_ms": 29.738609,
+      "elapsed_s": 2.395958682998753,
+      "valid_depth_fraction": 0.64758984375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 24,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00024.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00024.png",
+      "color_timestamp_ns": 1791987703737461316,
+      "depth_timestamp_ns": 1791987703706980622,
+      "sync_delta_ms": 30.480694,
+      "elapsed_s": 2.5017926410000655,
+      "valid_depth_fraction": 0.646728515625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 25,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00025.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00025.png",
+      "color_timestamp_ns": 1791987703840910298,
+      "depth_timestamp_ns": 1791987703807657073,
+      "sync_delta_ms": 33.253225,
+      "elapsed_s": 2.604950992999875,
+      "valid_depth_fraction": 0.648064453125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 26,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00026.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00026.png",
+      "color_timestamp_ns": 1791987703942030368,
+      "depth_timestamp_ns": 1791987703914061628,
+      "sync_delta_ms": 27.96874,
+      "elapsed_s": 2.7049603989999014,
+      "valid_depth_fraction": 0.647404296875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 27,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00027.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00027.png",
+      "color_timestamp_ns": 1791987704040493619,
+      "depth_timestamp_ns": 1791987704011909706,
+      "sync_delta_ms": 28.583913,
+      "elapsed_s": 2.807787357998677,
+      "valid_depth_fraction": 0.647880859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1693714400000002
+      ]
+    },
+    {
+      "index": 28,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00028.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00028.png",
+      "color_timestamp_ns": 1791987704141729914,
+      "depth_timestamp_ns": 1791987704111014658,
+      "sync_delta_ms": 30.715256,
+      "elapsed_s": 2.9109377959994163,
+      "valid_depth_fraction": 0.647123046875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 29,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00029.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00029.png",
+      "color_timestamp_ns": 1791987704241973145,
+      "depth_timestamp_ns": 1791987704245406449,
+      "sync_delta_ms": 3.433304,
+      "elapsed_s": 3.0155485719988064,
+      "valid_depth_fraction": 0.64702734375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 30,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00030.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00030.png",
+      "color_timestamp_ns": 1791987704339954697,
+      "depth_timestamp_ns": 1791987704352992644,
+      "sync_delta_ms": 13.037947,
+      "elapsed_s": 3.12242172599872,
+      "valid_depth_fraction": 0.64738671875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 31,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00031.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00031.png",
+      "color_timestamp_ns": 1791987704439979175,
+      "depth_timestamp_ns": 1791987704443279806,
+      "sync_delta_ms": 3.300631,
+      "elapsed_s": 3.225491922999936,
+      "valid_depth_fraction": 0.64692578125,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 32,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00032.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00032.png",
+      "color_timestamp_ns": 1791987704550235565,
+      "depth_timestamp_ns": 1791987704544006977,
+      "sync_delta_ms": 6.228588,
+      "elapsed_s": 3.328971789998832,
+      "valid_depth_fraction": 0.6466328125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 33,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00033.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00033.png",
+      "color_timestamp_ns": 1791987704651282226,
+      "depth_timestamp_ns": 1791987704644535747,
+      "sync_delta_ms": 6.746479,
+      "elapsed_s": 3.4314174619994446,
+      "valid_depth_fraction": 0.647486328125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1683896
+      ]
+    },
+    {
+      "index": 34,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00034.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00034.png",
+      "color_timestamp_ns": 1791987704773901487,
+      "depth_timestamp_ns": 1791987704743021814,
+      "sync_delta_ms": 30.879673,
+      "elapsed_s": 3.5361603669989563,
+      "valid_depth_fraction": 0.64700390625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 35,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00035.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00035.png",
+      "color_timestamp_ns": 1791987704877264292,
+      "depth_timestamp_ns": 1791987704847373426,
+      "sync_delta_ms": 29.890866,
+      "elapsed_s": 3.6430101770001784,
+      "valid_depth_fraction": 0.64810546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1683896
+      ]
+    },
+    {
+      "index": 36,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00036.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00036.png",
+      "color_timestamp_ns": 1791987704973878794,
+      "depth_timestamp_ns": 1791987704977060609,
+      "sync_delta_ms": 3.181815,
+      "elapsed_s": 3.747383235999223,
+      "valid_depth_fraction": 0.6459765625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 37,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00037.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00037.png",
+      "color_timestamp_ns": 1791987705072994850,
+      "depth_timestamp_ns": 1791987705079871986,
+      "sync_delta_ms": 6.877136,
+      "elapsed_s": 3.8484020519990736,
+      "valid_depth_fraction": 0.64669140625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 38,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00038.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00038.png",
+      "color_timestamp_ns": 1791987705174021799,
+      "depth_timestamp_ns": 1791987705176751066,
+      "sync_delta_ms": 2.729267,
+      "elapsed_s": 3.9493554860000586,
+      "valid_depth_fraction": 0.647087890625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 39,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00039.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00039.png",
+      "color_timestamp_ns": 1791987705279605644,
+      "depth_timestamp_ns": 1791987705276567031,
+      "sync_delta_ms": 3.038613,
+      "elapsed_s": 4.055810592999478,
+      "valid_depth_fraction": 0.646556640625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 40,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00040.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00040.png",
+      "color_timestamp_ns": 1791987705374714888,
+      "depth_timestamp_ns": 1791987705376870007,
+      "sync_delta_ms": 2.155119,
+      "elapsed_s": 4.15720230199986,
+      "valid_depth_fraction": 0.64700390625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 41,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00041.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00041.png",
+      "color_timestamp_ns": 1791987705477792284,
+      "depth_timestamp_ns": 1791987705480457838,
+      "sync_delta_ms": 2.665554,
+      "elapsed_s": 4.261462999000287,
+      "valid_depth_fraction": 0.646546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 42,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00042.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00042.png",
+      "color_timestamp_ns": 1791987705605353243,
+      "depth_timestamp_ns": 1791987705576419472,
+      "sync_delta_ms": 28.933771,
+      "elapsed_s": 4.366798259999996,
+      "valid_depth_fraction": 0.646876953125,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 43,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00043.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00043.png",
+      "color_timestamp_ns": 1791987705706734083,
+      "depth_timestamp_ns": 1791987705675810058,
+      "sync_delta_ms": 30.924025,
+      "elapsed_s": 4.467482225998538,
+      "valid_depth_fraction": 0.646890625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 44,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00044.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00044.png",
+      "color_timestamp_ns": 1791987705805904411,
+      "depth_timestamp_ns": 1791987705774937058,
+      "sync_delta_ms": 30.967353,
+      "elapsed_s": 4.570967884999845,
+      "valid_depth_fraction": 0.646462890625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 45,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00045.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00045.png",
+      "color_timestamp_ns": 1791987705906159291,
+      "depth_timestamp_ns": 1791987705886353712,
+      "sync_delta_ms": 19.805579,
+      "elapsed_s": 4.677216052999938,
+      "valid_depth_fraction": 0.64766015625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 46,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00046.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00046.png",
+      "color_timestamp_ns": 1791987706008326728,
+      "depth_timestamp_ns": 1791987705976344135,
+      "sync_delta_ms": 31.982593,
+      "elapsed_s": 4.781792675999895,
+      "valid_depth_fraction": 0.647490234375,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 47,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00047.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00047.png",
+      "color_timestamp_ns": 1791987706107878723,
+      "depth_timestamp_ns": 1791987706111133818,
+      "sync_delta_ms": 3.255095,
+      "elapsed_s": 4.883516509999026,
+      "valid_depth_fraction": 0.646759765625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 48,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00048.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00048.png",
+      "color_timestamp_ns": 1791987706205309135,
+      "depth_timestamp_ns": 1791987706209382283,
+      "sync_delta_ms": 4.073148,
+      "elapsed_s": 4.983853793999515,
+      "valid_depth_fraction": 0.645728515625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1634804
+      ]
+    },
+    {
+      "index": 49,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00049.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00049.png",
+      "color_timestamp_ns": 1791987706304215365,
+      "depth_timestamp_ns": 1791987706308264866,
+      "sync_delta_ms": 4.049501,
+      "elapsed_s": 5.086959618998662,
+      "valid_depth_fraction": 0.646251953125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 50,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00050.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00050.png",
+      "color_timestamp_ns": 1791987706403598495,
+      "depth_timestamp_ns": 1791987706406970615,
+      "sync_delta_ms": 3.37212,
+      "elapsed_s": 5.191807912999138,
+      "valid_depth_fraction": 0.64586328125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 51,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00051.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00051.png",
+      "color_timestamp_ns": 1791987706505805516,
+      "depth_timestamp_ns": 1791987706507856283,
+      "sync_delta_ms": 2.050767,
+      "elapsed_s": 5.294860276999316,
+      "valid_depth_fraction": 0.64633203125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 52,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00052.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00052.png",
+      "color_timestamp_ns": 1791987706640416925,
+      "depth_timestamp_ns": 1791987706619646732,
+      "sync_delta_ms": 20.770193,
+      "elapsed_s": 5.398185033998743,
+      "valid_depth_fraction": 0.646390625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 53,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00053.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00053.png",
+      "color_timestamp_ns": 1791987706738176684,
+      "depth_timestamp_ns": 1791987706709177600,
+      "sync_delta_ms": 28.999084,
+      "elapsed_s": 5.499853773999348,
+      "valid_depth_fraction": 0.647880859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 54,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00054.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00054.png",
+      "color_timestamp_ns": 1791987706809675170,
+      "depth_timestamp_ns": 1791987706814480291,
+      "sync_delta_ms": 4.805121,
+      "elapsed_s": 5.601189967999744,
+      "valid_depth_fraction": 0.6467109375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 55,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00055.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00055.png",
+      "color_timestamp_ns": 1791987706942174948,
+      "depth_timestamp_ns": 1791987706909936034,
+      "sync_delta_ms": 32.238914,
+      "elapsed_s": 5.706531099998756,
+      "valid_depth_fraction": 0.646025390625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 56,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00056.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00056.png",
+      "color_timestamp_ns": 1791987707043305642,
+      "depth_timestamp_ns": 1791987707013521049,
+      "sync_delta_ms": 29.784593,
+      "elapsed_s": 5.813233162998586,
+      "valid_depth_fraction": 0.646431640625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 57,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00057.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00057.png",
+      "color_timestamp_ns": 1791987707140851191,
+      "depth_timestamp_ns": 1791987707143646506,
+      "sync_delta_ms": 2.795315,
+      "elapsed_s": 5.914419435999662,
+      "valid_depth_fraction": 0.64845703125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1693714400000002
+      ]
+    },
+    {
+      "index": 58,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00058.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00058.png",
+      "color_timestamp_ns": 1791987707238473508,
+      "depth_timestamp_ns": 1791987707241530778,
+      "sync_delta_ms": 3.05727,
+      "elapsed_s": 6.01977604700005,
+      "valid_depth_fraction": 0.646921875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 59,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00059.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00059.png",
+      "color_timestamp_ns": 1791987707339846060,
+      "depth_timestamp_ns": 1791987707345336946,
+      "sync_delta_ms": 5.490886,
+      "elapsed_s": 6.125631165999948,
+      "valid_depth_fraction": 0.646345703125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 60,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00060.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00060.png",
+      "color_timestamp_ns": 1791987707440510223,
+      "depth_timestamp_ns": 1791987707442763998,
+      "sync_delta_ms": 2.253775,
+      "elapsed_s": 6.2293463879996125,
+      "valid_depth_fraction": 0.646251953125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 61,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00061.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00061.png",
+      "color_timestamp_ns": 1791987707572370124,
+      "depth_timestamp_ns": 1791987707542076280,
+      "sync_delta_ms": 30.293844,
+      "elapsed_s": 6.332790229998864,
+      "valid_depth_fraction": 0.6474609375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 62,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00062.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00062.png",
+      "color_timestamp_ns": 1791987707672268458,
+      "depth_timestamp_ns": 1791987707640904590,
+      "sync_delta_ms": 31.363868,
+      "elapsed_s": 6.4395432689998415,
+      "valid_depth_fraction": 0.64623046875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 63,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00063.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00063.png",
+      "color_timestamp_ns": 1791987707740459561,
+      "depth_timestamp_ns": 1791987707749764010,
+      "sync_delta_ms": 9.304449,
+      "elapsed_s": 6.541468112000075,
+      "valid_depth_fraction": 0.646169921875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 64,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00064.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00064.png",
+      "color_timestamp_ns": 1791987707874775096,
+      "depth_timestamp_ns": 1791987707845883053,
+      "sync_delta_ms": 28.892043,
+      "elapsed_s": 6.647138614000141,
+      "valid_depth_fraction": 0.64681640625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 65,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00065.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00065.png",
+      "color_timestamp_ns": 1791987707974856502,
+      "depth_timestamp_ns": 1791987707976811652,
+      "sync_delta_ms": 1.95515,
+      "elapsed_s": 6.748799268998482,
+      "valid_depth_fraction": 0.648546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 66,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00066.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00066.png",
+      "color_timestamp_ns": 1791987708070958777,
+      "depth_timestamp_ns": 1791987708074701203,
+      "sync_delta_ms": 3.742426,
+      "elapsed_s": 6.854167712999697,
+      "valid_depth_fraction": 0.64640625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 67,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00067.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00067.png",
+      "color_timestamp_ns": 1791987708176203804,
+      "depth_timestamp_ns": 1791987708180613755,
+      "sync_delta_ms": 4.409951,
+      "elapsed_s": 6.95528561699939,
+      "valid_depth_fraction": 0.64656640625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 68,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00068.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00068.png",
+      "color_timestamp_ns": 1791987708274289933,
+      "depth_timestamp_ns": 1791987708277524004,
+      "sync_delta_ms": 3.234071,
+      "elapsed_s": 7.058560972000123,
+      "valid_depth_fraction": 0.64666796875,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68041512,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 69,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00069.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00069.png",
+      "color_timestamp_ns": 1791987708372687264,
+      "depth_timestamp_ns": 1791987708379319950,
+      "sync_delta_ms": 6.632686,
+      "elapsed_s": 7.163571561999561,
+      "valid_depth_fraction": 0.647927734375,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 70,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00070.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00070.png",
+      "color_timestamp_ns": 1791987708505497572,
+      "depth_timestamp_ns": 1791987708475052143,
+      "sync_delta_ms": 30.445429,
+      "elapsed_s": 7.2658806379986345,
+      "valid_depth_fraction": 0.646611328125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 71,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00071.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00071.png",
+      "color_timestamp_ns": 1791987708609386078,
+      "depth_timestamp_ns": 1791987708579600685,
+      "sync_delta_ms": 29.785393,
+      "elapsed_s": 7.369285416998537,
+      "valid_depth_fraction": 0.646189453125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 72,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00072.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00072.png",
+      "color_timestamp_ns": 1791987708707731728,
+      "depth_timestamp_ns": 1791987708678970438,
+      "sync_delta_ms": 28.76129,
+      "elapsed_s": 7.470695089999936,
+      "valid_depth_fraction": 0.647740234375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1693714400000002
+      ]
+    },
+    {
+      "index": 73,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00073.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00073.png",
+      "color_timestamp_ns": 1791987708809529403,
+      "depth_timestamp_ns": 1791987708779708842,
+      "sync_delta_ms": 29.820561,
+      "elapsed_s": 7.576454138999907,
+      "valid_depth_fraction": 0.6467109375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 74,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00074.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00074.png",
+      "color_timestamp_ns": 1791987708907431179,
+      "depth_timestamp_ns": 1791987708879308325,
+      "sync_delta_ms": 28.122854,
+      "elapsed_s": 7.677635332998761,
+      "valid_depth_fraction": 0.64776171875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 75,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00075.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00075.png",
+      "color_timestamp_ns": 1791987709006711684,
+      "depth_timestamp_ns": 1791987709010656191,
+      "sync_delta_ms": 3.944507,
+      "elapsed_s": 7.781315719999839,
+      "valid_depth_fraction": 0.647439453125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 76,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00076.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00076.png",
+      "color_timestamp_ns": 1791987709114725882,
+      "depth_timestamp_ns": 1791987709110079642,
+      "sync_delta_ms": 4.64624,
+      "elapsed_s": 7.883912868999687,
+      "valid_depth_fraction": 0.645876953125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 77,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00077.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00077.png",
+      "color_timestamp_ns": 1791987709208989264,
+      "depth_timestamp_ns": 1791987709212805483,
+      "sync_delta_ms": 3.816219,
+      "elapsed_s": 7.987575653000022,
+      "valid_depth_fraction": 0.646294921875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 78,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00078.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00078.png",
+      "color_timestamp_ns": 1791987709310436665,
+      "depth_timestamp_ns": 1791987709312779401,
+      "sync_delta_ms": 2.342736,
+      "elapsed_s": 8.091053278998515,
+      "valid_depth_fraction": 0.6465546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 79,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00079.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00079.png",
+      "color_timestamp_ns": 1791987709407405026,
+      "depth_timestamp_ns": 1791987709410214805,
+      "sync_delta_ms": 2.809779,
+      "elapsed_s": 8.196207510000022,
+      "valid_depth_fraction": 0.646033203125,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 80,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00080.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00080.png",
+      "color_timestamp_ns": 1791987709504019336,
+      "depth_timestamp_ns": 1791987709507700034,
+      "sync_delta_ms": 3.680698,
+      "elapsed_s": 8.300993908998862,
+      "valid_depth_fraction": 0.647521484375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 81,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00081.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00081.png",
+      "color_timestamp_ns": 1791987709639660865,
+      "depth_timestamp_ns": 1791987709609453036,
+      "sync_delta_ms": 30.207829,
+      "elapsed_s": 8.40528728999925,
+      "valid_depth_fraction": 0.6480234375,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68041512,
+        1.1605348800000002
+      ]
+    },
+    {
+      "index": 82,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00082.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00082.png",
+      "color_timestamp_ns": 1791987709704576296,
+      "depth_timestamp_ns": 1791987709706831128,
+      "sync_delta_ms": 2.254832,
+      "elapsed_s": 8.509619033999115,
+      "valid_depth_fraction": 0.6465859375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.1674077600000001
+      ]
+    },
+    {
+      "index": 83,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00083.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00083.png",
+      "color_timestamp_ns": 1791987709841199464,
+      "depth_timestamp_ns": 1791987709843235286,
+      "sync_delta_ms": 2.035822,
+      "elapsed_s": 8.615844571999332,
+      "valid_depth_fraction": 0.6460546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.15955304
+      ]
+    },
+    {
+      "index": 84,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00084.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00084.png",
+      "color_timestamp_ns": 1791987709939319641,
+      "depth_timestamp_ns": 1791987709942983443,
+      "sync_delta_ms": 3.663802,
+      "elapsed_s": 8.716558465999697,
+      "valid_depth_fraction": 0.6469765625,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.68139696,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 85,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00085.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00085.png",
+      "color_timestamp_ns": 1791987710040438623,
+      "depth_timestamp_ns": 1791987710043740662,
+      "sync_delta_ms": 3.302039,
+      "elapsed_s": 8.819380297998578,
+      "valid_depth_fraction": 0.64816015625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1664259200000002
+      ]
+    },
+    {
+      "index": 86,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00086.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00086.png",
+      "color_timestamp_ns": 1791987710140809280,
+      "depth_timestamp_ns": 1791987710143550387,
+      "sync_delta_ms": 2.741107,
+      "elapsed_s": 8.92040033000012,
+      "valid_depth_fraction": 0.646794921875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 87,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00087.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00087.png",
+      "color_timestamp_ns": 1791987710238224172,
+      "depth_timestamp_ns": 1791987710241465475,
+      "sync_delta_ms": 3.241303,
+      "elapsed_s": 9.025597571999242,
+      "valid_depth_fraction": 0.647408203125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 88,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00088.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00088.png",
+      "color_timestamp_ns": 1791987710371584469,
+      "depth_timestamp_ns": 1791987710340634683,
+      "sync_delta_ms": 30.949786,
+      "elapsed_s": 9.130554522000239,
+      "valid_depth_fraction": 0.64703125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1674077600000001
+      ]
+    },
+    {
+      "index": 89,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00089.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00089.png",
+      "color_timestamp_ns": 1791987710472869852,
+      "depth_timestamp_ns": 1791987710441765730,
+      "sync_delta_ms": 31.104122,
+      "elapsed_s": 9.231389044000025,
+      "valid_depth_fraction": 0.646986328125,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.68139696,
+        1.1634804
+      ]
+    },
+    {
+      "index": 90,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00090.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00090.png",
+      "color_timestamp_ns": 1791987710573410590,
+      "depth_timestamp_ns": 1791987710542421221,
+      "sync_delta_ms": 30.989369,
+      "elapsed_s": 9.337224318000153,
+      "valid_depth_fraction": 0.6480546875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    },
+    {
+      "index": 91,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00091.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00091.png",
+      "color_timestamp_ns": 1791987710673124474,
+      "depth_timestamp_ns": 1791987710642603044,
+      "sync_delta_ms": 30.52143,
+      "elapsed_s": 9.440621472000203,
+      "valid_depth_fraction": 0.647041015625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6843424800000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 92,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00092.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00092.png",
+      "color_timestamp_ns": 1791987710773481051,
+      "depth_timestamp_ns": 1791987710742982117,
+      "sync_delta_ms": 30.498934,
+      "elapsed_s": 9.542641516000003,
+      "valid_depth_fraction": 0.647103515625,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1674077600000001
+      ]
+    },
+    {
+      "index": 93,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00093.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00093.png",
+      "color_timestamp_ns": 1791987710872780597,
+      "depth_timestamp_ns": 1791987710841719867,
+      "sync_delta_ms": 31.06073,
+      "elapsed_s": 9.644848109999657,
+      "valid_depth_fraction": 0.647091796875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1624985600000002
+      ]
+    },
+    {
+      "index": 94,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00094.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00094.png",
+      "color_timestamp_ns": 1791987710972185295,
+      "depth_timestamp_ns": 1791987710975476550,
+      "sync_delta_ms": 3.291255,
+      "elapsed_s": 9.74984105799922,
+      "valid_depth_fraction": 0.64788671875,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6833606400000001,
+        1.1693714400000002
+      ]
+    },
+    {
+      "index": 95,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00095.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00095.png",
+      "color_timestamp_ns": 1791987711073721016,
+      "depth_timestamp_ns": 1791987711079423296,
+      "sync_delta_ms": 5.70228,
+      "elapsed_s": 9.855169067999668,
+      "valid_depth_fraction": 0.64701171875,
+      "depth_percentiles_m": [
+        0.3534624,
+        0.6833606400000001,
+        1.1683896
+      ]
+    },
+    {
+      "index": 96,
+      "color_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/rgb/frame_00096.jpg",
+      "depth_path": "/home/yirong/g1_cup_grasp_v2/outputs/ego_rgbd/20261014_222140/depth/frame_00096.png",
+      "color_timestamp_ns": 1791987711171899850,
+      "depth_timestamp_ns": 1791987711186064621,
+      "sync_delta_ms": 14.164771,
+      "elapsed_s": 9.958522429998993,
+      "valid_depth_fraction": 0.646115234375,
+      "depth_percentiles_m": [
+        0.35444424,
+        0.6823788000000001,
+        1.1634804
+      ]
+    }
+  ],
+  "dropped_unsynchronized": 0,
+  "camera_read_timeouts": 0,
+  "runtime_map_id_verified": false,
+  "state_before": {
+    "head": {
+      "error": "float() argument must be a string or a real number, not 'NoneType'"
+    },
+    "waist": {
+      "error": "float() argument must be a string or a real number, not 'NoneType'"
+    },
+    "arms": {
+      "values": [
+        -1.4757115840911865,
+        1.0428295135498047,
+        0.743300199508667,
+        -0.6181139349937439,
+        1.2321444749832153,
+        1.6333723068237305,
+        -0.11075515300035477,
+        1.6993682384490967,
+        -0.9380073547363281,
+        -1.6064817905426025,
+        0.9179223775863647,
+        -0.4716036915779114,
+        -1.1115301847457886,
+        -0.13124145567417145
+      ],
+      "timestamp_ns": 1791987701246247424
+    },
+    "chassis": {
+      "feedback": {
+        "agv_status": 0,
+        "position_conf": 0.0,
+        "agv_pos_x": 0.0,
+        "agv_pos_y": 0.0,
+        "agv_pos_z": 0.0,
+        "agv_angle": 0.0,
+        "odom_x": 0.0,
+        "odom_y": 0.0,
+        "odom_z": 0.0,
+        "odom_angle": 0.0,
+        "linear_speed": 0.0,
+        "angular_speed": 0.0,
+        "acc_x": 0.0,
+        "acc_y": 0.0,
+        "acc_z": 0.0,
+        "gyro_x": 0.0,
+        "gyro_y": 0.0,
+        "gyro_z": 0.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "motor_states": [],
+        "agv_task_state": {
+          "task_uuid": 0,
+          "task_reqid": "",
+          "curr_station_idx": 0,
+          "finish_state": 0
+        }
+      },
+      "timestamp_ns": 0,
+      "runtime_map_id_verified": false
+    }
+  },
+  "state_after": {
+    "head": {
+      "values": [
+        0.0,
+        24.999389221993887
+      ],
+      "timestamp_ns": 0
+    },
+    "waist": {
+      "values": [
+        0.17570656188788297,
+        0.11877723693847657
+      ],
+      "timestamp_ns": 0
+    },
+    "arms": {
+      "values": [
+        -1.475746512413025,
+        1.042846918106079,
+        0.7432827949523926,
+        -0.6181139349937439,
+        1.2321444749832153,
+        1.6333723068237305,
+        -0.11077260226011276,
+        1.6993682384490967,
+        -0.9380073547363281,
+        -1.6064817905426025,
+        0.9179049134254456,
+        -0.47162115573883057,
+        -1.1115301847457886,
+        -0.13122400641441345
+      ],
+      "timestamp_ns": 1791987711251091456
+    },
+    "chassis": {
+      "feedback": {
+        "agv_status": 5,
+        "position_conf": 88.0,
+        "agv_pos_x": -0.05299999937415123,
+        "agv_pos_y": 0.09000000357627869,
+        "agv_pos_z": 0.0010000000474974513,
+        "agv_angle": 6.072948932647705,
+        "odom_x": 0.0,
+        "odom_y": 0.0,
+        "odom_z": 0.0,
+        "odom_angle": -0.0020939998794347048,
+        "linear_speed": 0.0,
+        "angular_speed": 0.0,
+        "acc_x": -0.2639999985694885,
+        "acc_y": 0.31299999356269836,
+        "acc_z": 9.770000457763672,
+        "gyro_x": 0.0,
+        "gyro_y": 0.0,
+        "gyro_z": 0.0,
+        "roll": 1.6059999465942383,
+        "pitch": 1.7300000190734863,
+        "yaw": -0.04100000113248825,
+        "motor_states": [
+          {
+            "id": 4,
+            "enable": false,
+            "position": 0.0,
+            "velocity": 0.0,
+            "effort": 0.0,
+            "current": null,
+            "voltage": 0.0,
+            "temperature": 30.0,
+            "status": 0,
+            "err_code": 0
+          },
+          {
+            "id": 5,
+            "enable": false,
+            "position": 0.0,
+            "velocity": 0.0,
+            "effort": 0.0,
+            "current": null,
+            "voltage": 0.0,
+            "temperature": 30.0,
+            "status": 0,
+            "err_code": 0
+          }
+        ],
+        "agv_task_state": {
+          "task_uuid": 0,
+          "task_reqid": "",
+          "curr_station_idx": 0,
+          "finish_state": 0
+        }
+      },
+      "timestamp_ns": 1791987711216123136,
+      "runtime_map_id_verified": false
+    }
+  },
+  "image_shape_hw": [
+    800,
+    1280
+  ],
+  "frame_count": 97,
+  "capture_span_s": 9.958522429998993,
+  "depth_storage": "uint16 PNG, lossless; multiply raw values by camera_config.depth_scale for meters",
+  "invalid_feedback_fields": [
+    "$.state_after.chassis.feedback.motor_states[0].current",
+    "$.state_after.chassis.feedback.motor_states[1].current"
+  ]
+}

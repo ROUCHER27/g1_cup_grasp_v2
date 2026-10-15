@@ -1,0 +1,112 @@
+{
+  "status": "STATIC_DIAGNOSTIC_CANDIDATE_NOT_APPROVED",
+  "purpose": "single-variable static diagnostic candidate for region 1 warn1 only",
+  "source_snapshot_report": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/controller_snapshot_trigger_check.json",
+  "source_report_sha256": "cb142fa136f664f000646bc9523e40c74e2d21c00d3217c9b881eaaaa929ab3d",
+  "candidate_payload_semantics": "old_candidate.json and new_candidate.json are copies of snapshot.parameters (GetParam Content), not manifests and not API requests",
+  "identity": {
+    "robot_id": 424,
+    "map_id": 7,
+    "region_id": 1,
+    "region_name": "前激光避障",
+    "sensor_id": 6
+  },
+  "live_trigger_context_user_provided": {
+    "soft_auto_reported": true,
+    "getstate_and_gdk_still_avoid_reported": true,
+    "sensor6_points_sensor_local_mm": [
+      {
+        "x_mm": 1223,
+        "y_mm": -413
+      },
+      {
+        "x_mm": 1233,
+        "y_mm": -416
+      }
+    ],
+    "source_note": "reported contemporaneous trigger points; not present in the saved configuration-only snapshot"
+  },
+  "single_geometric_parameter": {
+    "name": "region 1 warn1 far x boundary",
+    "vertices_changed": 2,
+    "old_x_max_mm": 1240,
+    "candidate_x_max_mm": 1100,
+    "all_y_values_and_every_other_parameter_unchanged": true,
+    "exact_changes": [
+      {
+        "json_pointer": "/avoidRangesParam/avoidRangeList/0/warn1/positions/2/x",
+        "before": 1240,
+        "after": 1100
+      },
+      {
+        "json_pointer": "/avoidRangesParam/avoidRangeList/0/warn1/positions/3/x",
+        "before": 1240,
+        "after": 1100
+      }
+    ]
+  },
+  "geometric_validation": {
+    "rectangle_vertex_containment_used": true,
+    "stop_polygon_within_warn2": true,
+    "warn2_polygon_within_candidate_warn1": true,
+    "stop_warn2_warn1_zRange_unchanged": true,
+    "trigger_points_inside_old_warn1": true,
+    "trigger_points_inside_candidate_warn1": false,
+    "trigger_points_inside_warn2": false,
+    "trigger_points_inside_stop": false,
+    "trigger_point_y_range_mm": [
+      -416,
+      -413
+    ],
+    "trigger_x_range_mm": [
+      1223,
+      1233
+    ],
+    "candidate_warn1_y_range_mm": [
+      -420,
+      420
+    ],
+    "explanation": "Reported points remain within the warn1 lateral span, but their sensor-local x values exceed the candidate 1100 mm far boundary; both were already outside warn2 and stop."
+  },
+  "conditional_projection_only": {
+    "sensor6_pose_from_saved_snapshot_mm_deg": {
+      "x_mm": 223,
+      "y_mm": 0,
+      "theta_deg": 0
+    },
+    "chassis_front_assumption_mm_from_body_origin": 300,
+    "estimated_new_warn1_boundary_beyond_chassis_front_mm": 1023,
+    "user_estimated_arm_front_extension_mm": 500,
+    "remaining_projection_gap_beyond_arm_estimate_mm": 523,
+    "formula": "1100 mm sensor-local x + 223 mm sensor x - 300 mm chassis half-length = 1023 mm; 1023 - 500 = 523 mm",
+    "warning": "This is a coordinate projection only; it is not field-of-view validation, stopping distance, reaction-distance validation, or safety acceptance."
+  },
+  "rollback": {
+    "action": "restore the two x leaves below from 1100 to their exact original 1240 values after the static diagnostic",
+    "exact_inverse_changes": [
+      {
+        "json_pointer": "/avoidRangesParam/avoidRangeList/0/warn1/positions/2/x",
+        "restore_value": 1240,
+        "from_candidate_value": 1100
+      },
+      {
+        "json_pointer": "/avoidRangesParam/avoidRangeList/0/warn1/positions/3/x",
+        "restore_value": 1240,
+        "from_candidate_value": 1100
+      }
+    ],
+    "post_test_restore_required": true,
+    "no_automatic_rollback_performed": true
+  },
+  "candidate_limits": [
+    "Static diagnostic candidate only; not a final travel region and not approved for motion.",
+    "No approved manifest was created and no controller/API request or configuration write was made.",
+    "This edit only tests whether the reported sensor 6 points overlap region 1 warn1; it does not prove those points caused Avoid.",
+    "Other sensor regions, strategy activation, robot dynamics, field of view, physical coverage, stopping distance, and hidden obstacles remain outside this candidate.",
+    "Apply/rollback is not implemented by these files; any separately authorized static test must restore both vertices to 1240 mm immediately afterwards."
+  ],
+  "output_sha256": {
+    "old_candidate.json": "265183f32f334d512754c47a6580821b2c65f37bdb8a8b1884e779cec2c187a6",
+    "new_candidate.json": "61adc81b71f13863ebdf8bde763af20a3eba873a177a2c94446571ec6def8df6"
+  }
+}

@@ -1,0 +1,598 @@
+{
+  "baseline_commit": "91f812d542dd86f3350592a3a8a625b11e4aa58a",
+  "baseline_tag": "baseline/zip-20261014",
+  "scope": "Project source/config/tests/scripts/top-level docs/URDF and packaging. Bookkeeping JSON in docs/version_control and runtime evidence are inventoried separately; Git is the complete tracked-file ledger.",
+  "pre_git_business_counts": {
+    "added": 36,
+    "modified": 9,
+    "deleted": 0
+  },
+  "current_counts": {
+    "modified": 10,
+    "added": 39,
+    "unchanged": 34
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "status": "modified",
+      "archive_sha256": "3b5df1de93d7bf6b1e97b3051bbd9d8893dc9b716b3776f4ca13d5e076bc915d",
+      "current_sha256": "46a3c501df4d64b9575082bc55e3f08c2a1b58ebd015474981f0fc61e80f806b",
+      "bytes": 575
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "archive_sha256": "9bc0362e44cb63101b2ef0aeb9e001fbb94cb385656ee1d1b19f32f1203eef98",
+      "current_sha256": "f49bcb8d8bceef7ceca4b2221f22a76b3466bbb0aeb3f2ef191739ae178542e6",
+      "bytes": 22027
+    },
+    {
+      "path": "config/avoidance_control.example.yaml",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "045805b244eb94385564789e4a2d573095d95ec9c902d44fa2d6d63ae5fb6c85",
+      "bytes": 389
+    },
+    {
+      "path": "config/avoidance_profile.example.yaml",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "66c31775a863f5b7435446c0be652855fac83ecd4bff4caa0294e473e509a8f9",
+      "bytes": 1023
+    },
+    {
+      "path": "config/docking_clearance.example.yaml",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "9d11fbd8c5cb9d04de2fa94fd878c01af942e32c91999613d5ea338fcb75d123",
+      "bytes": 1301
+    },
+    {
+      "path": "config/docking_plan.example.yaml",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "b2709c678ace4dc16d816993ff7e33339aefb5e510fed72c87e643d45fda0e3e",
+      "bytes": 849
+    },
+    {
+      "path": "config/grasp_v2.yaml",
+      "status": "unchanged",
+      "archive_sha256": "80adbdbca668820150f4c7dfacba4503bda6d5ac4c1f0ebe4e1ed6952e2a4f74",
+      "current_sha256": "80adbdbca668820150f4c7dfacba4503bda6d5ac4c1f0ebe4e1ed6952e2a4f74",
+      "bytes": 3923
+    },
+    {
+      "path": "config/perception.yaml",
+      "status": "unchanged",
+      "archive_sha256": "cf89dc5121723c5f757e6f91bccdba3e288497c4003638c53db99478ae5af26c",
+      "current_sha256": "cf89dc5121723c5f757e6f91bccdba3e288497c4003638c53db99478ae5af26c",
+      "bytes": 1106
+    },
+    {
+      "path": "config/transport.yaml",
+      "status": "modified",
+      "archive_sha256": "99de1104c6c3e3d6c4c0acb4f1bdce9d1bb2d4b54d1b4c3ffeff969b803f71e2",
+      "current_sha256": "6c811a85b1cc163670e02d82a9590df1b672047cb6ddb63e8dbca87b51416bc9",
+      "bytes": 2595
+    },
+    {
+      "path": "docs/changes_from_archive.md",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "70a837b858d5741d184333d184bc76a3608d19323b6d66902f34a2033e4adc52",
+      "bytes": 15198
+    },
+    {
+      "path": "docs/field_test_runbook.md",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "57117b47e5b841d08cfaeffb37b93b086e48b4f6c84c45e09640ce6ef0251dbc",
+      "bytes": 28451
+    },
+    {
+      "path": "docs/handoff_codex_20261014.md",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "84d4692b3017ba787233f1ee34fdabe262d4c383d309f583388539f0d77a9e9a",
+      "bytes": 6048
+    },
+    {
+      "path": "docs/handoff_codex_20261015.md",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "9d688bae21497f3027a6d0765f9ad7cf785d6a7be8e4fa38a92ff4292227d43d",
+      "bytes": 16428
+    },
+    {
+      "path": "models/robot/G1_120s.urdf",
+      "status": "unchanged",
+      "archive_sha256": "865dc8a81a9d93e60f5163a941ca62d67cad61679e9c1cf35db0e9c1bcf5e11b",
+      "current_sha256": "865dc8a81a9d93e60f5163a941ca62d67cad61679e9c1cf35db0e9c1bcf5e11b",
+      "bytes": 52259
+    },
+    {
+      "path": "pyproject.toml",
+      "status": "unchanged",
+      "archive_sha256": "3ae803ab12dbf70a7e3f97d16535b1d33489d7820cafc1149198d7d1b0833df4",
+      "current_sha256": "3ae803ab12dbf70a7e3f97d16535b1d33489d7820cafc1149198d7d1b0833df4",
+      "bytes": 385
+    },
+    {
+      "path": "requirements.txt",
+      "status": "modified",
+      "archive_sha256": "b546488bf7a1d84f504c5cdf10ffb579bfdcb3846115005fb7c13155b00524cd",
+      "current_sha256": "ece1524249de1fa8e6a59997c9e6859f44d733edcf2430c525fb3a537a265866",
+      "bytes": 682
+    },
+    {
+      "path": "scripts/env_laptop.sh",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "d5c25f8ba85eeca0ff54f57e1844efab5e01969f0d4f16eff43ff895542176dc",
+      "bytes": 636
+    },
+    {
+      "path": "src/g1_cup_grasp/__init__.py",
+      "status": "unchanged",
+      "archive_sha256": "74e14426090e9ea8535986b25680ff587a297f201d3e7936b4480599934ee3bc",
+      "current_sha256": "74e14426090e9ea8535986b25680ff587a297f201d3e7936b4480599934ee3bc",
+      "bytes": 98
+    },
+    {
+      "path": "src/g1_cup_grasp/avoidance_comparison.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "6d2f94a15f0a39500d488509f563699edeaa37064290ed3f3a092041aabe02cc",
+      "bytes": 29022
+    },
+    {
+      "path": "src/g1_cup_grasp/avoidance_guard.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "1695967e25d7280fc127e48bec8321d87dd6be068e3a746854bec480216d2095",
+      "bytes": 39289
+    },
+    {
+      "path": "src/g1_cup_grasp/avoidance_profile.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "09d14e7ba518d214343d4f376efddd33ecf1dac8e1a0e859b49a48f45df409a7",
+      "bytes": 13537
+    },
+    {
+      "path": "src/g1_cup_grasp/carry.py",
+      "status": "unchanged",
+      "archive_sha256": "cb91a4106aa3875440e0b5d55b0eab86cfaa795c8fada9a14eb9724111c41047",
+      "current_sha256": "cb91a4106aa3875440e0b5d55b0eab86cfaa795c8fada9a14eb9724111c41047",
+      "bytes": 5053
+    },
+    {
+      "path": "src/g1_cup_grasp/config.py",
+      "status": "unchanged",
+      "archive_sha256": "61ee45ea2f71525cbcb375adeab873aac22dcb24a44ff01670cd6fd7b998d147",
+      "current_sha256": "61ee45ea2f71525cbcb375adeab873aac22dcb24a44ff01670cd6fd7b998d147",
+      "bytes": 1745
+    },
+    {
+      "path": "src/g1_cup_grasp/docking_clearance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "5d95208cc281ebf2312d9708fdb0ddce36c0e7a91b6947b99f6bb93e88395a6b",
+      "bytes": 25014
+    },
+    {
+      "path": "src/g1_cup_grasp/docking_plan.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "bcbae57015c35b82a2ee14aa2b4c401662c61b4e85f43547c7ce939c61c4d5fc",
+      "bytes": 15166
+    },
+    {
+      "path": "src/g1_cup_grasp/domain.py",
+      "status": "unchanged",
+      "archive_sha256": "8a8b0f67d7c8512db2a1acc35079afbb2121d90ea8ec9f37810a52e2c732cde2",
+      "current_sha256": "8a8b0f67d7c8512db2a1acc35079afbb2121d90ea8ec9f37810a52e2c732cde2",
+      "bytes": 2233
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/__init__.py",
+      "status": "unchanged",
+      "archive_sha256": "0029aede98d067cc2347edafcc404ac1f744508621a23f12acb9db97fdbafa1a",
+      "current_sha256": "0029aede98d067cc2347edafcc404ac1f744508621a23f12acb9db97fdbafa1a",
+      "bytes": 457
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/deprojection.py",
+      "status": "unchanged",
+      "archive_sha256": "8c818d5ca2a8a9ccf67005a62a8eddc403f8e7f9848f343fd61e5a47d4d8b4c5",
+      "current_sha256": "8c818d5ca2a8a9ccf67005a62a8eddc403f8e7f9848f343fd61e5a47d4d8b4c5",
+      "bytes": 6370
+    },
+    {
+      "path": "src/g1_cup_grasp/geometry/transforms.py",
+      "status": "unchanged",
+      "archive_sha256": "7c3159b5c5f886c0f5dd3e54c02be08f61fae15209442083182b256f76a4f4cc",
+      "current_sha256": "7c3159b5c5f886c0f5dd3e54c02be08f61fae15209442083182b256f76a4f4cc",
+      "bytes": 4003
+    },
+    {
+      "path": "src/g1_cup_grasp/grasp_planner.py",
+      "status": "unchanged",
+      "archive_sha256": "e30166f493f9e05d3cc7380b43ce953545420520a35f6079b564432f9d02e2a6",
+      "current_sha256": "e30166f493f9e05d3cc7380b43ce953545420520a35f6079b564432f9d02e2a6",
+      "bytes": 13704
+    },
+    {
+      "path": "src/g1_cup_grasp/io/__init__.py",
+      "status": "unchanged",
+      "archive_sha256": "a5c0ff206e709254af87bf50ab24957bbe8f9b18841fa7fd01d3a47d7999d029",
+      "current_sha256": "a5c0ff206e709254af87bf50ab24957bbe8f9b18841fa7fd01d3a47d7999d029",
+      "bytes": 96
+    },
+    {
+      "path": "src/g1_cup_grasp/io/camera.py",
+      "status": "unchanged",
+      "archive_sha256": "d73884f8b87169171f41003f5c3f306bda6caea48e82eec65cf7232569dd3812",
+      "current_sha256": "d73884f8b87169171f41003f5c3f306bda6caea48e82eec65cf7232569dd3812",
+      "bytes": 4259
+    },
+    {
+      "path": "src/g1_cup_grasp/io/chassis_feedback.py",
+      "status": "unchanged",
+      "archive_sha256": "7d9e3c7c90fbdbee13b921ecbafd1142d43afa77076e198e861114effb08bbe3",
+      "current_sha256": "7d9e3c7c90fbdbee13b921ecbafd1142d43afa77076e198e861114effb08bbe3",
+      "bytes": 4111
+    },
+    {
+      "path": "src/g1_cup_grasp/io/controller_avoidance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "00e4777b6cfd1b8ea547120825e1b0ee5878034cbb0667b6374dd993d6d5bf2e",
+      "bytes": 3873
+    },
+    {
+      "path": "src/g1_cup_grasp/io/robot.py",
+      "status": "unchanged",
+      "archive_sha256": "e1bcaf63ab26a32bc6421bba8125ec68f3724babc8e3d5b9df1f06daa249d097",
+      "current_sha256": "e1bcaf63ab26a32bc6421bba8125ec68f3724babc8e3d5b9df1f06daa249d097",
+      "bytes": 10313
+    },
+    {
+      "path": "src/g1_cup_grasp/io/shutdown.py",
+      "status": "unchanged",
+      "archive_sha256": "95c139cad437ebd9e3b673dbcd450525ee3e74c9570af92c18ad68f24677c798",
+      "current_sha256": "95c139cad437ebd9e3b673dbcd450525ee3e74c9570af92c18ad68f24677c798",
+      "bytes": 266
+    },
+    {
+      "path": "src/g1_cup_grasp/io/transport_arm.py",
+      "status": "unchanged",
+      "archive_sha256": "37bbad76f65ee7f09a6a941fd791ee0176b8d7666f1cee4caf8e189f2b555795",
+      "current_sha256": "37bbad76f65ee7f09a6a941fd791ee0176b8d7666f1cee4caf8e189f2b555795",
+      "bytes": 1581
+    },
+    {
+      "path": "src/g1_cup_grasp/kinematics.py",
+      "status": "unchanged",
+      "archive_sha256": "f558675b654a4071513ae5ae8d846f2117075568e98a4576cf2e5135f523f55d",
+      "current_sha256": "f558675b654a4071513ae5ae8d846f2117075568e98a4576cf2e5135f523f55d",
+      "bytes": 11061
+    },
+    {
+      "path": "src/g1_cup_grasp/perception/__init__.py",
+      "status": "unchanged",
+      "archive_sha256": "96ede8fdf646e5ffa50524ecb40a238fa21f3d4002401a26edaa3a44db69e65a",
+      "current_sha256": "96ede8fdf646e5ffa50524ecb40a238fa21f3d4002401a26edaa3a44db69e65a",
+      "bytes": 78
+    },
+    {
+      "path": "src/g1_cup_grasp/perception/yolo_segmenter.py",
+      "status": "unchanged",
+      "archive_sha256": "7e0f6e8e1142b14e3ee1587b1dc40ead481b224991f047a44610f7735a0843af",
+      "current_sha256": "7e0f6e8e1142b14e3ee1587b1dc40ead481b224991f047a44610f7735a0843af",
+      "bytes": 3734
+    },
+    {
+      "path": "tests/check_nearby_seed.py",
+      "status": "unchanged",
+      "archive_sha256": "2accb94b32e972c9683ab0f539292493aa1c91f02bca17eeed2e49e0cabe985a",
+      "current_sha256": "2accb94b32e972c9683ab0f539292493aa1c91f02bca17eeed2e49e0cabe985a",
+      "bytes": 2747
+    },
+    {
+      "path": "tests/fixtures/carry_grasp_20261013.json",
+      "status": "unchanged",
+      "archive_sha256": "11c51b349c3068dc8fce5dda746af061c132b74177abf8ee4b2933825c9af86b",
+      "current_sha256": "11c51b349c3068dc8fce5dda746af061c132b74177abf8ee4b2933825c9af86b",
+      "bytes": 11368
+    },
+    {
+      "path": "tests/fixtures/carry_teach_20261013.json",
+      "status": "unchanged",
+      "archive_sha256": "201013df4628d79b1ad2ef6c0818dafe2bbb2bf626d4ec0777fb74c8fb2a31e9",
+      "current_sha256": "201013df4628d79b1ad2ef6c0818dafe2bbb2bf626d4ec0777fb74c8fb2a31e9",
+      "bytes": 1783
+    },
+    {
+      "path": "tests/fixtures/controller_avoidance_snapshot_20261014.json",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "7ec393271cafb61f7afef0cde41c27b5f4c0f5951d0cbaf0b227c022cbf7cd3b",
+      "bytes": 61119
+    },
+    {
+      "path": "tests/fixtures/navigation_avoid_long_trace.json",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "f5f9b0c3a920369d8227fcb0acefba9171fba614d93937b02b7913b826f2c167",
+      "bytes": 17326
+    },
+    {
+      "path": "tests/fixtures/navigation_avoid_near_goal_trace.json",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "9f91c7d7efa86aada8b8cbca682c8b2ada81cda76d7693bf45fa4193d8351927",
+      "bytes": 3150
+    },
+    {
+      "path": "tests/fixtures/navigation_avoid_trace.json",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "cd57de178494aa7357dcfc48ea5c2c2ba52b413498451b9b111efae5a999174e",
+      "bytes": 6254
+    },
+    {
+      "path": "tests/fixtures/navigation_failure_20261013.json",
+      "status": "unchanged",
+      "archive_sha256": "214edf2b1967f9358d6f24bce5ab8d2790002ff2d1a136cb162ba750a0463223",
+      "current_sha256": "214edf2b1967f9358d6f24bce5ab8d2790002ff2d1a136cb162ba750a0463223",
+      "bytes": 15196
+    },
+    {
+      "path": "tests/fixtures/place_teach_20261013.json",
+      "status": "unchanged",
+      "archive_sha256": "b11953a2b1b7f44afa7f06c0691f5fb5e29923798fff14a7351f29ff62652ece",
+      "current_sha256": "b11953a2b1b7f44afa7f06c0691f5fb5e29923798fff14a7351f29ff62652ece",
+      "bytes": 2084
+    },
+    {
+      "path": "tests/fixtures/transport_config_test.yaml",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "de09c4b0b134522615e55fc466684ca922dd6b25de61e78dbc3a7702d8427f28",
+      "bytes": 2401
+    },
+    {
+      "path": "tests/test_avoidance_comparison.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "aa8cb8e3cb1a0930dabcbe506aec25f4621cf1985aaea9d9e734db38bf6a0b6a",
+      "bytes": 8121
+    },
+    {
+      "path": "tests/test_avoidance_control_integration.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "19c588b5e105dc93ec4451d3af730fc7e14a546c9eabefd71e8356ea16357ad5",
+      "bytes": 7714
+    },
+    {
+      "path": "tests/test_avoidance_guard.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "ecddd9f4955a8bb732730f09ae565cf6b5b2e7efd0afa0eb7809114ddeda4078",
+      "bytes": 23708
+    },
+    {
+      "path": "tests/test_avoidance_profile.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "c463b07526122a10c3bf6c3863fafbb56fa95ae7e6ed3b5e84d1194d4a10e139",
+      "bytes": 7211
+    },
+    {
+      "path": "tests/test_avoidance_profile_cli.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "61305f80db35020648b066c688d8439f55f28d0e5313ee2e16fd6c4854fee52b",
+      "bytes": 3840
+    },
+    {
+      "path": "tests/test_chassis_pause.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "e5c906f5d630dfd6a5e9e2b9a4a2ad985f5e34fb8fbe56b1a8042bc6f3ae08d4",
+      "bytes": 14204
+    },
+    {
+      "path": "tests/test_controller_avoidance_snapshot.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "2986e3c1fa0e8c488e18e5c6dd485bf20780523c0f481435f894e47d1d5229a5",
+      "bytes": 4595
+    },
+    {
+      "path": "tests/test_docking_clearance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "3ab0e89e80f302ee169f483047fb0df66bbe5a5b90bb039ee5b1942febb124f1",
+      "bytes": 8488
+    },
+    {
+      "path": "tests/test_docking_plan.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "73b2210ab13ada874f317cec3ee59215aea10bc4232eaab50f8fc628679f541e",
+      "bytes": 10117
+    },
+    {
+      "path": "tests/test_navigation_check.py",
+      "status": "modified",
+      "archive_sha256": "8785d5fa1549c8e69bade2d5e8b50ec7f8f52070a20c7d1fbd9bbbbbabe2ce53",
+      "current_sha256": "0a509af7e9e2df379ed60458b4a0f81562de81bfcdc3926355c5acb560611cdc",
+      "bytes": 3395
+    },
+    {
+      "path": "tests/test_navigation_execution.py",
+      "status": "modified",
+      "archive_sha256": "62ca367c646d68a6a930b84eba4746c08578e0bd824549d75573df47eeb6d45c",
+      "current_sha256": "276474c00d6b09b94888ccaefc01b93ed289979dc5c884daf76fe2816ab4999b",
+      "bytes": 60279
+    },
+    {
+      "path": "tests/test_planning.py",
+      "status": "unchanged",
+      "archive_sha256": "00a603d18875fdcfd5f632534745ed28fd7e4618c455695c7e0ff56ddea9ef66",
+      "current_sha256": "00a603d18875fdcfd5f632534745ed28fd7e4618c455695c7e0ff56ddea9ef66",
+      "bytes": 5824
+    },
+    {
+      "path": "tests/test_station_tools.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "ff0dd17ece43ec3d09ee138e2561d41d963d55ae6f56f4edcd74c7c23eb24bcf",
+      "bytes": 12955
+    },
+    {
+      "path": "tests/test_transport.py",
+      "status": "modified",
+      "archive_sha256": "da5890d6ee192db8eb72a093e5b421c7d1d95dcc5f216df62fbdb0c088fb9904",
+      "current_sha256": "079443bd2fad12a1b64dc3fbd550aa7cefd7f95a580705eba0f0041bbb036067",
+      "bytes": 18882
+    },
+    {
+      "path": "tools/chassis_pause.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "be3b51cb817efbc7766dfdef00aaf3297eecf3acc501fcb6cbadeb34d26b636b",
+      "bytes": 13161
+    },
+    {
+      "path": "tools/check_avoidance_profile.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "d9eafad1ee2dbc04f4c2489acf87c71daea5ae4bb21e613efab4cc1c8cc10843",
+      "bytes": 5984
+    },
+    {
+      "path": "tools/check_docking_clearance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "1167ed5db935162fcae30f3b6af7ed95b0bb3946d64b55b13443f6c19e432c02",
+      "bytes": 1717
+    },
+    {
+      "path": "tools/check_navigation.py",
+      "status": "modified",
+      "archive_sha256": "555a3df81bc6f69922cb5a4935d280cea242594e386b60423e9d59ac85f66098",
+      "current_sha256": "d1a5fa459cbd5d5162aeceea7b3eb117da0220fc3a843deb446fa3cc374d724f",
+      "bytes": 9643
+    },
+    {
+      "path": "tools/check_rgbd.py",
+      "status": "unchanged",
+      "archive_sha256": "cad1e6b4303d57433119c9e9ecb492ac819df28283dc981526e78e126081bb87",
+      "current_sha256": "cad1e6b4303d57433119c9e9ecb492ac819df28283dc981526e78e126081bb87",
+      "bytes": 20154
+    },
+    {
+      "path": "tools/compare_avoidance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "46cb4502fc7e46591a7af4567e6b9f84cf1667c935c024d27ff71d1d106284c1",
+      "bytes": 2557
+    },
+    {
+      "path": "tools/grasp_v2.py",
+      "status": "unchanged",
+      "archive_sha256": "23a67f6017405117108d6796221d0f7f4bd07bb323b0e0265745230cb52e4a6c",
+      "current_sha256": "23a67f6017405117108d6796221d0f7f4bd07bb323b0e0265745230cb52e4a6c",
+      "bytes": 18229
+    },
+    {
+      "path": "tools/live_yolo_preview.py",
+      "status": "unchanged",
+      "archive_sha256": "4260edc1c0040cb793d387883a895aa37968baa9240d2d436dcd91b96561da59",
+      "current_sha256": "4260edc1c0040cb793d387883a895aa37968baa9240d2d436dcd91b96561da59",
+      "bytes": 23475
+    },
+    {
+      "path": "tools/map_manager.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "75cd8d5f8742b2dfa3e92f06ec5719df088ad456b5c7e3080adfdabfaaaf5722",
+      "bytes": 5003
+    },
+    {
+      "path": "tools/native_chassis_feedback.py",
+      "status": "unchanged",
+      "archive_sha256": "f21cc6c2aeb5c8dd4ebf34bbb23af5f52175a1c33d06ba1a7b09b97b17e46bb6",
+      "current_sha256": "f21cc6c2aeb5c8dd4ebf34bbb23af5f52175a1c33d06ba1a7b09b97b17e46bb6",
+      "bytes": 1696
+    },
+    {
+      "path": "tools/navigate_station.py",
+      "status": "modified",
+      "archive_sha256": "401c1c24d873c710c7e235b4c98d7f6ed9b40eab9ea462478c5d3de35b72cb6f",
+      "current_sha256": "289ee67e02cfe1001ef821c6b314adb7c31e74372e82d8cb9a4097dd71bc6e5f",
+      "bytes": 38655
+    },
+    {
+      "path": "tools/plan_avoidance.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "43d4ea446d4190c8f3cefbed91e0ab93707ae3db75903c722595268fac93143f",
+      "bytes": 1385
+    },
+    {
+      "path": "tools/plan_docking.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "10b78b27852e69e6e05c2a9fa6090501b2929ed09dc00ea0e70741bff3b2c36a",
+      "bytes": 1919
+    },
+    {
+      "path": "tools/record_ego_rgbd.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "eb6012ea607eebe52857a24937ecaf07ba1b61746e35a33121a6df2488b49d2e",
+      "bytes": 7755
+    },
+    {
+      "path": "tools/teach_carry_pose.py",
+      "status": "unchanged",
+      "archive_sha256": "4938b1dcfcb16f41fb7e7a395e1aa11c9532b0faf69076b5d4b9a6fb4bbd0b19",
+      "current_sha256": "4938b1dcfcb16f41fb7e7a395e1aa11c9532b0faf69076b5d4b9a6fb4bbd0b19",
+      "bytes": 2711
+    },
+    {
+      "path": "tools/teach_place_pose.py",
+      "status": "unchanged",
+      "archive_sha256": "4fed1f99c4b260a858b4410282f21f24fb1720493557364a8120c756a733ff8f",
+      "current_sha256": "4fed1f99c4b260a858b4410282f21f24fb1720493557364a8120c756a733ff8f",
+      "bytes": 2125
+    },
+    {
+      "path": "tools/teach_side_grasp.py",
+      "status": "unchanged",
+      "archive_sha256": "0979d3a24252fb501e47194173d55d5c3341cace09a4700ece0c6ef27a1d2714",
+      "current_sha256": "0979d3a24252fb501e47194173d55d5c3341cace09a4700ece0c6ef27a1d2714",
+      "bytes": 4283
+    },
+    {
+      "path": "tools/teach_station.py",
+      "status": "added",
+      "archive_sha256": null,
+      "current_sha256": "dbcbfd55aa295863369af91b8081a14e6211cc409bb36a6c26ec3248d292ffa1",
+      "bytes": 8278
+    },
+    {
+      "path": "tools/transport_cup.py",
+      "status": "modified",
+      "archive_sha256": "b19332331348eb02276b1dc012dbf06ea933c3af7cae56b596138bfec851bc1b",
+      "current_sha256": "b59ccc0b35902de346b4f1bc48374e2075b301a583e7e4fad0a4089e4a7f6220",
+      "bytes": 14080
+    }
+  ]
+}

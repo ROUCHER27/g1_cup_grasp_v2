@@ -1,0 +1,92 @@
+{
+  "status": "OFFLINE_COMPARISON",
+  "place_report": "/home/yirong/g1_cup_grasp_v2/outputs/place_teach/place_teach_20261014_180011_909900.json",
+  "teaching_offset_from_B_m": 0.16207714245633634,
+  "teaching_yaw_offset_from_B_deg": 10.61799078557275,
+  "checks": [
+    {
+      "base": "original_B_station",
+      "seed": "new_place_teach",
+      "planned_place": {
+        "position_m": [
+          0.6492134350980067,
+          -0.17027803272600556,
+          0.5307008448361049
+        ],
+        "rpy_rad": [
+          -1.684908231454222,
+          0.07174230293963824,
+          -0.033184071399575465
+        ]
+      },
+      "carry_ik_success": true,
+      "status": "FAIL",
+      "error": "place path at 0.471: solution is too close to a joint limit"
+    },
+    {
+      "base": "original_B_station",
+      "seed": "carry_teach_carry_teach_20261013_210132_609892",
+      "planned_place": {
+        "position_m": [
+          0.6492134350980067,
+          -0.17027803272600556,
+          0.5307008448361049
+        ],
+        "rpy_rad": [
+          -1.684908231454222,
+          0.07174230293963824,
+          -0.033184071399575465
+        ]
+      },
+      "carry_ik_success": true,
+      "status": "FAIL",
+      "error": "place path at 0.471: solution is too close to a joint limit"
+    },
+    {
+      "base": "new_place_teaching_base",
+      "seed": "new_place_teach",
+      "planned_place": {
+        "position_m": [
+          0.5855542322016544,
+          -0.12629758369871472,
+          0.5307008448361048
+        ],
+        "rpy_rad": [
+          -1.684908231454222,
+          0.07174230293963824,
+          -0.21850297055423895
+        ]
+      },
+      "carry_ik_success": true,
+      "status": "PASS",
+      "sample_count": 20,
+      "minimum_joint_margin_rad": 0.12191869008722067,
+      "maximum_position_error_mm": 0.006442689177975483,
+      "maximum_orientation_error_deg": 0.002542319675145807
+    },
+    {
+      "base": "new_place_teaching_base",
+      "seed": "carry_teach_carry_teach_20261013_210132_609892",
+      "planned_place": {
+        "position_m": [
+          0.5855542322016544,
+          -0.12629758369871472,
+          0.5307008448361048
+        ],
+        "rpy_rad": [
+          -1.684908231454222,
+          0.07174230293963824,
+          -0.21850297055423895
+        ]
+      },
+      "carry_ik_success": true,
+      "status": "PASS",
+      "sample_count": 20,
+      "minimum_joint_margin_rad": 0.1564018855164342,
+      "maximum_position_error_mm": 0.006413314838759803,
+      "maximum_orientation_error_deg": 0.0025607198058311426
+    }
+  ],
+  "physical_tracking_verified": false,
+  "collision_model_verified": false
+}

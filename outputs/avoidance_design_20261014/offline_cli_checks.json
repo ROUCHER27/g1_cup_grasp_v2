@@ -1,0 +1,31 @@
+[
+  {
+    "report": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/geometry_plan.json",
+    "status": "PROPOSAL_NOT_APPLIED",
+    "proposal_only": true,
+    "executable": null,
+    "blockers": []
+  },
+  {
+    "report": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/docking_plan.json",
+    "status": "OFFLINE_PLAN_NOT_EXECUTABLE",
+    "proposal_only": true,
+    "executable": false,
+    "blockers": [
+      "arm_and_cup_swept_envelope_unverified",
+      "constrained_straight_motion_unavailable",
+      "stationary_motion_inhibition_unverified",
+      "three_dimensional_collision_scene_missing",
+      "route_not_collision_checked",
+      "site_corridor_unmeasured",
+      "site_rotation_clearance_unmeasured",
+      "candidate_points_projected_order_inverted"
+    ]
+  },
+  {
+    "report": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/historical_snapshot_check.json",
+    "status": "ERROR",
+    "expected_rejection": "ValueError: manifest.expected.parameters.avoidStrategyParam.globalStrategy[6].rangeList references ID 2 absent from avoidRangeList",
+    "live_read": false
+  }
+]

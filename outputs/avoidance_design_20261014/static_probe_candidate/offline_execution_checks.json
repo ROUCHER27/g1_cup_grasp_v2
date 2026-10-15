@@ -1,0 +1,78 @@
+{
+  "network_accessed": false,
+  "checks": [
+    {
+      "case": "success",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 2
+    },
+    {
+      "case": "unknown_apply_result",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 2
+    },
+    {
+      "case": "readback_timeout_once",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 2
+    },
+    {
+      "case": "restore_timeout_once",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 3
+    },
+    {
+      "case": "precheck_moving",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 0
+    },
+    {
+      "case": "precheck_task",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 0
+    },
+    {
+      "case": "unexpected_member",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 0
+    },
+    {
+      "case": "unexpected_motion",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 2
+    },
+    {
+      "case": "member_joins_before_write",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 0
+    },
+    {
+      "case": "delayed_apply",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 3
+    },
+    {
+      "case": "late_drift",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 3
+    },
+    {
+      "case": "invalid_feedback",
+      "passed": true,
+      "generated_uuids_simulated": true,
+      "configuration_updates": 2
+    }
+  ],
+  "root_uuid_only_comparison_checks_passed": 5
+}

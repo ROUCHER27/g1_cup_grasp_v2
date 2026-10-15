@@ -1,0 +1,54 @@
+{
+  "status": "TRIGGER_IDENTIFIED_AS_FRONT_LASER_POINT_IN_OUTER_WARNING_REGION",
+  "recorded_at": "2026-10-14T23:29:13.067669+08:00",
+  "state_evidence": "outputs/avoidance_design_20261014/trigger_state_20261014_152517.json",
+  "configuration_evidence": "outputs/avoidance_design_20261014/controller_snapshot_trigger_check.json",
+  "configuration_changed_since_previous_capture": false,
+  "user_observation": "Fixed table leg, wall, or partition at the indicated approximate point; exact object unspecified.",
+  "latest_state": {
+    "isSoftAuto": false,
+    "isHardAuto": true,
+    "isAvoid": true,
+    "avoidStatus": 1,
+    "protoStatus": 5,
+    "confidence": 88,
+    "linearSpeed": 0,
+    "currentCmdId": 0,
+    "latestCmdId": 0,
+    "taskId": 0,
+    "taskState": 0,
+    "isPause": false,
+    "isScram": false,
+    "isEdged": false
+  },
+  "reported_sensor": {
+    "id": 6,
+    "name": "front laser",
+    "pos_raw_mm": [
+      1233,
+      -416,
+      0
+    ]
+  },
+  "point_geometric_membership": {
+    "region_id": 1,
+    "stop": false,
+    "warn2": false,
+    "warn1": true
+  },
+  "coordinate_interpretation": {
+    "basis": "HMI sensor-to-chassis transformation; inferred interface coordinates",
+    "approx_gap_from_chassis_front_m": 1.156,
+    "approx_right_offset_from_centerline_m": 0.416,
+    "physical_mounting_independently_verified": false
+  },
+  "limitations": [
+    "avoidStatus=1 encoding is unknown; it is not decoded as a tier.",
+    "Membership of a reported point does not prove absence of other obstacles.",
+    "warn1-to-HAL-Avoid status mapping is not yet established.",
+    "Current mode is manual; automatic-mode behavior requires an on-site stationary recheck."
+  ],
+  "next_step": "On-site operator verifies no pending task and changes to soft auto without dispatching navigation, then re-read fresh state; no field shrinking or Idle bypass yet.",
+  "robot_commands_sent": false,
+  "controller_configuration_changed": false
+}

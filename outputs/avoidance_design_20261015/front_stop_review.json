@@ -1,0 +1,40 @@
+{
+  "status": "READONLY_REVIEW_COMPLETE_NEW_STATIC_TEST_AWAITS_AUTHORIZATION",
+  "live_read": "front_stop_readonly_current.json",
+  "read_only_this_turn": true,
+  "controller_write_this_turn": false,
+  "confirmed": [
+    "Previous temporary change remains restored in both group and robot readback.",
+    "Current soft-auto/no-task/zero-linear-speed state still reports Avoid with sensor6 outer-warning points.",
+    "Global strategy id7 前停车 references full region1, shared with forward strategy id1.",
+    "The HMI rangeList chooses full region IDs; no per-tier selector is exposed."
+  ],
+  "unconfirmed": [
+    "Exact controller activation and priority conditions for 前停车",
+    "Controller encoding of avoidStatus",
+    "Effect of equal stop/warn2/warn1 geometry on firmware"
+  ],
+  "next_candidate": {
+    "group_id": 1,
+    "new_region_id": 8,
+    "sensor_id": 6,
+    "source_stop_preserved": true,
+    "all_new_tiers": "exact copy of existing region1 stop, nonempty",
+    "front_stop_binding_before": [
+      1
+    ],
+    "front_stop_binding_candidate": [
+      8
+    ],
+    "all_existing_regions_and_other_bindings_unchanged": true,
+    "permanent_application_authorized": false,
+    "navigation_authorized": false
+  },
+  "possible_outcomes": {
+    "Avoid_before_Idle_during_Avoid_after": "supports a causal contribution of the front-stop binding at this stationary pose, not a global safety/activation proof",
+    "Avoid_persists": "does not prove which other strategy/obstacle/state source remains active",
+    "new_close_point": "inspect the reported nearby obstruction; do not reduce the preserved stop boundary",
+    "write_rejected_or_readback_mismatch": "restore and report inconclusive; no fallback disabling"
+  },
+  "review_and_execution_plan": "stationary_candidate/exact_diff_rollback.json"
+}

@@ -1,0 +1,143 @@
+{
+  "review": "G1 携杯导航 preserve_verified 控制器配置契约",
+  "scope": "只审查本地源码与既有机器人取证；未连接机器人、未发送命令、未修改源码或控制器配置。",
+  "conclusion": {
+    "preserve_verified_supported_as": "实时控制器配置与已批准 manifest 的精确匹配门；匹配仅代表配置读回一致。",
+    "not_supported_as": [
+      "已验证机械臂、夹爪、杯子的三维碰撞保护或传感器覆盖",
+      "已验证桌边抓放模式、底盘制动、直线倒退或路径间隙",
+      "已验证运行速度上限或实际停止距离"
+    ],
+    "current_entry_risk": "tools/navigate_station.py 每次执行导航都会从配置读取等级并调用 set_agv_col_level；HAL 静态证据表明该调用会从类型配置取区域、按等级调整并写回。"
+  },
+  "geometry_and_units": {
+    "fields": [
+      "avoidRangesParam.avoidRangeList[].id/name/mark/sensorId/shape/uuid",
+      "avoidRangesParam.avoidRangeList[].stop/warn1/warn2.positions[] (x,y)",
+      "avoidRangesParam.avoidRangeList[].stop/warn1/warn2.zRange.min/max",
+      "avoidStrategyParam.globalStrategy[] and the actual key localStrtegy[]",
+      "sensorsParam.cameraList/laserList/ultrasonicList and all sensor IDs referenced by sensorId",
+      "chassisParam"
+    ],
+    "coordinate_interpretation": "导航站点配置用 m/rad，接口请求转成 mm/deg；HMI globalPose 明确标注 x/y 为 mm、theta 为 degrees。避障点坐标与传感器 x/y/z 值从 HMI 绘制逻辑和配置数值看以 mm、角度以 degrees 表示，但控制器响应未提供正式单位元数据；zRange 的参考轴/高度原点仍需确认。",
+    "sensor_transform": "HMI 静态脚本按传感器 x/y/z 偏置、direction 和 theta 变换区域顶点并绘制到车体/地图坐标。该证据可复算 UI 显示变换；它不能证明控制器运行时传感器外参与真实安装一致，也不能证明三维检测覆盖。",
+    "reliable_verification_method": [
+      "从活动机器人 Config/Agv/GetParam 实时读取完整避障区域、策略、底盘和传感器配置；用固定变换实现离线复算每个传感器坐标系的 stop/warn 顶点，并与 manifest 原值逐字段核对。",
+      "确认每个 range.sensorId 唯一映射到预期传感器，并核对 id、方向、角度、x/y/z 和扫描/检测范围。",
+      "物理验证仍需要测量传感器安装位姿，并用有测量坐标的目标检查实际检测/停止；桌面、腿、框架、线缆及手臂/杯子高度都须单独评估。配置读回和 HMI overlay 只能验证数据与绘图，不可替代物理检查。"
+    ],
+    "evidence": [
+      {"file": "tools/navigate_station.py", "lines": "170-180", "fact": "站点 x_m/y_m/yaw_rad 转为 x_mm/y_mm/yaw_deg。"},
+      {"file": "tools/check_navigation.py", "lines": "90-101", "fact": "HMI pose 字段和 x/y mm、theta degrees 单位标注。"},
+      {"file": "outputs/navigation_contract/robot_probe/controller/current_key_values.txt", "lines": "9-12", "fact": "控制器底盘、策略、导航传感器与相机/激光传感器字段快照。"},
+      {"file": "outputs/navigation_contract/robot_probe/hmi/polygon_frame_context.txt", "lines": "1-7", "fact": "HMI 代码通过 sensor offset、direction、theta 将区域顶点转到 AMR 坐标。"},
+      {"file": "outputs/avoidance_design_20261014/design_proposal.json", "lines": "1-118", "fact": "现有包络和区域仅为 proposal；来源说明传感器高度覆盖、实际停止距离及完整扫掠均未验证。"}
+    ]
+  },
+  "preserve_verified_contract": {
+    "meaning": "每次启动与导航期间，只读查询活动机器人控制器配置并与外部明确批准的 manifest 比较。pass 只能叫 configuration_manifest_match。",
+    "writes_forbidden": [
+      "set_agv_col_level / /hal/nav/collision",
+      "set_agv_col_ctrl(False) / /hal/nav/collision_override false",
+      "任何自动把 design proposal、类型默认值或本机旧 JSON 写成活动配置的后备路径"
+    ],
+    "reads_required": [
+      "POST /api/AMR/GetDeviceInfo，核实 serialNumber 与期望机器人身份及软件/固件版本。",
+      "POST /api/Config/Agv/GetParam，body id=expected robot_id；只使用响应中同 ID 的活动 Agv Content。",
+      "POST /api/AMR/GetState，body id=expected robot_id；核实响应身份与状态新鲜性。",
+      "HMI /api/Config/GetAllParam 的 Agv 列表中同一 ID 项可作交叉核对；不能用类型模板或 HMI 历史快照替代活动 Agv 配置。",
+      "活动地图须由新鲜原生 Position.map_id 采样确认；map list 存在或 driver/HMI mapId 分配都不能单独证明 SLAM 当前地图。"
+    ],
+    "manifest_schema": {
+      "required_top_level": [
+        "schema_version",
+        "kind",
+        "status",
+        "robot_id",
+        "agv_type_id",
+        "map_id",
+        "map_name",
+        "controller_versions",
+        "hal_sha256",
+        "expected",
+        "canonical_sha256",
+        "provenance"
+      ],
+      "fixed_values": {
+        "kind": "g1_controller_avoidance_manifest",
+        "status": "approved_controller_snapshot",
+        "robot_id": 424,
+        "map_id": 7,
+        "map_name": "cup_new"
+      },
+      "expected_required_subtrees": [
+        "chassisParam (whole object)",
+        "sensorsParam (whole object; preserve all cameraList/laserList/ultrasonicList entries and fields)",
+        "avoidRangesParam (whole object)",
+        "avoidStrategyParam (whole object, including the literal localStrtegy key)",
+        "scheduleParam (whole object if the manifest makes any movement/avoidance-speed claim)",
+        "moveControlParam.autoMoveParam (whole object if the manifest makes any movement/avoidance-speed claim)"
+      ],
+      "normalization": "Sort object keys only. Preserve array order, numeric values and JSON types; do not round floats or coerce ints/bools. Compare exact normalized subtrees and report current/expected digests plus differing JSON paths.",
+      "proposal_rejection": "Strictly reject unknown keys and any manifest lacking the fixed kind/status/version/identity fields and complete required subtrees. Do not accept design_proposal.json, proposal_only=true, combined_envelope, travel_regions, phase_requirements, or other derived geometry as expected controller polygons."
+    },
+    "missing_or_mismatch": "Fail closed before dispatch if any query errors/times out, ErrorCode/Interface/Content is unexpected, any required field is absent/null/wrong type, any unknown field appears in a strict subtree, IDs or map differ, area/sensor/strategy subtree differs, or data freshness cannot be established. Never fall back to defaults, type config, cached last-good values, or legacy setter. During navigation, any failed/stale/mismatching poll must stop dispatch progression and enter the existing pause-and-confirm path; report STOP_UNCONFIRMED if stopping is not observed.",
+    "scope_flags": {
+      "configuration_manifest_match": true,
+      "physical_3d_collision_verified": false,
+      "sensor_coverage_verified": false,
+      "route_clearance_verified": false,
+      "straight_reverse_verified": false,
+      "speed_policy_verified": false
+    }
+  },
+  "identity_map_freshness": {
+    "identity_equalities": [
+      "manifest.robot_id == Config/Agv/GetParam.Content.id",
+      "manifest.robot_id == GetDeviceInfo.Content.serialNumber (string comparison after strict decimal normalization)",
+      "manifest.robot_id == GetState.Content.id",
+      "manifest.robot_id == exactly one HMI Config/GetAllParam.Content.Agv[].id",
+      "Config/Agv/GetParam.Content.agvTypeId == manifest.agv_type_id"
+    ],
+    "map_equalities": [
+      "Config/Agv/GetParam.Content.mapId == manifest.map_id",
+      "HMI Agv[].mapId == manifest.map_id",
+      "map list contains exact id/name pair (7, cup_new)",
+      "at least 3 updating native Position samples all have integer map_id=7 and strictly increasing timestamp_ns"
+    ],
+    "freshness": [
+      "Record local request_started_utc and response_received_utc and preserve each API envelope TimeStamp; require valid, recent, nonfuture timestamps under a known controller/local clock tolerance.",
+      "Query once immediately before any dispatch and re-read during navigation at a bounded interval; reject a config/state sample older than its configured maximum age. Never use robot_probe artifacts as runtime results.",
+      "For Position feedback use receipt monotonic time as well as timestamp_ns; the existing NativeChassisFeedback rejects receipt age over 2 seconds. Require the sample window itself to complete within its bound.",
+      "Require live hal_sha256 and controller software/firmware versions to match the manifest when claiming compatibility with inspected HAL behavior. If unavailable, report compatibility unverified and fail a strict preserve gate."
+    ],
+    "operational_state_is_separate": "Configuration match does not imply dispatch readiness. Existing preflight separately requires HMI normal/automatic, no e-stop/touch/pause/charging, Idle, confidence and stationary readings; preserve mode must not weaken those checks."
+  },
+  "table_mode_and_reverse": {
+    "finding": "No evidence in the current station entry of a verified docking/manipulation avoidance-mode switch or a command guaranteeing straight backward motion.",
+    "evidence": [
+      {"file": "tools/navigate_station.py", "lines": "481-509", "fact": "Current avoidance helper sets global level and calls collision-control true; it does not switch named regions or a table mode."},
+      {"file": "tools/navigate_station.py", "lines": "170-180, 529-535", "fact": "Navigation request is an absolute active-map pose and dispatch uses navigate_to_pose."},
+      {"file": "outputs/navigation_contract/robot_probe/hal_static/controller_api_paths.txt", "lines": "2-5,23-26", "fact": "HAL contains mode/manual/relative-move endpoint strings; strings alone do not establish a safe docking contract or straight-reverse guarantee."},
+      {"file": "outputs/avoidance_design_20261014/design_proposal.json", "lines": "54-118", "fact": "Design records separate manipulation mode and constrained approach/departure as unsupported/unverified."}
+    ],
+    "recommendation": "Treat docking/table interaction and straight retreat as separate future contracts requiring an identified command, behavior evidence, bounded low speed, stop confirmation, and physical clearance validation. Do not infer them from MoveRelative, SetAutoMode/SetManualMode endpoint strings, pause_walk, or the global avoidance level."
+  },
+  "current_evidence_caveat": {
+    "fact": "The robot_probe API snapshots were collected on 2026-10-14 and report robot/mapId=424/6 with older avoidance geometry. The task's target is map 7/cup_new, so those files are historical evidence and cannot be accepted as a passing map-7 manifest.",
+    "evidence": [
+      {"file": "outputs/navigation_contract/robot_probe/controller/current_key_values.txt", "lines": "2-6", "fact": "Snapshot identifies robot 424 and mapId 6."},
+      {"file": "outputs/navigation_contract/robot_probe/hmi/api_AMR_GetState_id424.json.pretty.json", "lines": "1-65", "fact": "Historical HMI state sample for robot 424; not a current post-switch read."},
+      {"file": "config/transport.yaml", "lines": "31-46", "fact": "Expected map is 7/cup_new; A=(0.049,0.072,-0.185039), B=(-1.570,0.396,2.976621)."}
+    ]
+  },
+  "evidence_index": [
+    {"file": "tools/navigate_station.py", "lines": "481-509", "fact": "Global collision level setter and ctrl call; comment forbids false due to temporary region clear."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/SetAvoidLevel.disasm.txt", "lines": "15-18,38-40", "fact": "SetAvoidLevel dispatches to SetAvoidRange(level)."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/SetAvoidRange.disasm.txt", "lines": "25-26,141-179,263-276,303-316", "fact": "Reads type GetParam, takes avoidRangesParam, adjusts by level, then posts type UpdateParam."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/CollisionCtrl.disasm.txt", "lines": "27-30", "fact": "False path calls SetAvoidRange(0)."},
+    {"file": "outputs/navigation_contract/robot_probe/hal_static/geometry_crosscheck.txt", "lines": "1-3", "fact": "Offline static crosscheck found the full controller avoidRangeList equals baseline positions transformed by x=50 unchanged and other x/y multiplied by 0.8."},
+    {"file": "tools/check_navigation.py", "lines": "25-28,73-101,104-119,122-148,150-207", "fact": "Existing feedback fields, HMI/controller readback and runtime-map gate; current readback omits full region/strategy/sensor data and does not preserve response timestamps."},
+    {"file": "src/g1_cup_grasp/io/chassis_feedback.py", "lines": "49-74", "fact": "Native feedback records local monotonic receipt and rejects samples stale for more than two seconds."}
+  ]
+}

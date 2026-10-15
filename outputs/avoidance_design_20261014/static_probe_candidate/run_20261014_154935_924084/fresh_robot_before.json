@@ -1,0 +1,1375 @@
+{
+  "agvTemplateId": 18,
+  "agvTypeId": 1,
+  "avoidRangesParam": {
+    "avoidRangeList": [
+      {
+        "id": 1,
+        "mark": 0,
+        "name": "前激光避障",
+        "sensorId": 6,
+        "shape": 0,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -272
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": 260
+            },
+            {
+              "x": 221,
+              "y": -272
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -420
+            },
+            {
+              "x": 50,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": -420
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -340
+            },
+            {
+              "x": 50,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": -340
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      },
+      {
+        "id": 3,
+        "mark": 0,
+        "name": "旋转前激光避障",
+        "sensorId": 6,
+        "shape": 0,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -260
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 248,
+              "y": 260
+            },
+            {
+              "x": 248,
+              "y": -260
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -420
+            },
+            {
+              "x": 50,
+              "y": 420
+            },
+            {
+              "x": 248,
+              "y": 420
+            },
+            {
+              "x": 248,
+              "y": -420
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -340
+            },
+            {
+              "x": 50,
+              "y": 340
+            },
+            {
+              "x": 248,
+              "y": 340
+            },
+            {
+              "x": 248,
+              "y": -340
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      },
+      {
+        "id": 5,
+        "mark": 0,
+        "name": "旋转侧前激光避障",
+        "sensorId": 6,
+        "shape": 0,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -260
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 248,
+              "y": 260
+            },
+            {
+              "x": 248,
+              "y": -260
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -420
+            },
+            {
+              "x": 50,
+              "y": 420
+            },
+            {
+              "x": 248,
+              "y": 420
+            },
+            {
+              "x": 248,
+              "y": -420
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -340
+            },
+            {
+              "x": 50,
+              "y": 340
+            },
+            {
+              "x": 248,
+              "y": 340
+            },
+            {
+              "x": 248,
+              "y": -340
+            }
+          ],
+          "zRange": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      },
+      {
+        "id": 6,
+        "mark": 0,
+        "name": "前视觉避障",
+        "sensorId": 12,
+        "shape": 2,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -260
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 440,
+              "y": 260
+            },
+            {
+              "x": 440,
+              "y": -260
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -420
+            },
+            {
+              "x": 50,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": -420
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -340
+            },
+            {
+              "x": 50,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": -340
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        }
+      },
+      {
+        "id": 7,
+        "mark": 0,
+        "name": "后视觉避障",
+        "sensorId": 13,
+        "shape": 2,
+        "stop": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -260
+            },
+            {
+              "x": 50,
+              "y": 260
+            },
+            {
+              "x": 440,
+              "y": 260
+            },
+            {
+              "x": 440,
+              "y": -260
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "warn1": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -420
+            },
+            {
+              "x": 50,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": 420
+            },
+            {
+              "x": 1240,
+              "y": -420
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn2": {
+          "positions": [
+            {
+              "x": 50,
+              "y": -340
+            },
+            {
+              "x": 50,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": 340
+            },
+            {
+              "x": 840,
+              "y": -340
+            }
+          ],
+          "zRange": {
+            "max": 180,
+            "min": -180
+          }
+        }
+      }
+    ],
+    "id": 0,
+    "name": "",
+    "uuid": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "avoidStrategyParam": {
+    "globalStrategy": [
+      {
+        "id": 1,
+        "name": "前进",
+        "rangeList": [
+          1,
+          6
+        ],
+        "uuid": "{2f1db090-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 2,
+        "name": "后退",
+        "rangeList": [
+          7
+        ],
+        "uuid": "{349560e0-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 3,
+        "name": "左旋",
+        "rangeList": [
+          5,
+          3
+        ],
+        "uuid": "{43b1c960-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 4,
+        "name": "右旋",
+        "rangeList": [
+          3,
+          5
+        ],
+        "uuid": "{46c39d40-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 5,
+        "name": "左移",
+        "rangeList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "id": 6,
+        "name": "右移",
+        "rangeList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "id": 7,
+        "name": "前停车",
+        "rangeList": [
+          1
+        ],
+        "uuid": "{520da100-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 8,
+        "name": "后停车",
+        "rangeList": [
+          7
+        ],
+        "uuid": "{5db88970-c7bc-11f1-a2c2-8581b3a437e1}"
+      },
+      {
+        "id": 9,
+        "name": "所有情形",
+        "rangeList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      }
+    ],
+    "id": 0,
+    "localStrtegy": [
+      {
+        "id": 11,
+        "name": "左关",
+        "rangeList": [],
+        "uuid": "{f65d29f0-793e-11f1-9f78-113e6971dcde}"
+      }
+    ],
+    "name": "",
+    "uuid": "{5db88971-c7bc-11f1-a2c2-8581b3a437e1}"
+  },
+  "chassisParam": {
+    "head": 300,
+    "id": 1,
+    "mode": 0,
+    "name": "底盘",
+    "tail": 300,
+    "uuid": "{00000000-0000-0000-0000-000000000000}",
+    "wheelAngle": 24.3,
+    "wheelDiameter": 152,
+    "wheelDistance": 375,
+    "wheelSpace": 375,
+    "width": 450
+  },
+  "deviceType": 0,
+  "fixedOffsetParam": {
+    "chargeOffset": {
+      "QRCode": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "reflector": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 100,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "id": 1,
+    "loadOffset": {
+      "QRCode": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "reflector": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 100,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "name": "固定偏差",
+    "theta": 0,
+    "unloadOffset": {
+      "QRCode": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "reflector": {
+        "isEnable": true,
+        "theta": 0,
+        "x": 100,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "uuid": "{00000000-0000-0000-0000-000000000000}",
+    "x": 1,
+    "y": 1,
+    "z": 0
+  },
+  "id": 424,
+  "ioParam": {
+    "id": 0,
+    "inputList": [
+      {
+        "id": 1,
+        "name": "急停",
+        "portList": [
+          1
+        ],
+        "uuid": "{20666440-ea71-11ef-b262-79ebd6cf27bd}",
+        "validLevel": 1
+      },
+      {
+        "id": 2,
+        "name": "触边",
+        "portList": [
+          2
+        ],
+        "uuid": "{0c817420-e8e5-11ef-b262-79ebd6cf27bd}",
+        "validLevel": 0
+      },
+      {
+        "id": 3,
+        "name": "复位",
+        "portList": [
+          3
+        ],
+        "uuid": "{110c2c60-e8e5-11ef-b262-79ebd6cf27bd}",
+        "validLevel": 0
+      },
+      {
+        "id": 4,
+        "name": "手动",
+        "portList": [
+          5
+        ],
+        "uuid": "{74139550-e8e5-11ef-b262-79ebd6cf27bd}",
+        "validLevel": 0
+      },
+      {
+        "id": 5,
+        "name": "取货到位检测",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 6,
+        "name": "放货到位检测",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      }
+    ],
+    "name": "",
+    "outputList": [
+      {
+        "id": 1,
+        "name": "充电",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 2,
+        "name": "停车",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 3,
+        "name": "一级异常",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 4,
+        "name": "二级异常",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 5,
+        "name": "三级异常",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 6,
+        "name": "左转弯",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 7,
+        "name": "右转弯",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 8,
+        "name": "前进",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 9,
+        "name": "后退",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 10,
+        "name": "一级避障(停车)",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 11,
+        "name": "二级避障(减速)",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 12,
+        "name": "三级避障(减速)",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      },
+      {
+        "id": 13,
+        "name": "复位",
+        "portList": [],
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "validLevel": 0
+      }
+    ],
+    "uuid": "{206ec8b0-ea71-11ef-b262-79ebd6cf27bd}"
+  },
+  "ipAddress": "10.42.0.153",
+  "lightingParam": {
+    "autoControlTypeList": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frequency": 1,
+        "id": 1,
+        "mode": 1,
+        "name": "硬手动",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "color": [
+          255,
+          0,
+          255,
+          255
+        ],
+        "frequency": 1,
+        "id": 2,
+        "mode": 1,
+        "name": "软手动",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "color": [
+          0,
+          0,
+          255,
+          255
+        ],
+        "frequency": 1,
+        "id": 3,
+        "mode": 1,
+        "name": "自动",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          255
+        ],
+        "frequency": 1,
+        "id": 4,
+        "mode": 1,
+        "name": "避障减速",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "frequency": 1,
+        "id": 5,
+        "mode": 1,
+        "name": "避障停止",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "frequency": 1,
+        "id": 6,
+        "mode": 2,
+        "name": "异常",
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      }
+    ],
+    "id": 0,
+    "mode": 1,
+    "name": "",
+    "uuid": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "locateParam": {
+    "id": 0,
+    "initialCovAA": 1,
+    "initialCovXX": 1,
+    "initialCovYY": 0,
+    "initialPoseA": 0,
+    "initialPoseX": 0,
+    "initialPoseY": 0,
+    "kldErr": 1,
+    "kldZ": 1,
+    "laserLambdaShort": 1,
+    "laserLikehoodMaxDist": 1,
+    "laserMaxBeams": 1,
+    "laserSigmaHit": 1,
+    "laserZHit": 1,
+    "laserZMax": 1,
+    "laserZRand": 1,
+    "laserZShort": 1,
+    "locationType": 4,
+    "maxParticles": 1,
+    "minParticles": 1,
+    "name": "",
+    "odomAlpa1": 1,
+    "odomAlpa2": 1,
+    "odomAlpa3": 1,
+    "odomAlpa4": 1,
+    "odomAlpa5": 1,
+    "recoveryAlphaFast": 1,
+    "recoveryAlphaSlow": 1,
+    "updateMinA": 30,
+    "updateMinD": 50,
+    "uuid": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "mapId": 7,
+  "moveControlParam": {
+    "abutMoveParam": {
+      "acc": 100,
+      "dec": 100,
+      "id": 0,
+      "maxRotateSpeed": 200,
+      "maxSpeed": 200,
+      "name": "",
+      "rotateAcc": 100,
+      "rotateDec": 100,
+      "uuid": "{00000000-0000-0000-0000-000000000000}"
+    },
+    "autoMoveParam": {
+      "acc": 600,
+      "dec": 600,
+      "id": 0,
+      "maxRotateSpeed": 200,
+      "maxSpeed": 200,
+      "name": "",
+      "rotateAcc": 200,
+      "rotateDec": 200,
+      "uuid": "{a9e99fe0-c6fa-11f1-b08a-d37e9787e397}"
+    },
+    "controlParam": {
+      "accuracySpeed": 1,
+      "accuracyTheta": 1,
+      "accuracyX": 5,
+      "accuracyY": 5,
+      "angularCof": 1,
+      "brakeDistance": 0,
+      "horizontalCof": 1,
+      "id": 0,
+      "name": "",
+      "resolution": 0.02,
+      "uuid": "{47d6cf20-e828-11ee-80c6-118bb8b399c9}"
+    },
+    "defaultMode": 1,
+    "id": 1,
+    "manualMoveParam": {
+      "acc": 600,
+      "dec": 600,
+      "id": 0,
+      "maxRotateSpeed": 200,
+      "maxSpeed": 200,
+      "name": "",
+      "rotateAcc": 200,
+      "rotateDec": 200,
+      "uuid": "{fb2af400-714e-11f1-b867-cd51ee98c5ae}"
+    },
+    "name": "运动控制",
+    "uuid": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "name": "AMR-424",
+  "navigationsParam": {
+    "id": 0,
+    "name": "",
+    "navigationList": [
+      {
+        "functionList": [
+          1,
+          3
+        ],
+        "id": 1,
+        "name": "前激光导航",
+        "offset": 300,
+        "reflectorDistanceRange": {
+          "max": 1200,
+          "min": 60
+        },
+        "reflectorIntensity": 203,
+        "sensorId": 6,
+        "uuid": "{00000000-0000-0000-0000-000000000000}"
+      },
+      {
+        "functionList": [
+          3
+        ],
+        "id": 2,
+        "name": "后激光导航",
+        "offset": 300,
+        "reflectorDistanceRange": {
+          "max": 600,
+          "min": 60
+        },
+        "reflectorIntensity": 210,
+        "sensorId": 7,
+        "uuid": "{2287c350-eb39-11ee-bc3e-3d299308adc8}"
+      }
+    ],
+    "uuid": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "noAddr": "424",
+  "pluginId": 1,
+  "scheduleParam": {
+    "acceleration": 150,
+    "angleTolerance": 2,
+    "avoidRange": 200,
+    "axisNum": 1,
+    "batteryLossSpeed": 0,
+    "chargeSpeed": 100,
+    "chargeThreshold": 100,
+    "deceleration": 150,
+    "forceChargeFinished": 80,
+    "forceChargeThreshold": 20,
+    "id": 0,
+    "idleChargeFinished": 50,
+    "idleChargeThreshold": 60,
+    "isAllowStationOnline": true,
+    "isAutoCharging": false,
+    "isAutoLearnEnabled": false,
+    "isAutoParking": true,
+    "isCanAvoidDetour": false,
+    "isCanBackward": false,
+    "isCanShift": false,
+    "isHasCoordinate": true,
+    "length": 600,
+    "loadTime": 5000,
+    "maxCurveSpeed": 200,
+    "maxDetourBackLength": 2500,
+    "maxDetourDistacne": 1800,
+    "maxEmptyVectorSpeed": 20,
+    "maxFullVectorSpeed": 20,
+    "maxIdleTime": 0,
+    "maxLoadCapacity": 1,
+    "maxSendNodeNum": 10,
+    "maxSpeed": 1000,
+    "maxTimeOut": 5000,
+    "minDetourBackLength": 0,
+    "minDetourWaitAvoidTime": 10000,
+    "minExplorDistance": 2000,
+    "minExplorNodeNum": 10,
+    "name": "",
+    "navigationMode": 1,
+    "priority": 5,
+    "priorityCost": 0,
+    "queueingStrategy": 0,
+    "rotateCost": 20,
+    "rotateRadius": 375,
+    "safeDistance": 100,
+    "stopCost": 1500,
+    "unLoadTime": 5000,
+    "uuid": "{32a181a0-7ac4-11f1-86be-396696ea6fec}",
+    "width": 450
+  },
+  "sensorsParam": {
+    "PLCList": [
+      {
+        "baudrate": 500000,
+        "brand": 2,
+        "channel": 2,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 0,
+        "id": 1,
+        "ip": "192.168.1.5",
+        "mark": "222",
+        "name": "PLC1",
+        "offset": 0,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 0,
+        "param2": 0,
+        "port": 0,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 2,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "angleEncoderList": [],
+    "batteryList": [
+      {
+        "baudrate": 9600,
+        "brand": 5,
+        "channel": 3,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 0,
+        "id": 2,
+        "ip": "192.168.1.5",
+        "mark": "",
+        "name": "电池",
+        "offset": 30,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 0,
+        "param2": 0,
+        "port": 1,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 1,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "cameraList": [
+      {
+        "baudrate": 0,
+        "brand": 4,
+        "channel": 0,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 0,
+        "id": 12,
+        "ip": "",
+        "mark": "CH26C20006Y",
+        "name": "前视觉避障相机",
+        "offset": 0,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 0,
+        "param2": 0,
+        "port": 50010,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 5,
+        "uuid": "{04113df0-984c-11ef-9d76-c1a9892543b6}",
+        "x": 300,
+        "y": 0,
+        "z": 272
+      },
+      {
+        "baudrate": 0,
+        "brand": 4,
+        "channel": 0,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 0,
+        "id": 13,
+        "ip": "",
+        "mark": "",
+        "name": "后视觉避障相机",
+        "offset": 0,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 20,
+        "param2": 0,
+        "port": 50010,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 180,
+        "transferMode": 5,
+        "uuid": "{f55c0640-984c-11ef-9d76-c1a9892543b6}",
+        "x": -300,
+        "y": 0,
+        "z": 62
+      }
+    ],
+    "handleList": [
+      {
+        "baudrate": 115200,
+        "brand": 2,
+        "channel": 2,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 0,
+        "id": 11,
+        "ip": "192.168.1.5",
+        "mark": "",
+        "name": "手柄",
+        "offset": 30,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 0,
+        "param2": 0,
+        "port": 0,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 1,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "id": 0,
+    "laserList": [
+      {
+        "baudrate": 2400,
+        "brand": 3,
+        "channel": 1,
+        "detectAngleRange": {
+          "max": 50000,
+          "min": 10
+        },
+        "direction": 0,
+        "encoderLine": 0,
+        "frequency": 15,
+        "id": 6,
+        "ip": "10.42.0.122",
+        "mark": "",
+        "name": "前激光",
+        "offset": 0,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 0,
+        "param2": 0,
+        "port": 80,
+        "resolution": 0.333333,
+        "scanAngleRange": {
+          "max": 135,
+          "min": -135
+        },
+        "theta": 0,
+        "transferMode": 3,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 223,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "motorList": [
+      {
+        "baudrate": 500000,
+        "brand": 5,
+        "channel": 1,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 0,
+        "encoderLine": 10000,
+        "frequency": 0,
+        "id": 4,
+        "ip": "192.168.1.5",
+        "mark": "",
+        "name": "左电机",
+        "offset": 0,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 9,
+        "param2": 0,
+        "port": 1,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 2,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      {
+        "baudrate": 500000,
+        "brand": 5,
+        "channel": 1,
+        "detectAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "direction": 1,
+        "encoderLine": 10000,
+        "frequency": 0,
+        "id": 5,
+        "ip": "192.168.1.5",
+        "mark": "",
+        "name": "右电机",
+        "offset": 80,
+        "outputLevel": 0,
+        "outputPort": 0,
+        "param1": 9,
+        "param2": 0,
+        "port": 2,
+        "resolution": 0,
+        "scanAngleRange": {
+          "max": 0,
+          "min": 0
+        },
+        "theta": 0,
+        "transferMode": 2,
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "name": "",
+    "pushRodList": [],
+    "ropeEncoderList": [],
+    "ultrasonicList": [],
+    "uuid": "{7fab0920-ea76-11ee-b21c-693dbabae4ca}",
+    "voiceList": []
+  },
+  "specialParam": "{\"specialList\":[{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":1,\"id\":0}],\"specialType\":\"1_load_0_1\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":0,\"id\":0}],\"specialType\":\"1_load_0_2\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":1,\"id\":0}],\"specialType\":\"1_unload_0_1\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":0,\"id\":0}],\"specialType\":\"1_unload_0_2\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":1,\"id\":0}],\"specialType\":\"1_load_0_1_1\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":0,\"id\":0}],\"specialType\":\"1_load_0_2_1\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":1,\"id\":0}],\"specialType\":\"1_unload_0_1_1\"},{\"step\":[{\"type\":\"CAN_Z_1\",\"offset\":0,\"id\":0}],\"specialType\":\"1_unload_0_2_1\"},{\"step\":[{\"type\":\"output_io\",\"offset\":1,\"ioBit\":3,\"ioVal\":0,\"id\":0}],\"specialType\":\"reach_charge\"},{\"step\":[{\"type\":\"output_io\",\"offset\":1,\"ioBit\":3,\"ioVal\":1,\"id\":0}],\"specialType\":\"leave_charge\"}],\"id\":0,\"name\":\"任务模块\"}",
+  "storageParam": {
+    "id": 0,
+    "materialBufferParamList": [
+      {
+        "canDevanning": false,
+        "canStack": false,
+        "defaultMaterialType": 0,
+        "id": 1,
+        "inletPortIndex": 1,
+        "maxBufferSize": 1,
+        "name": "",
+        "outletPortIndex": 1,
+        "uuid": "{78dc7cb0-e697-11ee-ba71-ad90b4afd5fa}"
+      }
+    ],
+    "name": "AMR-424",
+    "transportMode": 0,
+    "transportNodeMode": 0,
+    "transportNum": 1,
+    "uuid": "{78e5f291-e697-11ee-ba71-ad90b4afd5fa}"
+  },
+  "topParam": "{}",
+  "uuid": "{896d17fa-dda1-4dc6-a1b2-f63039e12ab5}",
+  "voiceParam": {
+    "id": 0,
+    "language": [
+      1
+    ],
+    "loopMuiscName": "",
+    "musicPlayMode": 1,
+    "name": "",
+    "speachList": [
+      {
+        "contextCN": "急停触发中，请及时处理，谢谢！",
+        "contextEN": "Emergency stop trigger, please deal with it in time, thank you!",
+        "id": 2,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "急停触发",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "前方检测到障碍物，请注意避障，谢谢！",
+        "contextEN": "Obstacles detected ahead, please pay attention to avoid obstacles, thank you!",
+        "id": 3,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "检测到障碍物",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "右转弯，请注意！",
+        "contextEN": "Turn right, please pay attention!",
+        "id": 4,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "右转弯",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "左转弯，请注意！",
+        "contextEN": "Turn left, please pay attention!",
+        "id": 5,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "左转弯",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "对接中，安全屏蔽，请注意避障，谢谢！",
+        "contextEN": "Docking, safety shield, please pay attention to avoid obstacles, thank you!",
+        "id": 13,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "对接中",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "电池电量低，请充电，谢谢！",
+        "contextEN": "Low battery, please charge，thank you!",
+        "id": 14,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "低电量",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      },
+      {
+        "contextCN": "未识别到反光板，请及时处理，谢谢！",
+        "contextEN": "No reflector is detected,please deal with it in time ,thank you!",
+        "id": 15,
+        "level": 1,
+        "loopTimes": 1,
+        "name": "未识别到反光板",
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "volume": 100
+      }
+    ],
+    "uuid": "{00000000-0000-0000-0000-000000000000}",
+    "volume": 1
+  }
+}

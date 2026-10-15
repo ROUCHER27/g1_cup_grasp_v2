@@ -1,0 +1,36 @@
+schema_version: 1
+status: PROPOSAL_NOT_APPLIED
+proposal_only: true
+read_only: true
+measurements_verified: false
+sensor_coverage_verified: false
+
+# Dimensions are approximate user-provided estimates. Coordinates are in the
+# chassis/body frame: origin at body center, +x forward, +y left; meters/radians.
+body:
+  length_m: 0.60
+  width_m: 0.45
+  extensions_m:
+    front: 0.50 # arm/gripper extent beyond the chassis front
+    side: 0.30 # arm extent beyond either chassis side
+
+margins:
+  rotation_extra_m: 0.20
+  travel_zones:
+    - level: 1
+      name: 一级停车
+      forward_m: 0.20
+      side_m: 0.20
+    - level: 2
+      name: 二级减速
+      forward_m: 0.40
+      side_m: 0.30
+    - level: 3
+      name: 三级提前减速
+      forward_m: 0.70
+      side_m: 0.40
+
+# Keep empty until sensor x/y/yaw are measured in the chassis/body frame.
+# A coordinate transform alone does not establish sensor FOV, range, occlusion,
+# or height coverage. Pose values, when available, must use meters and radians.
+sensors: []

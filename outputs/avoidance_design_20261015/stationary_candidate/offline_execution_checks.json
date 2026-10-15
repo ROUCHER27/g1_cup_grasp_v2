@@ -1,0 +1,51 @@
+{
+  "network_accessed": false,
+  "robot_configuration_changed": false,
+  "checks": [
+    {
+      "case": "success",
+      "passed": true,
+      "configuration_writes": 3
+    },
+    {
+      "case": "rejected_candidate",
+      "passed": true,
+      "configuration_writes": 2
+    },
+    {
+      "case": "apply_response_lost",
+      "passed": true,
+      "configuration_writes": 3
+    },
+    {
+      "case": "delayed_apply",
+      "passed": true,
+      "configuration_writes": 4
+    },
+    {
+      "case": "restore_timeout_once",
+      "passed": true,
+      "configuration_writes": 4
+    },
+    {
+      "case": "member_changes",
+      "passed": true,
+      "configuration_writes": 0
+    },
+    {
+      "case": "readback_timeout",
+      "passed": true,
+      "configuration_writes": 3
+    },
+    {
+      "case": "new_motion",
+      "passed": true,
+      "configuration_writes": 3
+    },
+    {
+      "case": "active_task",
+      "passed": true,
+      "configuration_writes": 0
+    }
+  ]
+}

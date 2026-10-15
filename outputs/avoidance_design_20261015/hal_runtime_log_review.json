@@ -1,0 +1,139 @@
+{
+  "path": "/data/logs/hal.INFO",
+  "resolved": "/data/logs/hal.log.INFO.20261014-195630.3855.0",
+  "exists": true,
+  "read_only": true,
+  "size_bytes": 129521,
+  "specific_matches": [],
+  "generic_matches": [
+    {
+      "line_tail_index": 702,
+      "text": "I1014 21:44:58.627471  3855 cosine_bus_manager.cpp:603] [cosine_internal][CosineBusManager] create service strategy success: /hal/nav/collision with middleware: aorta"
+    },
+    {
+      "line_tail_index": 704,
+      "text": "I1014 21:44:58.627970  4584 shm_socket_server.cc:101] [aorta][/hal/nav/collision] bind at pipe sock name domain2379|pid3855|node0|/hal/nav/collision|pub51"
+    },
+    {
+      "line_tail_index": 705,
+      "text": "I1014 21:44:58.628014  3855 node_impl.cc:701] [aorta]Created Service /hal/nav/collision, uid:8ef7bf56-8968-4d48-be2c-4628d6c0d8f4-18142491661648391304 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 706,
+      "text": "W1014 21:44:58.628022  3855 service_impl.cc:26] [aorta]ServiceImpl for /hal/nav/collision is deconstructed. uid:b4702332-f19c-4dfb-92ab-3922ea595f72-18142491661648391304"
+    },
+    {
+      "line_tail_index": 707,
+      "text": "I1014 21:44:58.628108  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/nav/collision with req type: /hal/nav/collision_req and res type: /hal/nav/collision_res"
+    },
+    {
+      "line_tail_index": 709,
+      "text": "I1014 21:44:58.628568  4584 shm_socket_server.cc:101] [aorta][/hal/nav/collision_override] bind at pipe sock name domain2379|pid3855|node0|/hal/nav/collision_override|pub52"
+    },
+    {
+      "line_tail_index": 710,
+      "text": "I1014 21:44:58.628612  3855 node_impl.cc:701] [aorta]Created Service /hal/nav/collision_override, uid:2f4ae976-be42-469e-83ad-ba3b21253a63-17951726246587486710 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 711,
+      "text": "I1014 21:44:58.628620  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/nav/collision_override with req type: /hal/nav/collision_override_req and res type: /hal/nav/collision_override_res"
+    },
+    {
+      "line_tail_index": 712,
+      "text": "I1014 21:44:58.628625  3855 cosine_bus_manager.cpp:603] [cosine_internal][CosineBusManager] create service strategy success: /hal/nav/collision_override with middleware: aorta"
+    },
+    {
+      "line_tail_index": 714,
+      "text": "I1014 21:44:58.629055  4584 shm_socket_server.cc:101] [aorta][/hal/nav/collision_override] bind at pipe sock name domain2379|pid3855|node0|/hal/nav/collision_override|pub53"
+    },
+    {
+      "line_tail_index": 715,
+      "text": "I1014 21:44:58.629097  3855 node_impl.cc:701] [aorta]Created Service /hal/nav/collision_override, uid:eb891049-ddbd-4357-bca3-06a6ff6953a9-17951726246587486710 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 716,
+      "text": "W1014 21:44:58.629105  3855 service_impl.cc:26] [aorta]ServiceImpl for /hal/nav/collision_override is deconstructed. uid:2f4ae976-be42-469e-83ad-ba3b21253a63-17951726246587486710"
+    },
+    {
+      "line_tail_index": 717,
+      "text": "I1014 21:44:58.629170  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/nav/collision_override with req type: /hal/nav/collision_override_req and res type: /hal/nav/collision_override_res"
+    },
+    {
+      "line_tail_index": 720,
+      "text": "I1014 21:44:58.630137  4584 shm_socket_server.cc:101] [aorta][/hal/collision_level] bind at pipe sock name domain2379|pid3855|node0|/hal/collision_level|pub54"
+    },
+    {
+      "line_tail_index": 721,
+      "text": "I1014 21:44:58.630268  3855 node_impl.cc:701] [aorta]Created Service /hal/collision_level, uid:e18b2ed5-a33c-49ad-b7d0-724e3a5778bc-14256892337525763252 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 722,
+      "text": "I1014 21:44:58.630276  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/collision_level with req type: /hal/collision_level_req and res type: /hal/collision_level_res"
+    },
+    {
+      "line_tail_index": 723,
+      "text": "I1014 21:44:58.630282  3855 cosine_bus_manager.cpp:603] [cosine_internal][CosineBusManager] create service strategy success: /hal/collision_level with middleware: aorta"
+    },
+    {
+      "line_tail_index": 725,
+      "text": "I1014 21:44:58.630805  4584 shm_socket_server.cc:101] [aorta][/hal/collision_level] bind at pipe sock name domain2379|pid3855|node0|/hal/collision_level|pub55"
+    },
+    {
+      "line_tail_index": 726,
+      "text": "I1014 21:44:58.630857  3855 node_impl.cc:701] [aorta]Created Service /hal/collision_level, uid:eab24c6a-2cac-4c72-9596-1a68b5c8b222-14256892337525763252 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 727,
+      "text": "W1014 21:44:58.630868  3855 service_impl.cc:26] [aorta]ServiceImpl for /hal/collision_level is deconstructed. uid:e18b2ed5-a33c-49ad-b7d0-724e3a5778bc-14256892337525763252"
+    },
+    {
+      "line_tail_index": 728,
+      "text": "I1014 21:44:58.630951  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/collision_level with req type: /hal/collision_level_req and res type: /hal/collision_level_res"
+    },
+    {
+      "line_tail_index": 730,
+      "text": "I1014 21:44:58.631433  4584 shm_socket_server.cc:101] [aorta][/hal/collision_level_get] bind at pipe sock name domain2379|pid3855|node0|/hal/collision_level_get|pub56"
+    },
+    {
+      "line_tail_index": 731,
+      "text": "I1014 21:44:58.631480  3855 node_impl.cc:701] [aorta]Created Service /hal/collision_level_get, uid:9b644f9a-ce0c-48b3-989a-482a0acbe4b0-11142431056446349677 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 732,
+      "text": "I1014 21:44:58.631487  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/collision_level_get with req type: /hal/collision_level_get_req and res type: /hal/collision_level_get_res"
+    },
+    {
+      "line_tail_index": 733,
+      "text": "I1014 21:44:58.631492  3855 cosine_bus_manager.cpp:603] [cosine_internal][CosineBusManager] create service strategy success: /hal/collision_level_get with middleware: aorta"
+    },
+    {
+      "line_tail_index": 735,
+      "text": "I1014 21:44:58.631973  4584 shm_socket_server.cc:101] [aorta][/hal/collision_level_get] bind at pipe sock name domain2379|pid3855|node0|/hal/collision_level_get|pub57"
+    },
+    {
+      "line_tail_index": 736,
+      "text": "I1014 21:44:58.632025  3855 node_impl.cc:701] [aorta]Created Service /hal/collision_level_get, uid:c8b8c6fd-768a-4ae8-8a8c-997971e5da0b-11142431056446349677 topic_uid:-1"
+    },
+    {
+      "line_tail_index": 737,
+      "text": "W1014 21:44:58.632032  3855 service_impl.cc:26] [aorta]ServiceImpl for /hal/collision_level_get is deconstructed. uid:9b644f9a-ce0c-48b3-989a-482a0acbe4b0-11142431056446349677"
+    },
+    {
+      "line_tail_index": 738,
+      "text": "I1014 21:44:58.632182  3855 aorta_service.cpp:93] [cosine_internal][AortaService] Created service /hal/collision_level_get with req type: /hal/collision_level_get_req and res type: /hal/collision_level_get_res"
+    },
+    {
+      "line_tail_index": 789,
+      "text": "I1014 21:44:58.649078  4587 linkhou_wrapper.cpp:933] [hal]Got floor‑map name: "
+    }
+  ],
+  "last_lines": [
+    "I1015 00:49:32.231846  3959 dylog_impl.cpp:372] [DYLOG] log frequency: aorta:0 hal:0 cosine_internal:0 ",
+    "I1015 00:54:32.231981  3959 dylog_impl.cpp:372] [DYLOG] log frequency: aorta:0 hal:0 cosine_internal:0 ",
+    "I1015 00:59:32.232070  3959 dylog_impl.cpp:372] [DYLOG] log frequency: aorta:0 hal:0 cosine_internal:0 ",
+    "I1015 01:04:32.232192  3959 dylog_impl.cpp:372] [DYLOG] log frequency: aorta:0 hal:0 cosine_internal:0 ",
+    "I1015 01:09:32.232290  3959 dylog_impl.cpp:372] [DYLOG] log frequency: aorta:0 hal:0 cosine_internal:0 "
+  ],
+  "related_log_files": [],
+  "hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+}

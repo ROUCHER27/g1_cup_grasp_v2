@@ -1,0 +1,63 @@
+Static instruction excerpts from the unexecuted local HAL binary
+Binary SHA-256: 1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309
+Symbols: OnMessage VA=0x15a2f0; GetPosition VA=0x15bfa0.
+
+OnMessage checks the `protoStatus` key at 0x15aae4 and branches to its value
+reader when present:
+
+0015aae0: d60b00b0 adrp x22, #1544192
+0015aae4: d6221591 add x22, x22, #1352  ; literal 0x2d3548 "protoStatus"
+0015aae8: e10316aa mov x1, x22
+0015aaec: e0031caa mov x0, x28
+0015aaf0: fc81ff97 bl #-129040
+0015aaf4: 1f1c0072 tst w0, #0xff
+0015aaf8: 814e0054 b.ne #2512            ; target 0x15b4d0
+
+At the branch target, the JSON value is converted to an integer (local int at
+sp+140), then stored at internal state offset +840:
+
+0015b4d0: b87eff97 bl #-132384
+0015b4d4: e10315aa mov x1, x21
+0015b4d8: e0031caa mov x0, x28
+0015b4dc: 99560094 bl #88676
+0015b4e0: e1330291 add x1, sp, #140
+0015b4e4: ff8f00b9 str wzr, [sp, #140]
+0015b4e8: 7a870094 bl #138728
+0015b4ec: e03341f9 ldr x0, [sp, #608]
+0015b4f0: e1c30991 add x1, sp, #624
+0015b4f4: e28f40b9 ldr w2, [sp, #140]
+0015b4f8: 624a03b9 str w2, [x19, #840]
+
+`isAvoid` has a separate key check and bool-sized store:
+
+0015a78c: db0b00b0 adrp x27, #1544192
+0015a790: 7be31191 add x27, x27, #1144  ; literal 0x2d3478 "isAvoid"
+0015a794: e1031baa mov x1, x27
+0015a798: e0031caa mov x0, x28
+0015a79c: d182ff97 bl #-128188
+0015a7a0: 1f1c0072 tst w0, #0xff
+0015a7a4: e16b0054 b.ne #3452            ; target 0x15b520
+0015b520: e1031baa mov x1, x27
+0015b524: e00315aa mov x0, x21
+0015b528: a27eff97 bl #-132472
+0015b52c: e10315aa mov x1, x21
+0015b530: e0031caa mov x0, x28
+0015b534: 83560094 bl #88588
+0015b538: e1270291 add x1, sp, #137
+0015b53c: ff270239 strb wzr, [sp, #137]
+0015b540: f4870094 bl #139216
+0015b544: e03341f9 ldr x0, [sp, #608]
+0015b548: e1c30991 add x1, sp, #624
+0015b54c: e2274239 ldrb w2, [sp, #137]
+0015b550: 622a0a39 strb w2, [x19, #650]
+
+GetPosition then copies state offset +840 into its output Position integer slot:
+
+0015c030: a14a43b9 ldr w1, [x21, #840]
+0015c048: 616e00b9 str w1, [x19, #108]
+
+The local Position schema declares `int32 agv_status` and labels value 5 as
+Avoid (`outputs/navigation_contract/robot_probe/protos/agv/Position.msg:1-3`).
+The local HAL binary string table has `protoStatus`, `isAvoid`, and
+`avoidSensorList`, but no `avoidStatus`; no interpretation of HMI
+`avoidStatus=1` is established here.

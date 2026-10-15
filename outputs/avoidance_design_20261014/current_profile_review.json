@@ -1,0 +1,340 @@
+{
+  "status": "READBACK_REVIEW_PENDING_PHYSICAL_VALIDATION",
+  "reviewed_at": "2026-10-14T21:50:43.609550+08:00",
+  "source": "/home/yirong/g1_cup_grasp_v2/outputs/avoidance_design_20261014/controller_snapshot_20261014_215043.json",
+  "robot_id": 424,
+  "map_id": 7,
+  "query_duration_s": 0.006802899999456713,
+  "geometry_units": "mm in configured chassis frame; not an independent physical measurement",
+  "regions": [
+    {
+      "region_id": 1,
+      "name": "前激光避障",
+      "sensor_id": 6,
+      "tiers": {
+        "stop": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 444.0,
+            "y_min": -272.0,
+            "y_max": 260.0
+          },
+          "forward_clearance_beyond_chassis_mm": 144.0,
+          "left_clearance_beyond_chassis_mm": 35.0,
+          "right_clearance_beyond_chassis_mm": 47.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 1063.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "forward_clearance_beyond_chassis_mm": 763.0,
+          "left_clearance_beyond_chassis_mm": 115.0,
+          "right_clearance_beyond_chassis_mm": 115.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn1": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 1463.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "forward_clearance_beyond_chassis_mm": 1163.0,
+          "left_clearance_beyond_chassis_mm": 195.0,
+          "right_clearance_beyond_chassis_mm": 195.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "region_id": 3,
+      "name": "旋转前激光避障",
+      "sensor_id": 6,
+      "tiers": {
+        "stop": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 35.0,
+          "right_clearance_beyond_chassis_mm": 35.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 115.0,
+          "right_clearance_beyond_chassis_mm": 115.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn1": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 195.0,
+          "right_clearance_beyond_chassis_mm": 195.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "region_id": 5,
+      "name": "旋转侧前激光避障",
+      "sensor_id": 6,
+      "tiers": {
+        "stop": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 35.0,
+          "right_clearance_beyond_chassis_mm": 35.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn2": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 115.0,
+          "right_clearance_beyond_chassis_mm": 115.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        },
+        "warn1": {
+          "body_frame_bounds_mm": {
+            "x_min": 273.0,
+            "x_max": 471.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "forward_clearance_beyond_chassis_mm": 171.0,
+          "left_clearance_beyond_chassis_mm": 195.0,
+          "right_clearance_beyond_chassis_mm": 195.0,
+          "z_range_raw": {
+            "max": 0,
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "region_id": 6,
+      "name": "前视觉避障",
+      "sensor_id": 12,
+      "tiers": {
+        "stop": {
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 740.0,
+            "y_min": -260.0,
+            "y_max": 260.0
+          },
+          "forward_clearance_beyond_chassis_mm": 440.0,
+          "left_clearance_beyond_chassis_mm": 35.0,
+          "right_clearance_beyond_chassis_mm": 35.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn2": {
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 1140.0,
+            "y_min": -340.0,
+            "y_max": 340.0
+          },
+          "forward_clearance_beyond_chassis_mm": 840.0,
+          "left_clearance_beyond_chassis_mm": 115.0,
+          "right_clearance_beyond_chassis_mm": 115.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn1": {
+          "body_frame_bounds_mm": {
+            "x_min": 350.0,
+            "x_max": 1540.0,
+            "y_min": -420.0,
+            "y_max": 420.0
+          },
+          "forward_clearance_beyond_chassis_mm": 1240.0,
+          "left_clearance_beyond_chassis_mm": 195.0,
+          "right_clearance_beyond_chassis_mm": 195.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        }
+      }
+    },
+    {
+      "region_id": 7,
+      "name": "后视觉避障",
+      "sensor_id": 13,
+      "tiers": {
+        "stop": {
+          "body_frame_bounds_mm": {
+            "x_min": -740.0,
+            "x_max": -349.99999999999994,
+            "y_min": -260.0,
+            "y_max": 260.00000000000006
+          },
+          "forward_clearance_beyond_chassis_mm": -650.0,
+          "left_clearance_beyond_chassis_mm": 35.00000000000006,
+          "right_clearance_beyond_chassis_mm": 35.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn2": {
+          "body_frame_bounds_mm": {
+            "x_min": -1140.0,
+            "x_max": -349.99999999999994,
+            "y_min": -340.0,
+            "y_max": 340.0000000000001
+          },
+          "forward_clearance_beyond_chassis_mm": -650.0,
+          "left_clearance_beyond_chassis_mm": 115.00000000000011,
+          "right_clearance_beyond_chassis_mm": 115.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        },
+        "warn1": {
+          "body_frame_bounds_mm": {
+            "x_min": -1540.0,
+            "x_max": -349.99999999999994,
+            "y_min": -420.0,
+            "y_max": 420.00000000000017
+          },
+          "forward_clearance_beyond_chassis_mm": -650.0,
+          "left_clearance_beyond_chassis_mm": 195.00000000000017,
+          "right_clearance_beyond_chassis_mm": 195.0,
+          "z_range_raw": {
+            "max": 180,
+            "min": -180
+          }
+        }
+      }
+    }
+  ],
+  "global_bindings": [
+    {
+      "id": 1,
+      "name": "前进",
+      "rangeList": [
+        1,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "name": "后退",
+      "rangeList": [
+        7
+      ]
+    },
+    {
+      "id": 3,
+      "name": "左旋",
+      "rangeList": [
+        5,
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "name": "右旋",
+      "rangeList": [
+        3,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "name": "左移",
+      "rangeList": []
+    },
+    {
+      "id": 6,
+      "name": "右移",
+      "rangeList": []
+    },
+    {
+      "id": 7,
+      "name": "前停车",
+      "rangeList": [
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "name": "后停车",
+      "rangeList": [
+        7
+      ]
+    },
+    {
+      "id": 9,
+      "name": "所有情形",
+      "rangeList": []
+    }
+  ],
+  "native_detour_enabled": false,
+  "backward_enabled": false,
+  "auto_max_speed_mm_s": 200,
+  "conclusion": "Existing front stop regions can trigger near the table, while lateral stop margins do not cover the user-estimated extended-arm envelope. Do not shrink all zones uniformly. Near-table transitions and sensor/scene coverage remain unverified.",
+  "manifest_approved": false,
+  "controller_changed": false,
+  "robot_commands_sent": false
+}

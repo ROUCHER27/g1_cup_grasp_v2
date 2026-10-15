@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_MISSING_MEASUREMENTS",
+  "geometry_conditions_passed": null,
+  "physical_safety_verified": false,
+  "real_motion_permitted": false,
+  "model": "offline_front_stop_zone_and_stopping_distance_check",
+  "measurement_reference": "For each station, approach-start clearance and intended stop gap refer to the same nearest low table leg/crossbar along the same straight approach. Table-edge gap is a separate higher-layer measurement.",
+  "comparison_rules": {
+    "laser1_low_support_projection": "intended_stop_gap_to_nearest_support_m > laser_region1.front_extent_beyond_chassis_m + error_margin_m",
+    "visual6_table_edge_projection": "table_edge_gap_at_intended_stop_m > visual_region6.front_extent_beyond_chassis_m + error_margin_m; a projected overlap is not proof of a sensor trigger",
+    "braking_requirement": "approach_start_clearance_to_nearest_support_m - intended_stop_gap_to_nearest_support_m >= speed_m_s * reaction_delay_s + speed_m_s^2 / (2 * minimum_braking_deceleration_m_s2) + error_margin_m",
+    "boundary_policy": "strict greater-than for region separation; exact braking-distance equality passes; no tolerance is added to either comparison"
+  },
+  "front_stop_regions": {
+    "laser_region1": {
+      "sensor_x_from_body_center_m": 0.223,
+      "near_x_from_sensor_m": 0.05,
+      "far_x_from_sensor_m": 0.221,
+      "front_boundary_from_body_center_m": 0.444,
+      "front_extent_beyond_chassis_m": 0.14400000000000002,
+      "binding_evidence": "laser_region1 is bound to the current front stop",
+      "reference": "sensor x=0.223 m; region x=0.050..0.221 m; chassis front x=0.300 m"
+    },
+    "visual_region6": {
+      "front_extent_beyond_chassis_m": 0.44,
+      "binding_evidence": "included in forward avoidance regions [1, 6]; stationary trigger source is unconfirmed",
+      "reference": "known forward visual region 6 extent beyond chassis front"
+    }
+  },
+  "stationary_trigger_source_evidence_supplied": false,
+  "stationary_trigger_regions": null,
+  "stationary_trigger_evidence_note": null,
+  "current_pose_observation": {
+    "table_edge_to_chassis_front_gap_m": 0.2,
+    "two_table_legs_to_chassis_front_gap_m": 0.4,
+    "source": "user-reported approximate measurement",
+    "station_assignment": "current_pose_only_not_A_or_B",
+    "laser1_low_support_x_projection_difference_m": 0.256,
+    "visual6_table_edge_x_projected_overlap_m": 0.24,
+    "layer_interpretation": "The 0.20 m table-edge gap is an arm/visual-height observation; the 0.40 m two-leg gap is a low chassis-level observation. They are separate obstacles and are not interchangeable clearances.",
+    "trigger_interpretation": "The visual6 value is a forward x-projection only; height coverage and whether it causes a stationary stop are unconfirmed."
+  },
+  "motion_inputs": {
+    "speed_m_s": null,
+    "reaction_delay_s": null,
+    "minimum_braking_deceleration_m_s2": null,
+    "error_margin_m": null
+  },
+  "stations": {
+    "A": {
+      "status": "BLOCKED_MISSING_MEASUREMENTS",
+      "missing_inputs": [
+        "stations.A.approach_start_clearance_to_nearest_support_m",
+        "stations.A.intended_stop_gap_to_nearest_support_m",
+        "stations.A.table_edge_gap_at_intended_stop_m",
+        "motion.speed_m_s",
+        "motion.reaction_delay_s",
+        "motion.minimum_braking_deceleration_m_s2",
+        "motion.error_margin_m",
+        "stationary_trigger_evidence.stationary_trigger_regions",
+        "stationary_trigger_evidence.evidence_note"
+      ],
+      "approach_start_clearance_to_nearest_support_m": null,
+      "intended_stop_gap_to_nearest_support_m": null,
+      "table_edge_gap_at_intended_stop_m": null,
+      "available_braking_runup_m": null,
+      "laser1_no_trigger_required_gap_m": null,
+      "laser_region1_no_trigger": null,
+      "visual_region6_required_table_edge_gap_m": null,
+      "visual_region6_no_trigger": null,
+      "visual_region6_projected_overlap_m": null,
+      "forward_region6_may_overlap": null,
+      "no_static_stop_zone_intersection": null,
+      "stationary_trigger_regions_evaluated": null,
+      "braking": {
+        "formula": "speed_m_s * reaction_delay_s + speed_m_s^2 / (2 * minimum_braking_deceleration_m_s2) + error_margin_m",
+        "speed_m_s": null,
+        "reaction_delay_s": null,
+        "minimum_braking_deceleration_m_s2": null,
+        "error_margin_m": null,
+        "available_distance_m": null,
+        "required_distance_m": null,
+        "passed": null
+      },
+      "geometry_conditions_passed": null,
+      "laser1_and_braking_conditions_passed": null,
+      "physical_safety_verified": false,
+      "manipulation_reach_verified": false,
+      "arm_lateral_and_height_envelope_verified": false
+    },
+    "B": {
+      "status": "BLOCKED_MISSING_MEASUREMENTS",
+      "missing_inputs": [
+        "stations.B.approach_start_clearance_to_nearest_support_m",
+        "stations.B.intended_stop_gap_to_nearest_support_m",
+        "stations.B.table_edge_gap_at_intended_stop_m",
+        "motion.speed_m_s",
+        "motion.reaction_delay_s",
+        "motion.minimum_braking_deceleration_m_s2",
+        "motion.error_margin_m",
+        "stationary_trigger_evidence.stationary_trigger_regions",
+        "stationary_trigger_evidence.evidence_note"
+      ],
+      "approach_start_clearance_to_nearest_support_m": null,
+      "intended_stop_gap_to_nearest_support_m": null,
+      "table_edge_gap_at_intended_stop_m": null,
+      "available_braking_runup_m": null,
+      "laser1_no_trigger_required_gap_m": null,
+      "laser_region1_no_trigger": null,
+      "visual_region6_required_table_edge_gap_m": null,
+      "visual_region6_no_trigger": null,
+      "visual_region6_projected_overlap_m": null,
+      "forward_region6_may_overlap": null,
+      "no_static_stop_zone_intersection": null,
+      "stationary_trigger_regions_evaluated": null,
+      "braking": {
+        "formula": "speed_m_s * reaction_delay_s + speed_m_s^2 / (2 * minimum_braking_deceleration_m_s2) + error_margin_m",
+        "speed_m_s": null,
+        "reaction_delay_s": null,
+        "minimum_braking_deceleration_m_s2": null,
+        "error_margin_m": null,
+        "available_distance_m": null,
+        "required_distance_m": null,
+        "passed": null
+      },
+      "geometry_conditions_passed": null,
+      "laser1_and_braking_conditions_passed": null,
+      "physical_safety_verified": false,
+      "manipulation_reach_verified": false,
+      "arm_lateral_and_height_envelope_verified": false
+    }
+  },
+  "missing_inputs": [
+    "motion.speed_m_s",
+    "motion.reaction_delay_s",
+    "motion.minimum_braking_deceleration_m_s2",
+    "motion.error_margin_m",
+    "stations.A.approach_start_clearance_to_nearest_support_m",
+    "stations.A.intended_stop_gap_to_nearest_support_m",
+    "stations.A.table_edge_gap_at_intended_stop_m",
+    "stations.B.approach_start_clearance_to_nearest_support_m",
+    "stations.B.intended_stop_gap_to_nearest_support_m",
+    "stations.B.table_edge_gap_at_intended_stop_m",
+    "stationary_trigger_evidence.stationary_trigger_regions",
+    "stationary_trigger_evidence.evidence_note"
+  ],
+  "blockers": [
+    {
+      "code": "required_measurements_missing",
+      "inputs": [
+        "motion.speed_m_s",
+        "motion.reaction_delay_s",
+        "motion.minimum_braking_deceleration_m_s2",
+        "motion.error_margin_m",
+        "stations.A.approach_start_clearance_to_nearest_support_m",
+        "stations.A.intended_stop_gap_to_nearest_support_m",
+        "stations.A.table_edge_gap_at_intended_stop_m",
+        "stations.B.approach_start_clearance_to_nearest_support_m",
+        "stations.B.intended_stop_gap_to_nearest_support_m",
+        "stations.B.table_edge_gap_at_intended_stop_m",
+        "stationary_trigger_evidence.stationary_trigger_regions",
+        "stationary_trigger_evidence.evidence_note"
+      ]
+    },
+    {
+      "code": "stationary_stop_trigger_source_unconfirmed",
+      "known_binding": "laser_region1 is bound to front stop",
+      "unresolved_binding": "forward avoidance also includes visual_region6; stationary trigger behavior is unconfirmed"
+    },
+    {
+      "code": "current_pose_table_edge_in_visual_region6_forward_projection",
+      "overlap_m": 0.24,
+      "station_assignment": "current_pose_only_not_A_or_B",
+      "interpretation": "projection only; height and trigger behavior are unverified"
+    }
+  ],
+  "unverified_requirements": [
+    "This calculation does not authorize motion or recommend clearing/overriding any front stop region.",
+    "Right-arm/cup reach at the measured stopping gap has not been verified.",
+    "Left/right arm lateral sweep, table legs/crossbars at arm heights, and sensor height coverage require separate measurement.",
+    "Actual reaction delay and minimum braking deceleration must be measured under representative load and surface conditions.",
+    "The static-zone check uses forward distance only; it does not prove full 2-D or 3-D collision clearance."
+  ]
+}

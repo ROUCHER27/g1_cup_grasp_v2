@@ -1,0 +1,32 @@
+# Offline calculation example only. Null A/B and motion measurements keep the
+# report blocked. The two reported current-pose distances are retained as a
+# layered note and are not assigned to A or B.
+motion:
+  speed_m_s: null
+  reaction_delay_s: null
+  minimum_braking_deceleration_m_s2: null
+  error_margin_m: null
+
+stations:
+  A:
+    # Low chassis-level obstacle; both support distances share this reference.
+    approach_start_clearance_to_nearest_support_m: null
+    intended_stop_gap_to_nearest_support_m: null
+    # Higher table edge, measured separately from the legs/crossbars.
+    table_edge_gap_at_intended_stop_m: null
+  B:
+    approach_start_clearance_to_nearest_support_m: null
+    intended_stop_gap_to_nearest_support_m: null
+    table_edge_gap_at_intended_stop_m: null
+
+current_pose_observation:
+  # User-reported approximate measurements at the current pose, not independent
+  # A/B docking measurements. Table edge is arm/visual height; legs are low.
+  table_edge_to_chassis_front_gap_m: 0.20
+  two_table_legs_to_chassis_front_gap_m: 0.40
+
+stationary_trigger_evidence:
+  # Laser region 1 is bound to front stop; forward movement also uses regions
+  # [1, 6]. Which source triggers a stationary near-table stop is unconfirmed.
+  stationary_trigger_regions: null
+  evidence_note: null

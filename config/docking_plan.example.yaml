@@ -1,0 +1,26 @@
+# Offline proposal inputs only. Values below are assumptions/evidence from the
+# 2026-10-14 avoidance design proposal, not approved controller settings.
+map:
+  id: 7
+  name: cup_new
+
+distances:
+  # Example offsets have not been measured at either table.
+  a_departure_assumption_m: 0.9
+  b_approach_assumption_m: 0.9
+
+geometry_estimate:
+  # Approximate bare chassis dimensions and user-supplied arm extensions.
+  chassis_length_m: 0.6
+  chassis_width_m: 0.45
+  arm_side_extension_each_m: 0.3
+  arm_front_extension_m: 0.5
+  rotation_margin_m: 0.2
+  # Level-1 straight-travel side clearance from the design proposal.
+  straight_side_margin_m: 0.2
+
+clearance:
+  minimum_straight_corridor_width_m: 1.45
+  # Site dimensions are unknown; replace null only with measured values.
+  measured_corridor_width_m: null
+  measured_rotation_clear_diameter_m: null

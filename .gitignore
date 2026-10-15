@@ -1,6 +1,37 @@
+# Local environments and generated Python files
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
 .pytest_cache/
-outputs/live_preview/
-outputs/rgbd_check/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Runtime data. Selected historical evidence is explicitly tracked;
+# see docs/version_control/evidence_manifest.json.
+/outputs/
+*.log
+/python*.log.*
+/python*.INFO
+/camera.txt
+/hal.txt
+
+# Local agent state, credentials and machine settings
+/.agents/
+/.aws/
+/.codex/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# External model weights (hash and recovery source are in the handoff)
+/models/*.pt
+
+# Editor/OS temporary files
+.DS_Store
+*~
+*.swp

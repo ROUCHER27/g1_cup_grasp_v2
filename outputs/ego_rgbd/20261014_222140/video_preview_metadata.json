@@ -1,0 +1,15 @@
+{
+  "source": "capture_report.json",
+  "video_fps": 9.63998431241267,
+  "frames": 97,
+  "capture_span_s": 9.958522429998993,
+  "video_timing": "constant rate based on average sampling interval; use frames.jsonl for original timestamps",
+  "color_video": "color.mp4",
+  "depth_video": "depth_preview.mp4",
+  "depth_preview_range_m": [
+    0.2,
+    2.0
+  ],
+  "raw_depth_preserved": true,
+  "depth_preview_is_measurement_source": false
+}

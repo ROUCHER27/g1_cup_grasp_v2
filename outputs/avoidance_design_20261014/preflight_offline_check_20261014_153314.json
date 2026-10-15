@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "status": "PRE_DISPATCH_BLOCKED_OFFLINE_REPLAY",
+  "read_only": true,
+  "network_accessed": false,
+  "robot_commands_sent": false,
+  "actual_navigation_request_attempted": false,
+  "evidence_files": [
+    "outputs/avoidance_design_20261014/soft_auto_state_20261014_153058.json",
+    "outputs/avoidance_design_20261014/soft_auto_gdk_20261014_153314.json",
+    "outputs/avoidance_design_20261014/trigger_diagnosis_current.json"
+  ],
+  "scope_note": "Static/offline replay only. The saved GDK sample list is not native SSH feedback required by --dispatch, and this report does not assert a HAL request was sent or rejected.",
+  "offline_validate_preflight_call": {
+    "sample_source": "GDK Slam position subscriber",
+    "sample_count": 5,
+    "first_exception": "RuntimeError: runtime map ID is missing or mismatches; controller configuration is insufficient",
+    "reason": "The function exits at runtime_map_check because all five saved samples omit map_id. HMI/controller placeholders are not consulted before that gate; no values were fabricated."
+  },
+  "preflight_gate_audit": [
+    {
+      "gate": "at least 3 updating samples",
+      "result": true,
+      "reached_before_first_failure": true
+    },
+    {
+      "gate": "finite required feedback fields",
+      "result": true,
+      "reached_before_first_failure": true
+    },
+    {
+      "gate": "runtime map_id present, updating, and equal to 7",
+      "result": false,
+      "map_ids": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "updating_timestamps": true,
+      "first_failure": true
+    },
+    {
+      "gate": "HMI/controller selected-map and identity checks",
+      "result": null,
+      "reason": "not reached; this state file stores GetState responses only and omits map-assignment/device-info evidence"
+    },
+    {
+      "gate": "battery not charging and HMI safe flags",
+      "result": true,
+      "evidence": {
+        "isCharging": [
+          false
+        ],
+        "isNormal": true,
+        "isScram": false,
+        "isEdged": false,
+        "isPause": false
+      }
+    },
+    {
+      "gate": "HMI hard-auto and soft-auto booleans",
+      "result": true,
+      "evidence": {
+        "isHardAuto": true,
+        "isSoftAuto": true
+      }
+    },
+    {
+      "gate": "every chassis sample is Idle (agv_status == 8)",
+      "result": false,
+      "values": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "independent_downstream_failure": true
+    },
+    {
+      "gate": "position within 0.08 m of configured A",
+      "result": false,
+      "threshold_m": 0.08,
+      "summary_m": 0.10357605829160933,
+      "independent_downstream_failure": true
+    },
+    {
+      "gate": "confidence at least 50",
+      "result": true,
+      "values": [
+        88.0,
+        88.0,
+        88.0,
+        88.0,
+        88.0
+      ]
+    },
+    {
+      "gate": "stationary pose ranges x/y <= 0.02 m and yaw <= 2 deg",
+      "result": true,
+      "ranges": {
+        "x_m": 0.0,
+        "y_m": 0.0,
+        "yaw_deg": 0.029998190834696
+      }
+    },
+    {
+      "gate": "stationary speeds <= 0.01 m/s and 0.02 rad/s",
+      "result": true,
+      "max_abs": {
+        "linear_m_s": 0.0,
+        "angular_rad_s": 0.0
+      }
+    }
+  ],
+  "current_A_error": {
+    "target_from_current_transport_config_mm": [
+      48.99999871850014,
+      71.99999690055847
+    ],
+    "target_heading_from_current_transport_config_deg": 349.3980647127357,
+    "latest_HMI_pose_mm": [
+      -53,
+      90
+    ],
+    "latest_HMI_yaw_deg_range": [
+      347.75,
+      347.77
+    ],
+    "GDK_summary_vs_configured_A": {
+      "position_error_m": 0.10357605829160933,
+      "dx_m": -0.10199999809265137,
+      "dy_m": 0.018000006675720215,
+      "yaw_error_deg": -1.703651352598194,
+      "x_range_m": 0.0,
+      "y_range_m": 0.0,
+      "yaw_range_deg": 0.029998190834696,
+      "confidence_range": [
+        88.0,
+        88.0
+      ],
+      "max_abs_linear_speed_m_s": 0.0,
+      "max_abs_angular_speed_rad_s": 0.0
+    },
+    "XY_result": "103.58 mm is 23.58 mm outside the 80 mm preflight radius if these GDK samples are used; the official preflight checks the native sample stream.",
+    "heading_note": "Current transport.yaml A heading is 349.398 deg; latest HMI heading is 347.75..347.77 deg (about -1.63..-1.65 deg from config, within the 12 deg preflight tolerance). User-described A heading band 347.75..347.77 deg is close to current heading but differs from stored target heading."
+  },
+  "HMI_state_semantics": {
+    "workStatus": 1,
+    "protoStatus": 5,
+    "isAvoid": true,
+    "avoidStatus": 1,
+    "currentCmdId_latestCmdId_taskId_taskState": {
+      "currentCmdId": 0,
+      "latestCmdId": 0,
+      "taskId": 0,
+      "taskState": 1
+    },
+    "preflight_directly_checks": [
+      "isHardAuto",
+      "isSoftAuto",
+      "isNormal",
+      "isScram",
+      "isEdged",
+      "isPause",
+      "batteryStateList[*].isCharging"
+    ],
+    "preflight_does_not_directly_check": [
+      "workStatus",
+      "protoStatus",
+      "isAvoid",
+      "avoidStatus"
+    ],
+    "interpretation": "These HMI fields are displayed but are not translated into the raw agv_status gate; protoStatus=5 must not be conflated with GDK agv_status=5 without an established mapping."
+  },
+  "GDK_avoid_state": {
+    "source": "GDK Slam position subscriber",
+    "agv_status_values": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "status_name_from_check_navigation": [
+      "Avoid",
+      "Avoid",
+      "Avoid",
+      "Avoid",
+      "Avoid"
+    ],
+    "speed_m_s": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "angular_speed_rad_s": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "confidence": [
+      88.0,
+      88.0,
+      88.0,
+      88.0,
+      88.0
+    ],
+    "timestamps_increasing": true,
+    "map_id_present": false,
+    "chassis_error_present": false
+  },
+  "sensor_point_evidence": {
+    "latest_HMI_avoidSensorList_points": [
+      {
+        "sample_index": 0,
+        "sensor_id": 6,
+        "position_mm": {
+          "x": 1223,
+          "y": -413,
+          "z": 0
+        }
+      },
+      {
+        "sample_index": 2,
+        "sensor_id": 6,
+        "position_mm": {
+          "x": 1231,
+          "y": -416,
+          "z": 0
+        }
+      },
+      {
+        "sample_index": 3,
+        "sensor_id": 6,
+        "position_mm": {
+          "x": 1226,
+          "y": -414,
+          "z": 0
+        }
+      }
+    ],
+    "existing_geometry_result": {
+      "region_id": 1,
+      "stop": false,
+      "warn2": false,
+      "warn1": true
+    },
+    "existing_geometry_result_point_mm": [
+      1233,
+      -416,
+      0
+    ],
+    "caveat": "The latest soft_auto_state file does not include the active avoidance polygons; the warn1/stop/warn2 classification comes from the separate saved geometry result, not a fresh region payload in this snapshot."
+  },
+  "pre_dispatch_vs_controller": {
+    "preflight_call_site": "tools/navigate_station.py:716, before execute_navigation",
+    "request_attempted_flag_set_only_inside_execute_navigation": "tools/navigate_station.py:592",
+    "status5_pre_dispatch_effect": "validate_preflight rejects any agv_status != 8 with \"chassis is not Idle\" if earlier map/HMI/controller gates pass.",
+    "status5_after_dispatch_effect": "NavigationWatchdog treats agv_status=5 as an Avoid episode, not an immediate generic rejection; configured budgets are 30 s per episode, 60 s cumulative, at most 5 episodes, plus route-departure limits.",
+    "separate_avoidance_monitor_scope": "AvoidanceMonitor verifies controller-configuration manifest freshness/match; it does not interpret HMI workStatus/isAvoid/avoidStatus or sensor-trigger semantics.",
+    "actual_stop_claim": "Not established: both saved capture artifacts say robot_commands_sent=false; no navigate_to_pose request/response or time-correlated post-request status transition is present."
+  },
+  "evidence_still_missing": [
+    "Fresh native /hal/position samples for the actual dispatch preflight, including map_id=7 and all required fields; do not fill the absent map_id from HMI/controller map selection.",
+    "A contemporaneous HMI GetAllParam map-assignment result and controller GetDeviceInfo/GetParam serial/map result; the latest state capture contains /api/AMR/GetState only.",
+    "A correlated navigation request attempt and HAL response/ack plus fresh status samples to establish whether a dispatched request was stopped by the controller.",
+    "The reason/protocol meaning of HMI workStatus=1, protoStatus=5, and avoidStatus=1, and a verified mapping to the GDK agv_status namespace.",
+    "A contemporaneous avoidance-region payload for the current sensor point if the warn1/stop/warn2 membership itself must be independently rechecked.",
+    "Confirmation whether the A yaw in transport.yaml (349.398 deg) should remain the target or be updated to the newly taught 347.75..347.77 deg heading."
+  ]
+}

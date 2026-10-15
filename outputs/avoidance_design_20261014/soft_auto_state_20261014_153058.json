@@ -1,0 +1,1195 @@
+{
+  "read_only": true,
+  "robot_commands_sent": false,
+  "purpose": "stationary soft-auto avoidance recheck",
+  "samples": {
+    "hmi": [
+      {
+        "received_at_utc": "2026-10-14T15:30:55.696881+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0.06,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1223,
+                  "y": -413,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -235,
+                "y": 392,
+                "z": 9839
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.804,
+                "roll": 1.643,
+                "yaw": -0.287
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992609,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:29"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:56.402773+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0,
+            "avoidSensorList": [],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -274,
+                "y": 235,
+                "z": 9839
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.807,
+                "roll": 1.664,
+                "yaw": -0.287
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992609,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:29"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:57.106660+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": -0.06,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1231,
+                  "y": -416,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -235,
+                "y": 352,
+                "z": 9800
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.807,
+                "roll": 1.662,
+                "yaw": -0.291
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992610,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:30"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:57.809628+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": -0.02,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1226,
+                  "y": -414,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.76,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -303,
+                "y": 352,
+                "z": 9878
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.804,
+                "roll": 1.643,
+                "yaw": -0.305
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.38,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.76,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992611,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:31"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:58.513103+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0.01,
+            "avoidSensorList": [],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.75,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -303,
+                "y": 352,
+                "z": 9809
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.812,
+                "roll": 1.633,
+                "yaw": -0.305
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": -1,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.39,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.75,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992611,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:31"
+        }
+      }
+    ],
+    "controller": [
+      {
+        "received_at_utc": "2026-10-14T15:30:55.697508+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0.06,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1223,
+                  "y": -413,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -235,
+                "y": 392,
+                "z": 9839
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.804,
+                "roll": 1.643,
+                "yaw": -0.287
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992609,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:29"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:56.401776+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0,
+            "avoidSensorList": [],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -274,
+                "y": 235,
+                "z": 9839
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.807,
+                "roll": 1.664,
+                "yaw": -0.287
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992609,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:29"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:57.105618+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": -0.06,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1231,
+                  "y": -416,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -235,
+                "y": 352,
+                "z": 9800
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.807,
+                "roll": 1.662,
+                "yaw": -0.291
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.37,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.77,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992610,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:30"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:57.809136+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": -0.02,
+            "avoidSensorList": [
+              {
+                "id": 6,
+                "pos": {
+                  "x": 1226,
+                  "y": -414,
+                  "z": 0
+                }
+              }
+            ],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.76,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -303,
+                "y": 352,
+                "z": 9878
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.804,
+                "roll": 1.643,
+                "yaw": -0.305
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": 0,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.38,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.76,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992611,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:31"
+        }
+      },
+      {
+        "received_at_utc": "2026-10-14T15:30:58.511775+00:00",
+        "response": {
+          "Content": {
+            "DIState": 16777212,
+            "DOState": 33554428,
+            "angularSpeed": 0.01,
+            "avoidSensorList": [],
+            "avoidStatus": 1,
+            "batteryStateList": [
+              {
+                "current": 0,
+                "energy": 100,
+                "id": 0,
+                "isCharging": false,
+                "temperature": 0,
+                "voltage": 55.3
+              }
+            ],
+            "confidence": 88,
+            "connectState": 0,
+            "currentCmdId": 0,
+            "endNodeId": 0,
+            "exceptions": [
+              0,
+              0,
+              0
+            ],
+            "executeStatus": 0,
+            "globalPose": {
+              "theta": 347.75,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "goneDistance": 0,
+            "id": 424,
+            "imuState": {
+              "acc": {
+                "x": -303,
+                "y": 352,
+                "z": 9809
+              },
+              "gyro": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "pitch": 1.812,
+                "roll": 1.633,
+                "yaw": -0.305
+              }
+            },
+            "ipAddress": "10.42.0.153",
+            "isAvoid": true,
+            "isEdged": false,
+            "isHardAuto": true,
+            "isNormal": true,
+            "isPause": false,
+            "isScram": false,
+            "isSoftAuto": true,
+            "isSuspend": false,
+            "latestCmdId": 0,
+            "linearSpeed": 0,
+            "motorStateList": [
+              {
+                "current": -1,
+                "id": 4,
+                "rpm": 0,
+                "temperature": 30
+              },
+              {
+                "current": -1,
+                "id": 5,
+                "rpm": 0,
+                "temperature": 30
+              }
+            ],
+            "navigationStatus": 1,
+            "nodeId": "7-1-1000001",
+            "nodeNum": 1000001,
+            "odometer": {
+              "theta": -0.39,
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "pose": {
+              "theta": 347.75,
+              "x": -53,
+              "y": 90,
+              "z": 1
+            },
+            "protoStatus": 5,
+            "regionId": null,
+            "speed": 0,
+            "startNodeId": 0,
+            "targetNodeId": null,
+            "targetStationId": null,
+            "taskId": 0,
+            "taskState": 1,
+            "timeStamp": 0,
+            "updateTime": 1791992611,
+            "waitSourceId": null,
+            "workStatus": 1
+          },
+          "ErrorCode": 0,
+          "ErrorMessage": "Success",
+          "Interface": "/api/AMR/GetState",
+          "TimeStamp": "2026-10-14 23:43:31"
+        }
+      }
+    ]
+  }
+}

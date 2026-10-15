@@ -1,0 +1,109 @@
+{
+  "started_at_utc": "2026-10-14T10:33:59.913292+00:00",
+  "station": "A",
+  "dispatch_requested": false,
+  "request_attempted": false,
+  "request_accepted": false,
+  "native_feedback_requested": false,
+  "no_cup": false,
+  "read_only": true,
+  "config": {
+    "enable_real_navigation": false,
+    "agv_collision_level": 2,
+    "navigation": {
+      "no_progress_timeout_s": 25.0,
+      "timeout_base_s": 60.0,
+      "timeout_per_metre_s": 60.0,
+      "timeout_max_s": 300.0,
+      "avoid_timeout_s": 30.0,
+      "avoid_total_timeout_s": 60.0,
+      "avoid_grace_s": 5.0,
+      "avoid_max_episodes": 5,
+      "avoid_max_departure_m": 1.0,
+      "avoid_total_departure_m": 2.0,
+      "treat_halted_walking_as_avoid": false,
+      "detour": {
+        "enabled": false,
+        "lateral_offsets_m": [
+          0.5,
+          0.7
+        ],
+        "ahead_m": 0.6,
+        "robot_radius_m": 0.35,
+        "via_tolerance_m": 0.15,
+        "occupied_threshold": 50
+      }
+    },
+    "map_id": 7,
+    "map_name": "cup_new",
+    "robot_id": 424,
+    "hmi_url": "http://10.42.0.153:8080",
+    "controller_url": "http://10.42.0.153:6002",
+    "stations": {
+      "A": {
+        "x_m": 0.04899999871850014,
+        "y_m": 0.07199999690055847,
+        "yaw_rad": -0.1850386778461329
+      },
+      "B": {
+        "x_m": -1.5700000524520874,
+        "y_m": 0.3959999978542328,
+        "yaw_rad": 2.976620960236659
+      }
+    },
+    "native_feedback": {
+      "ssh_target": "agi@192.168.3.30",
+      "helper_path": "/home/agi/g1_cup_grasp_tools/native_chassis_feedback.py",
+      "known_hosts_file": "/home/yirong/.ssh/known_hosts"
+    },
+    "carry": {
+      "lift_height_m": 0.58,
+      "position_m": [
+        0.6318802231021403,
+        -0.22686368192244755,
+        0.6835225653633393
+      ],
+      "rpy_rad": [
+        -1.557687809846601,
+        0.005776759782713414,
+        -0.06713061333928094
+      ],
+      "duration_s": 8.0,
+      "position_tolerance_m": 0.015,
+      "orientation_tolerance_deg": 5.0,
+      "gripper_feedback_range": [
+        5.0,
+        90.0
+      ]
+    },
+    "place": {
+      "position_m": [
+        0.5855542322016546,
+        -0.12629758369871474,
+        0.530700844836105
+      ],
+      "rpy_rad": [
+        -1.684908231454222,
+        0.07174230293963824,
+        -0.21850297055423895
+      ],
+      "base_pose": {
+        "map_id": 7,
+        "agv_pos_x": -1.5700000524520874,
+        "agv_pos_y": 0.3959999978542328,
+        "agv_angle": 2.979761838912964
+      }
+    }
+  },
+  "runtime_map_id_verified": false,
+  "arrival_scope": "fresh map pose, heading, Idle and near-zero speed; SDK task fields are not authoritative",
+  "planned_request": {
+    "x_mm": 49,
+    "y_mm": 72,
+    "yaw_deg": 349,
+    "frame": "active_map",
+    "endpoint": "/hal/nav/navigate_to_pose",
+    "verified_hal_sha256": "1ebf199163862611e78d5299becbb51db1147be5a862c253fc228b4ded290309"
+  },
+  "status": "OFFLINE_REQUEST_PREVIEW"
+}
