@@ -1,0 +1,138 @@
+# Calibration is validated; real motion remains disabled until staged execution begins.
+runtime:
+  enable_real_motion: true
+  stable_frames: 3
+  stable_position_std_m: 0.008
+  max_detection_confidence: 0.65
+
+camera:
+  group: [head, head_depth]
+  color_name: head
+  depth_name: head_depth
+  max_sync_delta_ms: 50.0
+  intrinsics_verified: true
+  depth_registered_to_color: true
+  depth_scale: 0.00098184
+  min_valid_depth_pixels: 20
+  color_intrinsics:
+    fx: 629.1089656717445
+    fy: 622.4475546731502
+    cx: 667.0533586445007
+    cy: 402.01915512005894
+    width: 1280
+    height: 800
+
+calibration:
+  enabled: true
+  # X translation uses +0.370222 m: it matches translation_m and reproduces
+  # the saved 2026-09-30 camera-to-base reports and passed live validation.
+  source: outputs/hand_eye/hand_eye_candidate_validated_20260928_04_filtered.yaml
+  T_base_camera:
+    matrix:
+      - [-0.0559584191868, -0.5873459266473403, 0.8073991687962606, 0.37022218985654115]
+      - [-0.9982499931077793, -0.04839913815856489, -0.033977561505011744, -0.03824861660313758]
+      - [-0.019120841572302316, -0.8078875453157367, -0.5890264064889463, 0.9301325984160147]
+      - [0.0, 0.0, 0.0, 1.0]
+
+model:
+  path: models/cup_yolo11s_seg.pt
+  class_id: 0
+  class_name: cup
+  imgsz: 640
+  device: cpu
+
+robot:
+  arm: right_arm
+  robot_link: base_link
+  gdk_tip_frame: arm_right_link7
+  urdf_path: models/robot/G1_120s.urdf
+  urdf_base_link: base_link
+  urdf_tip_link: arm_r_end_link
+  right_arm_joint_slice: [7, 14]
+  # GDK waist feedback is [rotation, lift]; the URDF joints are [lift, rotation].
+  waist_urdf_order: [1, 0]
+  startup_wait_s: 2.0
+  trajectory_sample_hz: 15.0
+  gripper_open: 0.0
+  gripper_closed: 0.75
+  head_pitch_reference_deg: 25.0
+  head_pitch_tolerance_deg: 1.0
+  waist_reference: [0.1745323, 0.119646]
+  waist_tolerance: 0.015
+
+model_validation:
+  position_tolerance_m: 0.010
+  orientation_tolerance_deg: 2.0
+
+ik:
+  # Saved Home data shows official URDF base_link is 0.300 m above the GDK base_link.
+  # Live FK validation must still pass before execution.
+  urdf_to_gdk_translation_m: [0.0, 0.0, -0.300]
+  position_tolerance_m: 0.015
+  orientation_tolerance_deg: 5.0
+  stage_position_tolerance_m:
+    clearance: 0.030
+    pregrasp: 0.020
+    grasp: 0.015
+    lift: 0.015
+    return: 0.015
+    retreat: 0.020
+  stage_orientation_tolerance_deg:
+    clearance: 10.0
+    pregrasp: 7.0
+    grasp: 7.0
+    lift: 7.0
+    return: 7.0
+    retreat: 7.0
+  max_nfev: 500
+  seed_regularization: 0.02
+  joint_limit_margin_rad: 0.03
+
+# Tabletop teaching source: outputs/side_teach/verification_20261011_220607/tabletop/candidate_tabletop_20261011_220832.yaml; plan-only validation.
+grasp:
+  calibrated: true
+  cup_height_m: 0.105
+  cup_diameter_m: 0.080
+  target_anchor: bbox_top_center
+  base_rpy_rad: [-1.5638554262828586, 0.05366568044217379, -0.8733429019744473]
+  anchor_to_link7_offset_m: [0.03815945940164616, -0.01307206121166847, 0.1416769589912008]
+  yaw_offsets_deg: [0, -15, 15, -30, 30]
+  pregrasp_distance_m: 0.100
+  min_surface_gap_m: 0.030
+  clearance_height_m: 0.150
+  # Endpoint IK candidates only; platform collision clearance requires separate validation.
+  route_options:
+    - {pregrasp_distance_m: 0.100, clearance_height_m: 0.150}
+    - {pregrasp_distance_m: 0.080, clearance_height_m: 0.100}
+    - {pregrasp_distance_m: 0.120, clearance_height_m: 0.100}
+  trial_lift_m: 0.020
+  workspace:
+    x_min_m: 0.45
+    x_max_m: 1.05
+    y_min_m: -0.55
+    y_max_m: 0.30
+    z_min_m: 0.40
+    z_max_m: 0.90
+
+execution:
+  stage_position_tolerance_m:
+    clearance: 0.030
+    pregrasp: 0.020
+    grasp: 0.015
+    lift: 0.015
+    return: 0.015
+    retreat: 0.020
+  stage_orientation_tolerance_deg:
+    clearance: 10.0
+    pregrasp: 7.0
+    grasp: 7.0
+    lift: 7.0
+    return: 7.0
+    retreat: 7.0
+  durations_s:
+    clearance: 8.0
+    pregrasp: 5.0
+    grasp: 4.0
+    lift: 3.0
+    return: 3.0
+    retreat: 4.0

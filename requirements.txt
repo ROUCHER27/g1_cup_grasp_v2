@@ -1,0 +1,16 @@
+# Python 3.10 / Ubuntu 22.04.  The GDK itself is installed from the G1
+# controller with the official install.sh and is intentionally not pulled
+# from PyPI here.
+numpy
+scipy
+opencv-python
+pyyaml
+ultralytics
+
+# The following versions are listed by the official GDK v1.5.0 guide.
+# Install them only when they are not already provided by the GDK environment.
+protobuf==3.12.4
+ruckig==0.14.0
+pyzmq==26.2.0
+matplotlib
+

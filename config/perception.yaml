@@ -1,0 +1,43 @@
+# DIAGNOSTIC CANDIDATE ONLY: values fitted from one static checkerboard pose at ~0.36 m.
+# Do not enable real motion from this file; runtime and calibration real-motion gates remain off.
+runtime:
+  mode: dry_run
+  enable_real_motion: false
+  execute_motion: false
+  stable_frames: 1
+camera:
+  intrinsics_verified: true
+  depth_registered_to_color: true
+  depth_scale: 0.00098184
+  color_intrinsics:
+    fx: 629.1089656717445
+    fy: 622.4475546731502
+    cx: 667.0533586445007
+    cy: 402.01915512005894
+    width: 1280
+    height: 800
+robot:
+  arm: right_arm
+calibration:
+  enabled: false
+  T_base_camera:
+    matrix:
+    - - -0.0559584191868
+      - -0.5873459266473403
+      - 0.8073991687962606
+      - 0.37022218985654115
+    - - -0.9982499931077793
+      - 0.04839913815856489
+      - -0.033977561505011744
+      - -0.03824861660313758
+    - - -0.019120841572302316
+      - -0.8078875453157367
+      - -0.5890264064889463
+      - 0.9301325984160147
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+  source: outputs/hand_eye/hand_eye_candidate_validated_20260928_04_filtered.yaml
+model:
+  device: cpu

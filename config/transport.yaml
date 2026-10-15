@@ -1,0 +1,50 @@
+# Standalone navigate_station.py remains disabled. The complete transport entry requires both real-motion CLI flags.
+enable_real_navigation: false
+# GDK guide: higher level is more sensitive. 3 is the most sensitive setting.
+agv_collision_level: 3
+# Chassis stops on HMI map 6 (CUP); screenshot millimetres converted to metres.
+# These are navigation targets, not cup placement poses.
+map_id: 6
+map_name: CUP
+robot_id: 424
+hmi_url: http://10.42.0.153:8080
+controller_url: http://10.42.0.153:6002
+stations:
+  A:
+    x_m: 1.542
+    y_m: 1.344
+    yaw_rad: 0.0
+  B:
+    x_m: 0.646
+    y_m: 1.098
+    yaw_rad: 3.141592653589793
+
+
+
+native_feedback:
+  ssh_target: agi@192.168.3.30
+  helper_path: /home/agi/g1_cup_grasp_tools/native_chassis_feedback.py
+  known_hosts_file: /mnt/c/Users/Msk.juzi/.ssh/known_hosts
+carry:
+  lift_height_m: 0.58
+  position_m: [0.6318802231021403, -0.22686368192244755, 0.6835225653633393]
+  rpy_rad: [-1.557687809846601, 0.005776759782713414, -0.06713061333928094]
+  duration_s: 8.0
+  position_tolerance_m: 0.015
+  orientation_tolerance_deg: 5.0
+  gripper_feedback_range: [5.0, 90.0]
+# B-table release pose taught in base_link; base_pose records its map reference.
+place:
+  position_m:
+  - 0.5866973846125499
+  - -0.19499298447975624
+  - 0.5307687236285537
+  rpy_rad:
+  - -1.6848358239163232
+  - 0.07160623453537052
+  - -0.3114240956125436
+  base_pose:
+    map_id: 6
+    agv_pos_x: 0.6520000100135803
+    agv_pos_y: 1.1039999723434448
+    agv_angle: 3.2479686737060547

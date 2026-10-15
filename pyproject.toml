@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g1-cup-grasp-v2"
+version = "0.1.0"
+description = "G1 cup perception, IK planning, and guarded grasp execution"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+  "numpy",
+  "scipy",
+  "opencv-python",
+  "pyyaml",
+  "ultralytics",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
